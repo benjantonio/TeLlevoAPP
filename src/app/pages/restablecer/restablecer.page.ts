@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-restablecer',
@@ -12,7 +13,12 @@ export class RestablecerPage implements OnInit {
 
   emailingresado:any;
 
-  constructor() { }
+  constructor(private elrouteruwu:Router) { 
+  }
+
+  retroceder(){
+    this.elrouteruwu.navigate(['/login'])
+  }
 
 
   
@@ -22,6 +28,7 @@ export class RestablecerPage implements OnInit {
     this.RegisterForm = new FormGroup({
       email: new FormControl('',[
         Validators.pattern("^[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$"),
+        Validators.required,
       ]),     
       
       
