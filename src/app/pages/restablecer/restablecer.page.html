@@ -1,53 +1,49 @@
 <ion-header>
-  <ion-toolbar color="primary" style="padding: 0;">
-    <div style="text-align: right;">
-      <img src="https://i.ibb.co/Q8k8j5Q/2560px-Logo-Duoc-UC-svg-copia.png" alt="logoduoc" style=" height: 2.5vh; padding: 0; margin: 0;">
-    </div>
-    
-  </ion-toolbar>
+    <ion-toolbar color="primary" style="padding: 0;">
+        <div style="text-align: right;">
+            <img src="https://i.ibb.co/Q8k8j5Q/2560px-Logo-Duoc-UC-svg-copia.png" alt="logoduoc" style=" height: 2.5vh; padding: 0; margin: 0;">
+        </div>
+
+    </ion-toolbar>
 </ion-header>
 
 <!--CUERPO-->
-<ion-content  class="fondo">
-  
-  
-  <h2 style="text-align: center; color: rgb(65, 65, 65); font-family: -apple-system, BlinkMacSystemFont,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-  Restablecer contraseña
-  </h2>
-
-  <!-- FORMULARIO RECUPERACION-->
-  <form [formGroup]="RegisterForm">
-    <!--EMAIL-->
-    <div>
-      <ion-input type="text" placeholder="Ingresa tu Email" formControlName = "email" [(ngModel)]="emailingresado" style="background-color: #f5f5f5; text-align: center;"></ion-input>
-    </div>
-
-    <div *ngIf=" RegisterForm.get('email').hasError('required') && RegisterForm.get('email').touched" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
-      Debes ingresar tu email.
-    </div>
-    <div color="red" *ngIf=" RegisterForm.get('email').hasError('pattern') && RegisterForm.get('email').touched" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
-      Email inválido.
-    </div>
-    
+<ion-content class="fondo">
 
 
-    
+    <h2 style="text-align: center; color: rgb(65, 65, 65); font-family: -apple-system, BlinkMacSystemFont,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+        Restablecer contraseña
+    </h2>
+
+    <!-- FORMULARIO RECUPERACION-->
+    <form [formGroup]="RegisterForm">
+        <!--EMAIL-->
+        <div>
+            <ion-input type="text" placeholder="Ingresa tu Email" formControlName="email" [(ngModel)]="emailingresado" style="background-color: #f5f5f5; text-align: center;"></ion-input>
+        </div>
+
+        <div *ngIf=" RegisterForm.get('email').hasError('required') && RegisterForm.get('email').touched" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
+            Debes ingresar tu email.
+        </div>
+        <div color="red" *ngIf=" RegisterForm.get('email').hasError('pattern') && RegisterForm.get('email').touched" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
+            Email inválido.
+        </div>
 
 
+        <div style="text-align: center !important;">
+            <ion-button color="primary" type="submit" *ngIf="RegisterForm.invalid" [disabled]="RegisterForm.invalid" style="margin-top: 13px;"></ion-button>
+            <ion-button color="success" type="submit" *ngIf="RegisterForm.valid" (click)="ingresar()" style="margin-top: 13px;">Ingresar</ion-button>
+        </div>
 
-  </form>
+    </form>
 
-  
+
 
 </ion-content>
 
 
-
-
 <ion-footer>
-
+    <ion-toolbar color="warning">
+        <ion-title style="font-size: 14px; text-align: center; padding: 0; margin: 0;">¡Enviaremos un email a tu correo!</ion-title>
+    </ion-toolbar>
 </ion-footer>
-
-
-
-

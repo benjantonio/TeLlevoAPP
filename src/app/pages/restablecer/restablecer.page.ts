@@ -14,6 +14,9 @@ export class RestablecerPage implements OnInit {
 
   constructor() { }
 
+
+  
+
   ngOnInit() {
 
     this.RegisterForm = new FormGroup({
