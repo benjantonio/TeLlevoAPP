@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
+import { NavigationExtras, Router } from '@angular/router';
 
-import { Validators, FormControl, FormControlName, FormBuilder, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -14,24 +16,30 @@ export class LoginPage implements OnInit {
   RegisterForm: FormGroup;
   
   usuarioingresado:any;
-  contrasenaingresada:any;
 
-  constructor() {
+  constructor(private elrouteruwu:Router) {
   }
 
-  submit(){
-    console.log('-USUARIO DETECTADO=', this.usuarioingresado,
-    '/ CONTRASEÑA DETECTADA=', this.contrasenaingresada);
+  ingresar(){
+    let navigationExtras: NavigationExtras={
+      state:{usuario: this.usuarioingresado}
+    }
+    this.elrouteruwu.navigate(['/inicio'], navigationExtras)
   }
+
+
 
   ngOnInit() {
 
     this.RegisterForm = new FormGroup({
-      usuario: new FormControl('',[Validators.required, 
+      usuario: new FormControl('',[
+        Validators.required, 
         Validators.minLength(4), 
         Validators.maxLength(15),
       ]),
-      contrasena: new FormControl('',[Validators.required, 
+      contrasena: new FormControl('',[
+        Validators.required,
+        Validators.minLength(4),
       ])
       
       
