@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { RestablecerPageRoutingModule } from './restablecer-routing.module';
 
 import { RestablecerPage } from './restablecer.page';
+import { ReactiveFormsModule} from '@angular/forms'; //<- este solucionó el error de formControlName
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RestablecerPageRoutingModule
+    RestablecerPageRoutingModule,
+    ReactiveFormsModule,
   ],
   declarations: [RestablecerPage]
 })
