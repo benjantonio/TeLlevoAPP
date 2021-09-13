@@ -1,11 +1,4 @@
-ion-content {}
+ion-content.fondo{
+    --background: url(qweeewq.jpg)
 
-.background-container {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    background: url('fondoprueba.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50%;
 }
