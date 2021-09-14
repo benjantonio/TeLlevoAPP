@@ -1,72 +1,68 @@
+
 <ion-header >
-  <ion-toolbar color="primary" style="padding: 0;">
-    <div style="text-align: right;">
-      <img src="https://i.ibb.co/Q8k8j5Q/2560px-Logo-Duoc-UC-svg-copia.png" alt="logoduoc" style=" height: 2.5vh; padding: 0; margin: 0;">
-    </div>
-  </ion-toolbar>
+
 </ion-header>
 
+<ion-content class="fondo" >
+  <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;" ></ion-progress-bar>
+  <div style="padding-top: 15%;"></div>
+  
+  
+  <div style="text-align: center;">
+    <img style=" padding: 20px 15px 0px 15px; height: 30vh;"  src="https://i.ibb.co/dKfRwZL/loogg.png" alt="Tellevoapp" >
+  </div>
 
-
-
-
-<ion-content class="fondo">
-
-  <img style="padding: 20px 15px 0px 15px;" src="https://i.ibb.co/j6wtcWr/TELLEVOAP.jpg" alt="Tellevoapp" >
-
-  <h2 style="text-align: center; color: rgb(65, 65, 65); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Iniciar Sesión</h2>
+  <h2 style="text-align: center; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Iniciar Sesión 
+  </h2>
 
   <!-- FORMULARIO -->
   <form [formGroup]="RegisterForm">
 
     <!-- USUARIO -->
-    <div>
-      <ion-input type="text" placeholder="Ingresa tu Usuario" formControlName = "usuario" [(ngModel)]="usuarioingresado" style="background-color: #f5f5f5; text-align: center;"></ion-input>
+    <div style="margin-left: 20px; margin-right: 20px;">
+      <ion-input type="text" placeholder="Ingresa tu Usuario" color="light" formControlName = "usuario" [(ngModel)]="usuarioingresado" style="border-radius: 50px; background-color: #000000c4; text-align: center;"></ion-input>
     </div>
 
-    <div *ngIf=" RegisterForm.get('usuario').hasError('required') && RegisterForm.get('usuario').touched" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
+    <div *ngIf=" RegisterForm.get('usuario').hasError('required') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
       Debes ingresar tu Usuario.
     </div>
-    <div color="red" *ngIf=" RegisterForm.get('usuario').hasError('minlength')" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
+    <div color="red" *ngIf=" RegisterForm.get('usuario').hasError('minlength') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
       Usuario inválido.
     </div>
-    <div color="red" *ngIf=" RegisterForm.get('usuario').hasError('maxlength')" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
+    <div color="red" *ngIf=" RegisterForm.get('usuario').hasError('maxlength') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
       Usuario inválido.
     </div>
 
     <!-- CONTRASEÑA -->
-    <div>
-      <ion-input type="password" placeholder="Ingresa tu contraseña" formControlName = "contrasena" [(ngModel)]="contrasenaingresada" style="background-color: #f5f5f5; text-align: center; margin-top: 10px;"></ion-input>
+    <div style="margin-left: 20px; margin-right: 20px;">
+      <ion-input type="password" placeholder="Ingresa tu contraseña" color="light" formControlName = "contrasena" [(ngModel)]="contrasenaingresada" style="border-radius: 50px; background-color: #000000c4; text-align: center; margin-top: 10px;"></ion-input>
     </div>
 
-    <div *ngIf=" RegisterForm.get('contrasena').hasError('required') && RegisterForm.get('contrasena').touched" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
+    <div *ngIf=" RegisterForm.get('contrasena').hasError('required') && RegisterForm.get('contrasena').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
       Debes ingresar tu contraseña.
     </div>
-    <div color="red" *ngIf=" RegisterForm.get('contrasena').hasError('minlength')" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
-      Contraseña inválida.
-    </div>
-    <div color="red" *ngIf=" RegisterForm.get('contrasena').hasError('maxlength')" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
+    <div color="red" *ngIf=" RegisterForm.get('contrasena').hasError('minlength') && RegisterForm.get('contrasena').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
       Contraseña inválida.
     </div>
 
     <!-- BOTONES (Ingresa tus datos | Ingresar) -->
     <div style="text-align: center !important;">
-      <ion-button color="primary" type="submit" *ngIf="RegisterForm.invalid" [disabled]="RegisterForm.invalid" style="margin-top: 13px;">Ingresa tus datos</ion-button>
+      <ion-button color="primary" type="submit" *ngIf="RegisterForm.invalid" [disabled]="RegisterForm.invalid" style="margin-top: 13px; opacity: 76%;">Ingresa tus datos</ion-button>
       <ion-button color="success" type="submit" *ngIf="RegisterForm.valid" (click)="ingresar()" style="margin-top: 13px;">Ingresar</ion-button>   
+    </div>
+
+    <div style="text-align: center; padding: 0; margin: 0;">
+      
+      <button (click)="recuperar()" type="submit" style="background-color: transparent; text-decoration: underline; color: #dddddd; margin-top: 10px; font-size: 13px; font-family:  'Arial Narrow Bold', sans-serif;">
+       Restablecer Contraseña</button>
     </div>
       
   </form>
-
-
 </ion-content>
 
 
-
-
 <ion-footer>
-  <ion-toolbar color="warning">
-    <ion-title style="font-size: 14px; text-align: center; padding: 0; margin: 0;">¡Necesitamos saber quién eres!</ion-title>
-  </ion-toolbar>
+ 
 </ion-footer>
 
 

@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 import { IonicModule } from '@ionic/angular';
 
@@ -16,6 +20,8 @@ import { ReactiveFormsModule} from '@angular/forms'; //<- este solucionó el err
     IonicModule,
     RestablecerPageRoutingModule,
     ReactiveFormsModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   declarations: [RestablecerPage]
 })

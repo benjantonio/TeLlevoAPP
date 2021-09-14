@@ -14,20 +14,44 @@ import { NavigationExtras, Router } from '@angular/router';
 export class LoginPage implements OnInit {
 
   RegisterForm: FormGroup;
-  
   usuarioingresado:any;
+
+  cargando: boolean;
 
   constructor(private elrouteruwu:Router) {
   }
 
-  ingresar(){
+  //creo función para retrasar ciertas funciones.
+  sleep(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  }
+
+  async ingresar(){
+    //retraso la función 2Seg.
+    this.cargando=true;
+
+    await this.sleep(2000);
+   
     let navigationExtras: NavigationExtras={
       state:{usuario: this.usuarioingresado}
     }
     this.elrouteruwu.navigate(['/inicio'], navigationExtras)
+    this.cargando=false;
   }
 
+  async recuperar(){
+    this.cargando=true;
+    await this.sleep(1000);
+    this.elrouteruwu.navigate(['/restablecer'])
+    this.cargando=false;
+  }
 
+  async apagarbarracarga(){
+    this.cargando=false;
+    await this.sleep(3000);
+  }
 
   ngOnInit() {
 
@@ -41,8 +65,6 @@ export class LoginPage implements OnInit {
         Validators.required,
         Validators.minLength(4),
       ])
-      
-      
     });
   }
 }

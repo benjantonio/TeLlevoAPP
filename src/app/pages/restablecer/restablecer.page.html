@@ -1,25 +1,37 @@
-<ion-header>
-    <ion-toolbar color="primary" style="padding: 0;">
-        <div style="text-align: right;">
-            <img src="https://i.ibb.co/Q8k8j5Q/2560px-Logo-Duoc-UC-svg-copia.png" alt="logoduoc" style=" height: 2.5vh; padding: 0; margin: 0;">
-        </div>
 
-    </ion-toolbar>
-</ion-header>
 
 <!--CUERPO-->
 <ion-content class="fondo">
 
+    <ion-header >
+        <ion-toolbar color="medium">
+            <button (click)="retroceder()" style="margin-top: 13px; color: white; background-color: rgba(0, 0, 0, 0); ">
+                <ion-icon class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin: 0; "></ion-icon>
+            </button>
+        </ion-toolbar>
+    </ion-header>
+    <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate"  ></ion-progress-bar>
 
-    <h2 style="text-align: center; color: rgb(65, 65, 65); font-family: -apple-system, BlinkMacSystemFont,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+    
+
+    <div style="padding-top: 32%;"></div>
+
+    <div style="text-align: center;">
+        <img src="https://i.ibb.co/wwmFr1D/llaveblanc.png" alt="iconollave" style="height: 30%; width: 30%;">
+        </div>
+
+    <h2 style="padding-top: 0%; text-align: center; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
         Restablecer contraseña
     </h2>
 
     <!-- FORMULARIO RECUPERACION-->
     <form [formGroup]="RegisterForm">
-        <!--EMAIL-->
+
+
+        <!--------------------------------------------------------------------------------------------------------------------->
+        <!--EMAIL (INPUT SIN USAR, CON VALIDACIONES LISTAS)
         <div>
-            <ion-input type="text" placeholder="Ingresa tu Email" formControlName="email" [(ngModel)]="emailingresado" style="background-color: #f5f5f5; text-align: center;"></ion-input>
+            <ion-input type="email" placeholder="Ingresa tu Email" formControlName="email" style="background-color: #f5f5f5; text-align: center;"></ion-input>
         </div>
 
         <div *ngIf=" RegisterForm.get('email').hasError('required') && RegisterForm.get('email').touched" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
@@ -28,14 +40,41 @@
         <div color="red" *ngIf=" RegisterForm.get('email').hasError('pattern') && RegisterForm.get('email').touched" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
             Email inválido.
         </div>
+        -->
+        <!--------------------------------------------------------------------------------------------------------------------->
 
 
-        <div style="text-align: center !important;">
-            <ion-button color="primary" type="submit" *ngIf="RegisterForm.invalid" [disabled]="RegisterForm.invalid" style="margin-top: 13px;">Restablecer</ion-button>
-            <ion-button color="success" type="submit" *ngIf="RegisterForm.valid" (click)="retroceder()" style="margin-top: 13px;">Restablecer</ion-button>
+        <!-- USUARIO -->
+        <div style="margin-left: 20px; margin-right: 20px;">
+            <ion-input type="text" placeholder="Ingresa tu Usuario" color="light" formControlName = "usuario" [(ngModel)]="usuarioingresado" style="border-radius: 50px; background-color: #000000c4; text-align: center;"></ion-input>
+          </div>
+        <div *ngIf=" RegisterForm.get('usuario').hasError('required') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
+            Debes ingresar tu Usuario.
+        </div>
+        <div color="red" *ngIf=" RegisterForm.get('usuario').hasError('minlength') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
+            Usuario inválido.
+        </div>
+        <div color="red" *ngIf=" RegisterForm.get('usuario').hasError('maxlength') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
+            Usuario inválido.
         </div>
 
+
+        
+        <div style="text-align: center !important;">
+            <ion-button color="primary" type="submit" *ngIf="RegisterForm.invalid" [disabled]="RegisterForm.invalid" style="margin-top: 13px; opacity: 76%;">Recuperar</ion-button>
+            <ion-button color="success" type="submit" *ngIf="RegisterForm.valid" (click)="retroceder()" (click)="presentToast()" style="margin-top: 13px; ">Recuperar</ion-button>
+        </div>
     </form>
+
+    <div style="margin-top: 10%; background-color: #1fe0fa0e; margin-left: 20px; margin-right: 20px; border-radius: 20px;">
+        <p style="text-align: center; color: #f3f3f3; font-size: 13px; padding:4px; ">
+            Si el usuario se encuentra registrado, le enviarémos un enlace de recuperación al email que tenga asociado.
+        </p>
+        </div>
+    
+        
+
+
 
 
 
@@ -43,7 +82,5 @@
 
 
 <ion-footer>
-    <ion-toolbar color="warning">
-        <ion-title style="font-size: 14px; text-align: center; padding: 0; margin: 0;">¡Enviaremos un email a tu correo!</ion-title>
-    </ion-toolbar>
+
 </ion-footer>
