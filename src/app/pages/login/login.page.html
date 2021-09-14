@@ -17,7 +17,7 @@
 
     <!-- USUARIO -->
     <div>
-      <ion-input type="text" placeholder="Ingresa tu Usuario" color="light" formControlName = "usuario" [(ngModel)]="usuarioingresado" style="background-color: #000000c4; text-align: center; margin-left: 5%; margin-right: 5%;"></ion-input>
+      <ion-input type="text" placeholder="Ingresa tu Usuario" color="light" formControlName = "usuario" [(ngModel)]="usuarioingresado" style="background-color: #000000c4; text-align: center;"></ion-input>
     </div>
 
     <div *ngIf=" RegisterForm.get('usuario').hasError('required') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
