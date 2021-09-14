@@ -19,7 +19,7 @@
     <form [formGroup]="RegisterForm">
         <!--EMAIL-->
         <div>
-            <ion-input type="text" placeholder="Ingresa tu Email" formControlName="email" [(ngModel)]="emailingresado" style="background-color: #f5f5f5; text-align: center;"></ion-input>
+            <ion-input type="email" placeholder="Ingresa tu Email" formControlName="email" style="background-color: #f5f5f5; text-align: center;"></ion-input>
         </div>
 
         <div *ngIf=" RegisterForm.get('email').hasError('required') && RegisterForm.get('email').touched" style="color: red; font-size: 15px; margin-left: 10px; text-align: center">
@@ -49,8 +49,10 @@
             <ion-button color="primary" type="submit" *ngIf="RegisterForm.invalid" [disabled]="RegisterForm.invalid" style="margin-top: 13px;">Recuperar</ion-button>
             <ion-button color="success" type="submit" *ngIf="RegisterForm.valid" (click)="retroceder()" style="margin-top: 13px;">Recuperar</ion-button>
         </div>
-
     </form>
+
+
+
 
 
 
