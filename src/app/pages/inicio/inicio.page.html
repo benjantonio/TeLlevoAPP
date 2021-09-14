@@ -27,8 +27,32 @@
 </ion-content>
 <ion-button (click)=retroceder() >Retroceder</ion-button>
 <!--FIN CUERPO-->
+
+<!--MAPA-->
+  <!-- Terminal -->
+  <mat-card style="margin-top: 50px;">
+    <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100" fxFlex.lg="100" fxFlex.xl="100">
+
+      <div fxLayout="row wrap"  class="col-gap">
+        <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+          <!--<input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>-->
+        </div>
+        <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+          <!-- Mapa -->
+     
+       
+          <!-- Final Mapa -->
+        </div>
+      </div>
+
+    </div>
+  </mat-card>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqdPPtCUWrdvJAt0R1ZsRAUmhRnIy6WA0&libraries=places&language=en"></script>
+
+<!--INICIO FOOTER-->
 <ion-footer>
     <ion-toolbar color="warning">
       <ion-title style="font-size: 14px; text-align: center; padding: 0; margin: 0;">¡Ahora puedes llegar seguro a tu hogar!</ion-title>
     </ion-toolbar>
   </ion-footer>
+  <!--FIN FOOTER-->
