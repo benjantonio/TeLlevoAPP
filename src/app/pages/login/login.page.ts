@@ -38,12 +38,19 @@ export class LoginPage implements OnInit {
       state:{usuario: this.usuarioingresado}
     }
     this.elrouteruwu.navigate(['/inicio'], navigationExtras)
+    this.cargando=false;
   }
 
   async recuperar(){
     this.cargando=true;
     await this.sleep(1000);
     this.elrouteruwu.navigate(['/restablecer'])
+    this.cargando=false;
+  }
+
+  async apagarbarracarga(){
+    this.cargando=false;
+    await this.sleep(3000);
   }
 
   ngOnInit() {

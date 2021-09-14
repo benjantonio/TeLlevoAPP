@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -19,7 +20,8 @@ import { ReactiveFormsModule} from '@angular/forms'; //<- este solucionó el err
     LoginPageRoutingModule,
     MatCardModule,
     ReactiveFormsModule,
+    MatInputModule,
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage],
 })
 export class LoginPageModule {}

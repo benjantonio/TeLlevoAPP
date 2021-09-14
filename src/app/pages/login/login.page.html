@@ -1,10 +1,12 @@
+
 <ion-header >
 
 </ion-header>
 
 <ion-content class="fondo" >
+  <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;" ></ion-progress-bar>
   <div style="padding-top: 20%;"></div>
-  <ion-progress-bar *ngIf="cargando" type="indeterminate"></ion-progress-bar>
+  
   
   <div style="text-align: center;">
     <img style=" padding: 20px 15px 0px 15px; height: 30vh;"  src="https://i.ibb.co/dKfRwZL/loogg.png" alt="Tellevoapp" >
@@ -16,8 +18,8 @@
   <form [formGroup]="RegisterForm">
 
     <!-- USUARIO -->
-    <div>
-      <ion-input type="text" placeholder="Ingresa tu Usuario" color="light" formControlName = "usuario" [(ngModel)]="usuarioingresado" style="background-color: #000000c4; text-align: center;"></ion-input>
+    <div style="margin-left: 20px; margin-right: 20px;">
+      <ion-input type="text" placeholder="Ingresa tu Usuario" color="light" formControlName = "usuario" [(ngModel)]="usuarioingresado" style="border-radius: 50px; background-color: #000000c4; text-align: center;"></ion-input>
     </div>
 
     <div *ngIf=" RegisterForm.get('usuario').hasError('required') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
@@ -31,8 +33,8 @@
     </div>
 
     <!-- CONTRASEÑA -->
-    <div>
-      <ion-input type="password" placeholder="Ingresa tu contraseña" color="light" formControlName = "contrasena" [(ngModel)]="contrasenaingresada" style="background-color: #000000c4; text-align: center; margin-top: 10px;"></ion-input>
+    <div style="margin-left: 20px; margin-right: 20px;">
+      <ion-input type="password" placeholder="Ingresa tu contraseña" color="light" formControlName = "contrasena" [(ngModel)]="contrasenaingresada" style="border-radius: 50px; background-color: #000000c4; text-align: center; margin-top: 10px;"></ion-input>
     </div>
 
     <div *ngIf=" RegisterForm.get('contrasena').hasError('required') && RegisterForm.get('contrasena').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
@@ -49,7 +51,7 @@
     </div>
 
     <div style="text-align: center;">
-      <button (click)="recuperar()" type="submit" style="background-color: transparent; text-decoration: underline; color: #ffffff; margin-top: 10px; font-size: 13px; font-family:  'Arial Narrow Bold', sans-serif;">Restablecer Contraseña</button>
+      <button (click)="recuperar()" type="submit" style="background-color: transparent; text-decoration: underline; color: #dddddd; margin-top: 10px; font-size: 13px; font-family:  'Arial Narrow Bold', sans-serif;">Restablecer Contraseña</button>
     </div>
       
   </form>
