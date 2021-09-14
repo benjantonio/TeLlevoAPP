@@ -11,8 +11,6 @@ export class RestablecerPage implements OnInit {
 
   RegisterForm: FormGroup;
 
-  emailingresado:any;
-
   constructor(private elrouteruwu:Router) { }
 
   retroceder(){
