@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Address } from 'cluster';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 //DEBES IMPORTAR LOS ROUTERS DE AQUI ARRIBA//
 
 @Component({
@@ -18,9 +18,10 @@ export class InicioPage implements OnInit {
     componentRestrictions: {country: 'CHL'}
   };
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  title_add: any;
-  latitude:
+  title_add;
+  latitude;
   longitude;
+  zoom;
 
 //ESTA VARIABLE RECIBE Y GUARDA EL USUARIO INGRESADO//
 usuariorecibido: any;
@@ -41,10 +42,24 @@ usuariorecibido: any;
   ngOnInit() {
   }
   public handleAddressChange(address: Address) {
+    // Do some stuff
     console.log(address);
-    console.log('Latitud  : ',address.geometry.location.lat());
-    console.log('Longitud  : ',address.geometry.location.lng());
-}
+    console.log('Latitud : ' + address.geometry.location.lat());
+    console.log('Longitud : ' + address.geometry.location.lng());
+
+    this.latitude = address.geometry.location.lat();
+    this.longitude = address.geometry.location.lng();
+    
+  }
+  public setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoom = 15;
+      })
+    }
+  }
 }
 
 

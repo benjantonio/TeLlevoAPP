@@ -8,6 +8,11 @@ import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 //G-MAPS
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { AgmCoreModule } from '@agm/core';
+
+import { AppComponent } from '../../app.component';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
@@ -17,7 +22,12 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
     InicioPageRoutingModule,
     MatCardModule,
     FlexLayoutModule,
-    GooglePlaceModule
+    GooglePlaceModule,
+    AgmCoreModule.forRoot({
+      apiKey : 'AIzaSyAOdTKxNvF_wXRAOe-Ny5qta0NiKXS29-8',
+      libraries : ['places']
+    }),
+    MatCardModule
   ],
   declarations: [InicioPage]
 })
