@@ -19,7 +19,10 @@ usuariorecibido:any;
         this.usuariorecibido= this.router.getCurrentNavigation().extras.state.usuario;
       }
     })
+   }
 
+   retroceder(){
+     this.router.navigate(['/login']);
    }
 
   ngOnInit() {

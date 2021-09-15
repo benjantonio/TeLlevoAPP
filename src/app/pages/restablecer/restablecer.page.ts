@@ -12,40 +12,35 @@ import { ToastController } from '@ionic/angular'; //Controlador de Toast
 export class RestablecerPage implements OnInit {
 
   RegisterForm: FormGroup;
-
   emailingresado:any;
+
+  cargando: boolean;
 
   constructor(private elrouteruwu:Router, public alertController: AlertController, public toastController: ToastController) { 
   }
 
-  retroceder(){
-    this.elrouteruwu.navigate(['/login'])
-  }
-
-  // ALERTA SIN USAR //
-  /*
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Revisa tu email',
-      message: 'Te hemos enviado un correo electrónico con un enlace de recuperación.',
-      buttons: ['Continuar']
+  //creo función para retrasar ciertas funciones.
+  sleep(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
     });
-
-    await alert.present();
-
-    const { role } = await alert.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
   }
-  */
-  // ALERTA SIN USAR //
 
+  async retroceder(){
+    this.cargando=true;
+    await this.sleep(800);
+    this.elrouteruwu.navigate(['/login'])
+    this.cargando=false;
+  }
 
   // TOAST //
   async presentToast() {
+    await this.sleep(650);
     const toast = await this.toastController.create({
       message: 'Te hemos enviado un email de recuperación.',
-      duration: 2000
+      duration: 3500,
+      color: 'light',
+      position: 'bottom',
     });
     toast.present();
   }
