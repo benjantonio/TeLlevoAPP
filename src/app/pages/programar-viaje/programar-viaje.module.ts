@@ -8,12 +8,15 @@ import { ProgramarViajePageRoutingModule } from './programar-viaje-routing.modul
 
 import { ProgramarViajePage } from './programar-viaje.page';
 
+import { ReactiveFormsModule} from '@angular/forms'; //<- este solucionó el error de formControlName
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProgramarViajePageRoutingModule
+    ProgramarViajePageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [ProgramarViajePage]
 })

@@ -6,6 +6,67 @@
 
 <ion-content>
 
+  <form [formGroup]="RegisterForm">
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating">Título para tu Viaje:</ion-label>
+        <ion-input type="text" formControlName = "titulo"></ion-input>
+        <div *ngIf=" RegisterForm.get('titulo').hasError('required') && RegisterForm.get('titulo').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
+          Debes ingresar un Título.
+        </div>
+      </ion-item>
+
+      
+
+      <ion-item>
+        <ion-label position="floating">Fecha Salida:</ion-label>
+        <ion-input type="text" formControlName = "fecha"></ion-input>
+        <div *ngIf=" RegisterForm.get('fecha').hasError('required') && RegisterForm.get('fecha').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
+          Debes ingresar una Fecha.
+        </div>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Hora:</ion-label>
+        <ion-input type="text" formControlName = "hora" ></ion-input>
+        <div *ngIf=" RegisterForm.get('hora').hasError('required') && RegisterForm.get('hora').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
+          Debes ingresar una Hora.
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Capacidad Pasajeros:</ion-label>
+        <ion-input type="number" formControlName = "capacidad"></ion-input>
+        <div *ngIf=" RegisterForm.get('capacidad').hasError('required') && RegisterForm.get('capacidad').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
+          Debes ingresar Capacidad de Pasajeros.
+        </div>
+      </ion-item>
+
+      <ion-item style="padding-top:12px;">
+        <p style="margin-top: 3px;">Tu destino:</p>
+        <div style="padding-bottom: 12px; padding-left: 5px;">
+        <ion-chip *ngIf="!apagarboton" (click)="abrirmapa()" outline color="primary" >
+          <ion-icon name="pin" color="danger"></ion-icon>
+          <ion-label>Elige tu Destino:</ion-label>
+        </ion-chip>
+      
+        <ion-chip *ngIf="apagarboton" (click)="abrirmapa()" outline color="success">
+          <ion-icon name="checkmark" color="success"></ion-icon>
+          <ion-label>Destino Guardado</ion-label>
+        </ion-chip>
+      </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Notas adicionales:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <div style="text-align: center;">
+        <ion-button (click)="crearviaje()" color="success" style="margin-bottom: 20px; margin-top:20px;">Crear Viaje</ion-button>
+      </div>
+    </ion-card>
+  </form>
 </ion-content>
 
 

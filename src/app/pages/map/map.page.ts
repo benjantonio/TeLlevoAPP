@@ -13,11 +13,14 @@ export class MapPage implements OnInit {
   title = 'mapboxgl';
 
 
+  
   constructor(private elrouteruwu:Router) { }
 
+  regresar(){
+    this.elrouteruwu.navigate(['/programar-viaje']);
+  }
+
   ngOnInit() {
-
-
     (Mapboxgl as any).accessToken = environment.maptokenkey;
     this.mapa = new Mapboxgl.Map({
       container: 'map',
@@ -39,6 +42,10 @@ export class MapPage implements OnInit {
     }).setLngLat([lng,lat])
     .setPopup(popup)
     .addTo(this.mapa);
+  }
+
+  confirmarmapa(){
+    this.elrouteruwu.navigate(['/programar-viaje']);
   }
 
 }
