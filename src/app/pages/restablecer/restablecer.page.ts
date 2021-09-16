@@ -31,6 +31,7 @@ export class RestablecerPage implements OnInit {
     await this.sleep(800);
     this.elrouteruwu.navigate(['/login'])
     this.cargando=false;
+    this.RegisterForm.reset();
   }
 
   // TOAST //

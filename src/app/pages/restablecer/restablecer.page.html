@@ -45,16 +45,16 @@
 
 
         <!-- USUARIO -->
-        <div style="margin-left: 20px; margin-right: 20px;">
-            <ion-input type="text" placeholder="Ingresa tu Usuario" color="light" formControlName = "usuario" [(ngModel)]="usuarioingresado" style="border-radius: 50px; background-color: #000000c4; text-align: center;"></ion-input>
+        <div class="inputusuario" style="margin-left: 20px; margin-right: 20px;">
+            <ion-input type="text" placeholder="Ingresa tu Usuario" color="light" formControlName = "usuario" [(ngModel)]="usuarioingresado"></ion-input>
           </div>
-        <div *ngIf=" RegisterForm.get('usuario').hasError('required') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
+        <div class="alertaerror" *ngIf=" RegisterForm.get('usuario').hasError('required') && RegisterForm.get('usuario').touched">
             Debes ingresar tu Usuario.
         </div>
-        <div color="red" *ngIf=" RegisterForm.get('usuario').hasError('minlength') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
+        <div class="alertaerror" color="red" *ngIf=" RegisterForm.get('usuario').hasError('minlength') && RegisterForm.get('usuario').touched">
             Usuario inválido.
         </div>
-        <div color="red" *ngIf=" RegisterForm.get('usuario').hasError('maxlength') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
+        <div class="alertaerror" color="red" *ngIf=" RegisterForm.get('usuario').hasError('maxlength') && RegisterForm.get('usuario').touched">
             Usuario inválido.
         </div>
 
@@ -66,8 +66,8 @@
         </div>
     </form>
 
-    <div style="margin-top: 10%; background-color: #1fe0fa0e; margin-left: 20px; margin-right: 20px; border-radius: 20px;">
-        <p style="text-align: center; color: #f3f3f3; font-size: 13px; padding:4px; ">
+    <div class="campomensaje">
+        <p class="mensaje">
             Si el usuario se encuentra registrado, le enviarémos un enlace de recuperación al email que tenga asociado.
         </p>
         </div>
