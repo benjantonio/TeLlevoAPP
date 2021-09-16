@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as Mapboxgl from 'mapbox-gl';
 import { environment } from 'src/environments/environment';
 
@@ -10,7 +11,9 @@ import { environment } from 'src/environments/environment';
 export class MapPage implements OnInit {
   mapa: Mapboxgl.map;
   title = 'mapboxgl';
-  constructor() { }
+
+
+  constructor(private elrouteruwu:Router) { }
 
   ngOnInit() {
 

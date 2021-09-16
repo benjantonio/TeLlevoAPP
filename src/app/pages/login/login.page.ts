@@ -39,6 +39,7 @@ export class LoginPage implements OnInit {
     }
     this.elrouteruwu.navigate(['/inicio'], navigationExtras)
     this.cargando=false;
+    this.RegisterForm.reset();
   }
 
   async recuperar(){
