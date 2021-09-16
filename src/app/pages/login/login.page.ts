@@ -39,6 +39,7 @@ export class LoginPage implements OnInit {
     }
     this.elrouteruwu.navigate(['/inicio'], navigationExtras)
     this.cargando=false;
+    this.RegisterForm.reset();
   }
 
   async recuperar(){
@@ -46,6 +47,7 @@ export class LoginPage implements OnInit {
     await this.sleep(1000);
     this.elrouteruwu.navigate(['/restablecer'])
     this.cargando=false;
+    this.RegisterForm.reset();
   }
 
   async apagarbarracarga(){

@@ -20,40 +20,40 @@
 
     <!-- USUARIO -->
     <div style="margin-left: 20px; margin-right: 20px;">
-      <ion-input type="text" placeholder="Ingresa tu Usuario" color="light" formControlName = "usuario" [(ngModel)]="usuarioingresado" style="border-radius: 50px; background-color: #000000c4; text-align: center;"></ion-input>
+      <ion-input class="inputusuario" placeholder="Ingresa tu Usuario" color="light" formControlName = "usuario" [(ngModel)]="usuarioingresado" ></ion-input>
     </div>
 
-    <div *ngIf=" RegisterForm.get('usuario').hasError('required') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
+    <div class="alertaerror" *ngIf=" RegisterForm.get('usuario').hasError('required') && RegisterForm.get('usuario').touched">
       Debes ingresar tu Usuario.
     </div>
-    <div color="red" *ngIf=" RegisterForm.get('usuario').hasError('minlength') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
+    <div class="alertaerror" color="red" *ngIf=" RegisterForm.get('usuario').hasError('minlength') && RegisterForm.get('usuario').touched" >
       Usuario inválido.
     </div>
-    <div color="red" *ngIf=" RegisterForm.get('usuario').hasError('maxlength') && RegisterForm.get('usuario').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
+    <div class="alertaerror" color="red" *ngIf=" RegisterForm.get('usuario').hasError('maxlength') && RegisterForm.get('usuario').touched" >
       Usuario inválido.
     </div>
 
     <!-- CONTRASEÑA -->
     <div style="margin-left: 20px; margin-right: 20px;">
-      <ion-input type="password" placeholder="Ingresa tu contraseña" color="light" formControlName = "contrasena" [(ngModel)]="contrasenaingresada" style="border-radius: 50px; background-color: #000000c4; text-align: center; margin-top: 10px;"></ion-input>
+      <ion-input class="inputcontrasena" type="password" placeholder="Ingresa tu contraseña" color="light" formControlName = "contrasena" [(ngModel)]="contrasenaingresada"></ion-input>
     </div>
 
-    <div *ngIf=" RegisterForm.get('contrasena').hasError('required') && RegisterForm.get('contrasena').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
+    <div class="alertaerror" *ngIf=" RegisterForm.get('contrasena').hasError('required') && RegisterForm.get('contrasena').touched">
       Debes ingresar tu contraseña.
     </div>
-    <div color="red" *ngIf=" RegisterForm.get('contrasena').hasError('minlength') && RegisterForm.get('contrasena').touched" style="color: #ff2020; font-size: 15px; margin-left: 10px; text-align: center">
+    <div class="alertaerror" color="red" *ngIf=" RegisterForm.get('contrasena').hasError('minlength') && RegisterForm.get('contrasena').touched">
       Contraseña inválida.
     </div>
 
     <!-- BOTONES (Ingresa tus datos | Ingresar) -->
     <div style="text-align: center !important;">
       <ion-button color="primary" type="submit" *ngIf="RegisterForm.invalid" [disabled]="RegisterForm.invalid" style="margin-top: 13px; opacity: 76%;">Ingresa tus datos</ion-button>
-      <ion-button color="success" type="submit" *ngIf="RegisterForm.valid" (click)="ingresar()" style="margin-top: 13px;">Ingresar</ion-button>   
+      <ion-button (click)="ingresar()" color="success" type="submit" *ngIf="RegisterForm.valid"  style="margin-top: 13px;">Ingresar</ion-button>   
     </div>
 
     <div style="text-align: center; padding: 0; margin: 0;">
       
-      <button (click)="recuperar()" type="submit" style="background-color: transparent; text-decoration: underline; color: #dddddd; margin-top: 10px; font-size: 13px; font-family:  'Arial Narrow Bold', sans-serif;">
+      <button class="botonrecuperar" (click)="recuperar()" type="submit">
        Restablecer Contraseña</button>
     </div>
       

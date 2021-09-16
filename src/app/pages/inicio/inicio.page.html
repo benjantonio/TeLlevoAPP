@@ -1,64 +1,55 @@
 <!--INICIO HEADER-->
 <ion-header>
-  <ion-toolbar color="primary" style="padding: 0;">
-    <ion-grid>
-      <ion-row>
 
-        <!--TEXTO DE BIENVENIDA + NOMBRE DE USUARIO LINKEADO-->
-        <ion-col col-6>
-          <h2 style="padding: 0vh; margin-top: 3vh;">¡Hola {{usuariorecibido}}!</h2>
-        </ion-col>
 
-        <!--ICONO DERECHO USUARIO-->
-        <ion-col style="text-align: right;">
-          <img src="https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png" alt="User"
-            style=" height: 5vh; padding: 0; margin-top: 2.5vh;">
-        </ion-col>
+    <ion-toolbar style="padding: 0vh;">
+        <!--MENU BOTON-->
+        <IonButtons slot="start">
+            <Ion-Menu-Button autoHide={false}>
+            </Ion-Menu-Button>
+        </IonButtons>
 
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
+        <ion-grid>
+            <ion-row>
+                <!--TEXTO DE BIENVENIDA + NOMBRE DE USUARIO LINKEADO-->
+                <ion-col col-6>
+                    <h3 style="padding: 0vh; margin-top: 3vh;">¡Hola {{usuariorecibido}}!</h3>
+                </ion-col>
+
+                <!--ICONO DERECHO USUARIO (se comentó porque coloque un avatar en el menu)
+                <ion-col style="text-align: right;">
+                    <img src="https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png" alt="User" style=" height: 5vh; padding: 0; margin-top: 2.5vh;">
+                </ion-col>
+                -->
+            </ion-row>
+        </ion-grid>
+        <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;" ></ion-progress-bar>
+    </ion-toolbar>
+    
 </ion-header>
+
 <!--FIN HEADER-->
 
 <!--INICIO CUERPO-->
 <ion-content padding>
-  <!--BUSCADOR (HAY QUE CAMBIARLO A OTRA PAGE)-->
-  <ion-searchbar placeholder="¿A dónde vas hoy?"></ion-searchbar>
-</ion-content>
-<ion-button (click)=retroceder()>Retroceder</ion-button>
-<!--FIN CUERPO-->
+    
+    <!--BUSCADOR (HAY QUE CAMBIARLO A OTRA PAGE)
+    <ion-searchbar placeholder="¿A qué comuna vas?"></ion-searchbar>
+    -->
 
-<!--MAPA-->
-<!-- Terminal -->
-<mat-card style="margin-top: 50px;">
-  <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100" fxFlex.lg="100" fxFlex.xl="100">
+    <!-- BOTON PARA RETROCEDER (TERMPORAL)
+    <ion-button (click)=retroceder() >RETROCEDER</ion-button>
+    -->
 
-    <div fxLayout="row wrap" class="col-gap">
-      <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
-        <!--<input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>-->
-      </div>
-      <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
-        <!-- Mapa -->
-
-        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-        </agm-map>
-        <!-- Final Mapa -->
-      </div>
+    <div>
+        <ion-button shape="round" expand="block" (click)=programar()>
+            <ion-icon name="time-outline"></ion-icon>
+            Programar Viaje</ion-button>
+        <ion-button shape="round" expand="block" (click)=buscar()>
+            <ion-icon name="car-outline"></ion-icon>
+            Buscar Viaje</ion-button>
     </div>
 
-  </div>
-</mat-card>
 
-<script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqdPPtCUWrdvJAt0R1ZsRAUmhRnIy6WA0&libraries=places&language=en"></script>
-
-<!--INICIO FOOTER-->
-<ion-footer>
-  <ion-toolbar color="warning">
-    <ion-title style="font-size: 14px; text-align: center; padding: 0; margin: 0;">¡Ahora puedes llegar seguro a tu
-      hogar!</ion-title>
-  </ion-toolbar>
-</ion-footer>
-<!--FIN FOOTER-->
+</ion-content>
+<!--FIN CUERPO-->

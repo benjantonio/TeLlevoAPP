@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
-import { Address } from 'ngx-google-places-autocomplete/objects/address';
 //DEBES IMPORTAR LOS ROUTERS DE AQUI ARRIBA//
+import { MenuController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-inicio',
@@ -10,56 +10,47 @@ import { Address } from 'ngx-google-places-autocomplete/objects/address';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
-  title= 'angular-maps';
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  @ViewChild('placesRef') placesRef: GooglePlaceDirective;
-  options = {
-    types : [],
-    componentRestrictions: {country: 'CHL'}
-  };
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  title_add;
-  latitude;
-  longitude;
-  zoom;
 
 //ESTA VARIABLE RECIBE Y GUARDA EL USUARIO INGRESADO//
-usuariorecibido: any;
+usuariorecibido:any;
+controlmenu:boolean;
+cargando: boolean;
 
   //AQUI INGRESAMOS LOS CONSTRUCTORES NECESARIOS PARA PODER LLAMAR A LA VARIABLE DESDE OTRA PAGE//
-  constructor(private activeroute: ActivatedRoute, private router: Router) {
+  constructor(private activeroute: ActivatedRoute, private elrouteruwu:Router, private menu: MenuController) {
     this.activeroute.queryParams.subscribe(params=> {
-      if(this.router.getCurrentNavigation().extras.state){
-        this.usuariorecibido= this.router.getCurrentNavigation().extras.state.usuario;
+      if(this.elrouteruwu.getCurrentNavigation().extras.state){
+        this.usuariorecibido= this.elrouteruwu.getCurrentNavigation().extras.state.usuario;
       }
-    });
+    })
    }
+
+     //creo función para retrasar ciertas funciones.
+  sleep(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  }
 
    retroceder(){
-     this.router.navigate(['/login']);
+     this.elrouteruwu.navigate(['/login']);
    }
 
-  ngOnInit() {
-  }
-  public handleAddressChange(address: Address) {
-    // Do some stuff
-    console.log(address);
-    console.log('Latitud : ' + address.geometry.location.lat());
-    console.log('Longitud : ' + address.geometry.location.lng());
+   async programar(){
+    this.cargando=true;
+    await this.sleep(800);
+    this.elrouteruwu.navigate(['/programar-viaje']);
+    this.cargando=false;
+   }
 
-    this.latitude = address.geometry.location.lat();
-    this.longitude = address.geometry.location.lng();
+   openMenu(){
+     this.menu.isOpen;
+   }
+
+
+
+  ngOnInit() {
     
   }
-  public setCurrentLocation() {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 15;
-      })
-    }
-  }
+
 }
-
-

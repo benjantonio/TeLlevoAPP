@@ -1,8 +1,37 @@
 ion-content.fondo{
     --background:
-    url("recupera.jpg") no-repeat center center / cover;
+    url("../imagen/recupera.jpg") no-repeat center center / cover;
 }
 
 .custom-icon{
     font-size: 28px;
+}
+
+
+.alertaerror{
+    color: #ff2020; 
+    font-size: 15px; 
+    margin-left: 10px; 
+    text-align: center
+}
+
+.inputusuario{
+    border-radius: 50px; 
+    background-color: #000000c4; 
+    text-align: center;
+}
+
+.campomensaje{
+    margin-top: 10%; 
+    background-color: #1fe0fa0e; 
+    margin-left: 20px; 
+    margin-right: 20px; 
+    border-radius: 20px;
+}
+
+.mensaje{
+    text-align: center; 
+    color: #f3f3f3; 
+    font-size: 13px; 
+    padding:4px; 
 }
