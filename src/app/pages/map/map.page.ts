@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as Mapboxgl from 'mapbox-gl';
 import { environment } from 'src/environments/environment';
-import { ToastController } from '@ionic/angular'; //Controlador de Toast
 
 @Component({
   selector: 'app-map',
@@ -14,7 +13,7 @@ export class MapPage implements OnInit {
   title = 'mapboxgl';
 
   
-  constructor(private elrouteruwu:Router, public toastController: ToastController) { }
+  constructor(private elrouteruwu:Router) { }
 
   async regresar(){
     this.elrouteruwu.navigate(['/programar-viaje']);
@@ -26,18 +25,6 @@ export class MapPage implements OnInit {
       return new Promise((resolve) => {
         setTimeout(resolve, ms);
       });
-    }
-
-    async presentToast() {
-      
-      await this.sleep(600);
-      const toast = await this.toastController.create({
-        message: '¡Destino Guardado!',
-        duration: 2300,
-        color: 'secondary',
-        position: 'bottom',
-      });
-      toast.present();
     }
 
   ngOnInit() {

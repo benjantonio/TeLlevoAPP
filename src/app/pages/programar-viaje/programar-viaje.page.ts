@@ -47,9 +47,9 @@ export class ProgramarViajePage implements OnInit {
       await this.sleep(3700);
       const toast = await this.toastController.create({
         message: '¡Tu viaje ha sido creado con éxito!.',
-        duration: 3500,
+        duration: 4500,
         color: 'success',
-        position: 'bottom',
+        position: 'top',
       });
       toast.present();
     }
