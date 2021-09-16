@@ -12,13 +12,20 @@ export class MapPage implements OnInit {
   mapa: Mapboxgl.map;
   title = 'mapboxgl';
 
-
   
   constructor(private elrouteruwu:Router) { }
 
-  regresar(){
+  async regresar(){
     this.elrouteruwu.navigate(['/programar-viaje']);
+
   }
+
+    //creo función para retrasar ciertas funciones.
+    sleep(ms) {
+      return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+      });
+    }
 
   ngOnInit() {
     (Mapboxgl as any).accessToken = environment.maptokenkey;
@@ -30,6 +37,7 @@ export class MapPage implements OnInit {
     });
     this.crearMarcador(-71.5333227, -33.0338412);
   }
+  
 
   crearMarcador(lng:number,lat:number){
 

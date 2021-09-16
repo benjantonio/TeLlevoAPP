@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Programar un Viaje</ion-title>
+    <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;" ></ion-progress-bar>
   </ion-toolbar>
 </ion-header>
 
@@ -45,7 +46,7 @@
       <ion-item style="padding-top:12px;">
         <p style="margin-top: 3px;">Tu destino:</p>
         <div style="padding-bottom: 12px; padding-left: 5px;">
-        <ion-chip *ngIf="!apagarboton" (click)="abrirmapa()" outline color="primary" >
+        <ion-chip *ngIf="!apagarboton" [disabled]="RegisterForm.invalid" (click)="abrirmapa()" outline color="primary" >
           <ion-icon name="pin" color="danger"></ion-icon>
           <ion-label>Elige tu Destino:</ion-label>
         </ion-chip>
@@ -63,7 +64,8 @@
       </ion-item>
 
       <div style="text-align: center;">
-        <ion-button (click)="crearviaje()" color="success" style="margin-bottom: 20px; margin-top:20px;">Crear Viaje</ion-button>
+        <ion-button (click)="crearviaje()" [disabled]="true" *ngIf="!apagarboton" color="success" style="margin-bottom: 20px; margin-top:20px;">Crear Viaje</ion-button>
+        <ion-button (click)="crearviaje()" (click)="presentToast()" *ngIf="!RegisterForm.invalid && apagarboton" color="success" style="margin-bottom: 20px; margin-top:20px;">¡Crear Viaje!</ion-button>
       </div>
     </ion-card>
   </form>

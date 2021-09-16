@@ -48,7 +48,7 @@
     <!-- BOTONES (Ingresa tus datos | Ingresar) -->
     <div style="text-align: center !important;">
       <ion-button color="primary" type="submit" *ngIf="RegisterForm.invalid" [disabled]="RegisterForm.invalid" style="margin-top: 13px; opacity: 76%;">Ingresa tus datos</ion-button>
-      <ion-button color="success" type="submit" *ngIf="RegisterForm.valid" (click)="ingresar()" style="margin-top: 13px;">Ingresar</ion-button>   
+      <ion-button (click)="ingresar()" color="success" type="submit" *ngIf="RegisterForm.valid"  style="margin-top: 13px;">Ingresar</ion-button>   
     </div>
 
     <div style="text-align: center; padding: 0; margin: 0;">
