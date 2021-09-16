@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content class="fondo">
   <nav class="navbar navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -7,14 +7,14 @@
     </div>
 </nav>
 
-<div class="container p-3">
+<div class="container p-3 mapa" >
   
     <div id="map">
     </div>
 </div>
 
 <div style="text-align: center;">
-  <ion-button (click)="regresar()" color="success" >Confirmar</ion-button>
+  <ion-button (click)="regresar()" (click)="presentToast()" color="success" >Confirmar</ion-button>
 </div>
 
 

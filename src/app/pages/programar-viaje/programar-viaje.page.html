@@ -1,15 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Programar un Viaje</ion-title>
+  <ion-toolbar color="dark">
+    <h3 style="margin-top: 20px; margin-bottom: 20px;">¿A dónde vas?:</h3>
     <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;" ></ion-progress-bar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="fondo">
 
-  <form [formGroup]="RegisterForm">
-    <ion-card>
-      <ion-item>
+  <form [formGroup]="RegisterForm" >
+    <ion-card >
+      <ion-item >
         <ion-label position="floating">Título para tu Viaje:</ion-label>
         <ion-input type="text" formControlName = "titulo"></ion-input>
         <div *ngIf=" RegisterForm.get('titulo').hasError('required') && RegisterForm.get('titulo').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
