@@ -1,34 +1,32 @@
-ion-content.fondo{
-    --background:
-    url("../imagen/wallpaper.jpg") no-repeat center center / cover;
+ion-content.fondo {
+    --background: url("../imagen/wallpaper.jpg") no-repeat center center / cover;
 }
 
-
-.alertaerror{
+.alertaerror {
     color: #ff2020;
     font-size: 15px;
-    margin-left: 10px; 
+    margin-left: 10px;
     text-align: center;
 }
 
-.inputusuario{
-    border-radius: 50px; 
-    background-color: #000000c4; 
+.inputusuario {
+    border-radius: 50px;
+    background-color: #000000c4;
     text-align: center;
 }
 
-.inputcontrasena{
-    border-radius: 50px; 
-    background-color: #000000c4; 
-    text-align: center; 
+.inputcontrasena {
+    border-radius: 50px;
+    background-color: #000000c4;
+    text-align: center;
     margin-top: 10px;
 }
 
-.botonrecuperar{
-    background-color: transparent; 
-    text-decoration: underline; 
-    color: #dddddd; 
-    margin-top: 10px; 
-    font-size: 13px; 
-    font-family:  'Arial Narrow Bold', sans-serif;
+.botonrecuperar {
+    background-color: transparent;
+    text-decoration: underline;
+    color: #dddddd;
+    margin-top: 10px;
+    font-size: 12.5px;
+    font-family: 'Arial Narrow Bold', sans-serif;
 }

@@ -43,11 +43,6 @@ cargando: boolean;
     this.cargando=false;
    }
 
-   openMenu(){
-     this.menu.isOpen;
-   }
-
-
 
   ngOnInit() {
     

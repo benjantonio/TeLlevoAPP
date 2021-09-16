@@ -1,57 +1,57 @@
 <ion-app>
 
-  <ion-menu side="start" menuId="first" contentId="menu1" type="overlay">
+    <ion-menu side="start" menuId="first" contentId="menu1" type="overlay">
 
-      <ion-header>
-          <ion-toolbar color="dark">
+        <ion-header>
+            <ion-toolbar color="dark">
 
-              <ion-grid>
-                  <ion-row>
-                      <ion-col style="text-align: left;">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col style="text-align: left;">
 
-                          <ion-avatar>
-                              <img src="https://www.pngkit.com/png/full/115-1150342_user-avatar-icon-iconos-de-mujeres-a-color.png" alt="avatar">
-                          </ion-avatar>
-                      </ion-col>
-                      <ion-col style="padding: 0vh; margin-top: 0vh; text-align: left;">
-                          <h3>TeLlevoApp</h3>
-                      </ion-col>
-                  </ion-row>
-              </ion-grid>
+                            <ion-avatar>
+                                <img src="https://st3.depositphotos.com/1350793/13975/i/450/depositphotos_139757118-stock-photo-young-woman-taking-a-selfie.jpg" alt="avatar">
+                            </ion-avatar>
+                        </ion-col>
+                        <ion-col style="padding: 0vh; margin-top: 0vh; text-align: left;">
+                            <h3>TeLlevoApp</h3>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
 
 
-          </ion-toolbar>
+            </ion-toolbar>
 
-      </ion-header>
+        </ion-header>
 
-      <ion-content>
-          <ion-list>
+        <ion-content class="fondo">
+            <ion-list>
 
-              <ion-item>
-                  <ion-icon name="time-outline"></ion-icon>
-                  Mis viajes
-              </ion-item>
-              <ion-item>
-                  <ion-icon name="cog-outline"></ion-icon>
-                  Configuración
-              </ion-item>
-              <ion-item>
-                  <ion-icon name="help-outline"></ion-icon>
-                  Ayuda
-              </ion-item>
+                <ion-item class="bordebotonmenu">
+                    <ion-icon name="time-outline"></ion-icon>
+                    Mis viajes
+                </ion-item>
+                <ion-item class="bordebotonmenu">
+                    <ion-icon name="cog-outline"></ion-icon>
+                    Configuración
+                </ion-item>
+                <ion-item class="bordebotonmenu">
+                    <ion-icon name="help-outline"></ion-icon>
+                    Ayuda
+                </ion-item>
 
-          </ion-list>
-      </ion-content>
+            </ion-list>
+        </ion-content>
 
-      <ion-footer>
+        <ion-footer>
 
-          <ion-button type="submit" color="dark" expand="full" (click)=retroceder() (click)=closeMenu()>Cerrar sesion
-              <ion-icon name="caret-forward-outline"></ion-icon>
-          </ion-button>
-      </ion-footer>
+            <ion-button type="submit" color="dark" expand="full" (click)=retroceder()>Cerrar sesion
+                <ion-icon name="caret-forward-outline"></ion-icon>
+            </ion-button>
+        </ion-footer>
 
-  </ion-menu>
+    </ion-menu>
 
-  <ion-router-outlet id="menu1"></ion-router-outlet>
+    <ion-router-outlet id="menu1"></ion-router-outlet>
 
 </ion-app>
