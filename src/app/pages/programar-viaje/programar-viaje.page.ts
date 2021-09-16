@@ -12,7 +12,6 @@ import { ToastController } from '@ionic/angular'; //Controlador de Toast
 
 
 export class ProgramarViajePage implements OnInit {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   RegisterForm: FormGroup;
   apagarboton:boolean;
   cargando: boolean;
