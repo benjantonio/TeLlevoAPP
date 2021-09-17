@@ -1,22 +1,22 @@
 <ion-header>
+    <ion-toolbar color="dark">
     <ion-grid>
         <ion-row>
-
             <ion-col-4 color="light">
-                <button (click)="retroceder()" style="margin-top: 13px; color: white; background-color: rgba(0, 0, 0, 0); ">
-          <ion-icon class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin-top: 13px; "></ion-icon>
+                <button (click)="retroceder()" style=" color: white; background-color: rgba(0, 0, 0, 0); ">
+          <ion-icon class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin-top: 5px; "></ion-icon>
       </button>
             </ion-col-4>
 
             <ion-col-5 color="light">
-                <h5 style="margin-top: 30px; margin-bottom: 20px; margin-left: 8px; color:white;">¿A dónde vas?</h5>
-                <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;"></ion-progress-bar>
+                <h5 style="margin-top: 10px; margin-bottom: 10px; margin-left: 8px; color:white;">¿A dónde vas?</h5>
+                
             </ion-col-5>
-
             <ion-col-3></ion-col-3>
         </ion-row>
     </ion-grid>
-
+    <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;"></ion-progress-bar>
+</ion-toolbar>
 
 </ion-header>
 
