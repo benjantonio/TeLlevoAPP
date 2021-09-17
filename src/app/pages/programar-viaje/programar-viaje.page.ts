@@ -25,6 +25,12 @@ export class ProgramarViajePage implements OnInit {
       });
     }
 
+    retroceder(){
+      this.elrouteruwu.navigate(['/inicio']);
+      this.apagarboton=false;
+      this.cargando=false;
+    }
+
   async abrirmapa(){
     this.cargando=true;
     await this.sleep(1000);

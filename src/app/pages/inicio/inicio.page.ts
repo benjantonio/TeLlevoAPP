@@ -39,8 +39,10 @@ cargando: boolean;
    async programar(){
     this.cargando=true;
     await this.sleep(800);
-    this.elrouteruwu.navigate(['/programar-viaje']);
     this.cargando=false;
+    await this.sleep(200);
+    this.elrouteruwu.navigate(['/programar-viaje']);
+    
    }
 
 
