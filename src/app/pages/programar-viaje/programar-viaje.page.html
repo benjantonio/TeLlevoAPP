@@ -21,15 +21,6 @@
 </ion-header>
 
 
-
-
-
-
-
-
-
-
-
 <ion-content class="fondo">
 
     <form [formGroup]="RegisterForm">
@@ -42,15 +33,13 @@
                 </div>
             </ion-item>
 
-
-
             <ion-item>
                 <ion-label position="floating">Fecha Salida:</ion-label>
-                <ion-input type="text" formControlName="fecha"></ion-input>
+                <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2022-12-31" formControlName="fecha"></ion-datetime>
                 <div *ngIf=" RegisterForm.get('fecha').hasError('required') && RegisterForm.get('fecha').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
                     Debes ingresar una Fecha.
                 </div>
-            </ion-item>
+              </ion-item>
 
             <ion-item>
                 <ion-label position="floating">Hora:</ion-label>
