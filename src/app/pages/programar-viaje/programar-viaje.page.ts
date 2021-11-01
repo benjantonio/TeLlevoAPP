@@ -25,6 +25,12 @@ export class ProgramarViajePage implements OnInit {
       });
     }
 
+    retroceder(){
+      this.elrouteruwu.navigate(['/inicio']);
+      this.apagarboton=false;
+      this.cargando=false;
+    }
+
   async abrirmapa(){
     this.cargando=true;
     await this.sleep(1000);
@@ -47,9 +53,9 @@ export class ProgramarViajePage implements OnInit {
       await this.sleep(3700);
       const toast = await this.toastController.create({
         message: '¡Tu viaje ha sido creado con éxito!.',
-        duration: 4500,
+        duration: 3500,
         color: 'success',
-        position: 'top',
+        position: 'bottom',
       });
       toast.present();
     }

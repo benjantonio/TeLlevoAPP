@@ -1,14 +1,15 @@
-ion-content.fondo{
-    --background:
-    url("../imagen/wallpaper.jpg") no-repeat center center / cover;
+ion-content.fondo {
+    --background: url("../imagen/fondoblanco2.png") no-repeat center center / cover;
 }
 
-ion-toolbar.toolbar{
-    padding: 1vh; --background: #091929; color:white
-}
-
-div.footerMessage {
-    text-align: center; 
-    color: white; 
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.campomensaje {
+    font-size: 13px;
+    margin-top: 10%;
+    background-color: #010d2e17;
+    color: rgb(27, 27, 27);
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    padding: 3px 3px 0px 3px;
+    text-align: center;
 }

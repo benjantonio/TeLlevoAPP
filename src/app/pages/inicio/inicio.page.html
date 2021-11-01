@@ -1,63 +1,74 @@
 <!--INICIO HEADER-->
 <ion-header>
-        <ion-toolbar class="toolbar">
-            <!--MENU BOTON-->
-            <IonButtons slot="start">
-                <Ion-Menu-Button autoHide={false}>
-                </Ion-Menu-Button>
-            </IonButtons>
-            <ion-grid>
-                <ion-row>
-                    <!--TEXTO DE BIENVENIDA + NOMBRE DE USUARIO LINKEADO-->
-                        <ion-col col-6>
-                            <h3 style="padding: 0vh; margin-top: 3vh;">¡Hola {{usuariorecibido}}!</h3>
-                        </ion-col>
-                    
-                    <!--ICONO DERECHO USUARIO (se comentó porque coloque un avatar en el menu)
-                        <ion-col style="text-align: right;">
-                            <img src="https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png" alt="User" style=" height: 5vh; padding: 0; margin-top: 2.5vh;">
-                        </ion-col>
-                        -->
-                </ion-row>
-            </ion-grid>
-        </ion-toolbar>
+
+
+    <ion-toolbar color="medium" style="padding: 0vh;">
+        <!--MENU BOTON-->
+        <IonButtons color="light" slot="start">
+            <Ion-Menu-Button color="light" autoHide={false}>
+            </Ion-Menu-Button>
+        </IonButtons>
+
+        <ion-grid>
+            <ion-row>
+                <!--TEXTO DE BIENVENIDA + NOMBRE DE USUARIO LINKEADO-->
+                <ion-col col-6>
+                    <h3 style="padding: 0vh; margin-top: 3vh;">¡Hola {{usuariorecibido}}!</h3>
+                </ion-col>
+
+                <!--ICONO DERECHO USUARIO (se comentó porque coloque un avatar en el menu)
+                <ion-col style="text-align: right;">
+                    <img src="https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png" alt="User" style=" height: 5vh; padding: 0; margin-top: 2.5vh;">
+                </ion-col>
+                -->
+            </ion-row>
+        </ion-grid>
+        <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;"></ion-progress-bar>
+    </ion-toolbar>
 
 </ion-header>
-<ion-content class="fondo" >
-	<ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;" ></ion-progress-bar>
-	<div style="vertical-align: middle"></div>
-    
-	<!--FIN HEADER-->
-	<!--INICIO CUERPO-->
-	<div>
-		<div style="text-align: center;">
-			<img style=" padding: 10px 15px 0px 15px; height: 35vh; margin-top:40px"  src="https://i.ibb.co/dKfRwZL/loogg.png" alt="Tellevoapp" >
-		</div>
-		<!--BUSCADOR (HAY QUE CAMBIARLO A OTRA PAGE)
-			<ion-searchbar placeholder="¿A qué comuna vas?"></ion-searchbar>
-			-->
-		<!-- BOTON PARA RETROCEDER (TERMPORAL)
-			<ion-button (click)=retroceder() >RETROCEDER</ion-button>
-			-->
-		<p style="margin-top:70px"></p>
-		<div>
-			<div>
-				<ion-button shape="round" expand="block" (click)=programar()>
-					<ion-icon name="time-outline"></ion-icon>
-					Programar Viaje
-				</ion-button>
-				<ion-button shape="round" expand="block" (click)=buscar()>
-					<ion-icon name="car-outline"></ion-icon>
-					Buscar Viaje
-				</ion-button>
-			</div>
-			<div class="footerMessage">
-				<h5>Con TeLlevoAPP
-				</h5>
-				<h5>Es más fácil
-				</h5>
-			</div>
-		</div>
-	</div>
+
+<!--FIN HEADER-->
+
+<!--INICIO CUERPO-->
+<ion-content class="fondo" padding>
+
+    <!--BUSCADOR (HAY QUE CAMBIARLO A OTRA PAGE)
+    <ion-searchbar placeholder="¿A qué comuna vas?"></ion-searchbar>
+    -->
+
+    <!-- BOTON PARA RETROCEDER (TERMPORAL)
+    <ion-button (click)=retroceder() >RETROCEDER</ion-button>
+    -->
+
+    <div style="text-align: center;">
+        <img style=" padding: 20px 15px 0px 15px; border-radius: 40px; " src="https://i.ibb.co/GcFZHFr/pegatina.jpg" alt="Tellevoapp">
+    </div>
+
+    <div class="campomensaje">
+        <p class="mensaje">
+            ¡TeLlevoAPP te da la oportunidad de ofrecer tu viaje a otros estudiantes, o encontrar un viaje!
+        </p>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <ion-button shape="round" expand="block" (click)=programar()>
+            <ion-icon name="time-outline"></ion-icon>
+            Programar Viaje</ion-button>
+        <ion-button  shape="round" expand="block" (click)=buscar()>
+            <ion-icon name="car-outline"></ion-icon>
+            Buscar Viaje</ion-button>
+    </div>
+
+
 </ion-content>
+
+
+<ion-footer>
+    <ion-toolbar color="medium">
+        <div style="text-align: center;">
+            <img style="height: 30px;" src="https://i.ibb.co/TBDsF6D/TELLEVOAPP-PNG.png" alt="">
+        </div>
+    </ion-toolbar>
+</ion-footer>
 <!--FIN CUERPO-->
