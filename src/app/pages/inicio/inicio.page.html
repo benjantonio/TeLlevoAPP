@@ -2,10 +2,10 @@
 <ion-header>
 
 
-    <ion-toolbar style="padding: 0vh;">
+    <ion-toolbar color="medium" style="padding: 0vh;">
         <!--MENU BOTON-->
-        <IonButtons slot="start">
-            <Ion-Menu-Button autoHide={false}>
+        <IonButtons color="light" slot="start">
+            <Ion-Menu-Button color="light" autoHide={false}>
             </Ion-Menu-Button>
         </IonButtons>
 
@@ -23,16 +23,16 @@
                 -->
             </ion-row>
         </ion-grid>
-        <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;" ></ion-progress-bar>
+        <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;"></ion-progress-bar>
     </ion-toolbar>
-    
+
 </ion-header>
 
 <!--FIN HEADER-->
 
 <!--INICIO CUERPO-->
-<ion-content padding>
-    
+<ion-content class="fondo" padding>
+
     <!--BUSCADOR (HAY QUE CAMBIARLO A OTRA PAGE)
     <ion-searchbar placeholder="¿A qué comuna vas?"></ion-searchbar>
     -->
@@ -41,15 +41,34 @@
     <ion-button (click)=retroceder() >RETROCEDER</ion-button>
     -->
 
-    <div>
+    <div style="text-align: center;">
+        <img style=" padding: 20px 15px 0px 15px; border-radius: 40px; " src="https://i.ibb.co/GcFZHFr/pegatina.jpg" alt="Tellevoapp">
+    </div>
+
+    <div class="campomensaje">
+        <p class="mensaje">
+            ¡TeLlevoAPP te da la oportunidad de ofrecer tu viaje a otros estudiantes, o encontrar un viaje!
+        </p>
+    </div>
+
+    <div style="margin-top: 40px;">
         <ion-button shape="round" expand="block" (click)=programar()>
             <ion-icon name="time-outline"></ion-icon>
             Programar Viaje</ion-button>
-        <ion-button shape="round" expand="block" (click)=buscar()>
+        <ion-button  shape="round" expand="block" (click)=buscar()>
             <ion-icon name="car-outline"></ion-icon>
             Buscar Viaje</ion-button>
     </div>
 
 
 </ion-content>
+
+
+<ion-footer>
+    <ion-toolbar color="medium">
+        <div style="text-align: center;">
+            <img style="height: 30px;" src="https://i.ibb.co/TBDsF6D/TELLEVOAPP-PNG.png" alt="">
+        </div>
+    </ion-toolbar>
+</ion-footer>
 <!--FIN CUERPO-->

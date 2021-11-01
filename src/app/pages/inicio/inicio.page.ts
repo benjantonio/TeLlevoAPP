@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 //DEBES IMPORTAR LOS ROUTERS DE AQUI ARRIBA//
 import { MenuController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular'; //Controlador de Toast
 
 
 @Component({
@@ -17,7 +18,7 @@ controlmenu:boolean;
 cargando: boolean;
 
   //AQUI INGRESAMOS LOS CONSTRUCTORES NECESARIOS PARA PODER LLAMAR A LA VARIABLE DESDE OTRA PAGE//
-  constructor(private activeroute: ActivatedRoute, private elrouteruwu:Router, private menu: MenuController) {
+  constructor(private activeroute: ActivatedRoute, private elrouteruwu:Router, private menu: MenuController, public toastController: ToastController) {
     this.activeroute.queryParams.subscribe(params=> {
       if(this.elrouteruwu.getCurrentNavigation().extras.state){
         this.usuariorecibido= this.elrouteruwu.getCurrentNavigation().extras.state.usuario;
@@ -39,13 +40,21 @@ cargando: boolean;
    async programar(){
     this.cargando=true;
     await this.sleep(800);
-    this.elrouteruwu.navigate(['/programar-viaje']);
     this.cargando=false;
+    await this.sleep(200);
+    this.elrouteruwu.navigate(['/programar-viaje']);
    }
+   
+   async buscar() {
+    const toast = await this.toastController.create({
+      message: '¡Próximamente!',
+      duration: 1500,
+      color: 'secondary',
+      position: 'bottom',
+    });
+    toast.present();
+  }
 
-   openMenu(){
-     this.menu.isOpen;
-   }
 
 
 

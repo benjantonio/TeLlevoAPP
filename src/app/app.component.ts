@@ -19,11 +19,9 @@ export class AppComponent {
 
    retroceder(){
     this.router.navigate(['/login']);
+    this.menu.close();
   }
 
-  closeMenu(){
-    this.menu.close;
-  }
 
 
 }
