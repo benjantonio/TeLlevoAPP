@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
+import { BdLocalService } from 'src/app/services/bd-local.service';
 
 
 
@@ -18,8 +19,17 @@ export class LoginPage implements OnInit {
 
   cargando: boolean;
 
-  constructor(private elrouteruwu:Router) {
+  constructor(private elrouteruwu:Router, public bdlocalservice: BdLocalService) {
   }
+
+  ionViewWillEnter(){
+
+  }
+
+  guardar(){
+  }
+
+
 
   //creo función para retrasar ciertas funciones.
   sleep(ms) {
