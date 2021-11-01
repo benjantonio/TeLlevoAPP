@@ -35,6 +35,11 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./pages/panel-viajes/panel-viajes.module').then( m => m.PanelViajesPageModule)
   },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
+
 
 
 

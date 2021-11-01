@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panel-viajes',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelViajesPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { 
+    this.router.navigate(['home/crear'])
+  }
+
+  segmentChanged(event: any){
+    console.log(event);
+    let ruta=event.detail.value
+    this.router.navigate(['home/'+ruta])
+  }
 
   ngOnInit() {
   }

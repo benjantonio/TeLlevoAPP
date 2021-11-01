@@ -1,12 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CrearViajeComponent } from 'src/app/componente/crear-viaje/crear-viaje.component';
+import { MisViajesComponent } from 'src/app/componente/mis-viajes/mis-viajes.component';
 
 import { PanelViajesPage } from './panel-viajes.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: PanelViajesPage
+    component: PanelViajesPage,
+    children: [
+      {
+        path: "crear",
+        component: CrearViajeComponent
+      },
+      {
+        path: "listar",
+        component: MisViajesComponent
+      }
+      
+    ]
   }
 ];
 
