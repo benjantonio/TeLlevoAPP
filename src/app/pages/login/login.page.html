@@ -16,11 +16,11 @@
   </h2>
 
   <!-- FORMULARIO -->
-  <form [formGroup]="RegisterForm">
+  <form  [formGroup]="RegisterForm">
 
     <!-- USUARIO -->
     <div style="margin-left: 20px; margin-right: 20px;">
-      <ion-input class="inputusuario" placeholder="Ingresa tu Usuario" color="light" formControlName = "usuario" [(ngModel)]="usuarioingresado" ></ion-input>
+      <ion-input class="inputusuario" placeholder="Ingresa tu Usuario" color="light" formControlName = "usuario" [(ngModel)]="usuarioingresado" name = "usu" [(ngModel)]="model.user" ></ion-input>
     </div>
 
     <div class="alertaerror" *ngIf=" RegisterForm.get('usuario').hasError('required') && RegisterForm.get('usuario').touched">
@@ -35,7 +35,7 @@
 
     <!-- CONTRASEÑA -->
     <div style="margin-left: 20px; margin-right: 20px;">
-      <ion-input class="inputcontrasena" type="password" placeholder="Ingresa tu contraseña" color="light" formControlName = "contrasena" [(ngModel)]="contrasenaingresada"></ion-input>
+      <ion-input class="inputcontrasena" type="password" placeholder="Ingresa tu contraseña" color="light" formControlName = "contrasena" name = "contrasena" [(ngModel)]="model.pass"></ion-input>
     </div>
 
     <div class="alertaerror" *ngIf=" RegisterForm.get('contrasena').hasError('required') && RegisterForm.get('contrasena').touched">

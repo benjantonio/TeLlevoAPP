@@ -9,11 +9,12 @@ import { Cuentas } from '../interfaces/cuentas';
 export class BdLocalService {
 
   cuenta: Cuentas[]=[]
-
+/*
   private _storage: Storage | null = null;
   constructor(private storage: Storage, public toastController: ToastController) { 
     this.init();
     this.cargarCuentas();
+
   }
   async init() {
     const storage = await this.storage.create();
@@ -32,7 +33,7 @@ export class BdLocalService {
     if (!existe) {
       this.cuenta.unshift({strUsuario:usuario, strContraseña:contraseña});
       this._storage.set('cuenta',this.cuenta);
-      this.presentToast("Cuenta agregada con éxito")
+      this.presentToast("Cuenta agregaad con éxito")
     } else {
       this.presentToast("[ERROR] Contacto ya existe :(")
     }
@@ -43,12 +44,12 @@ export class BdLocalService {
       message: mensaje,
       duration: 2000,
       position: 'top',
-      color: 'success',
+      color: 'medium',
       translucent:true,
 
     });
     toast.present();
   }
 
-
+*/
 }

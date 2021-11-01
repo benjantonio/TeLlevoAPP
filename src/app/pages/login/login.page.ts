@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { BdLocalService } from 'src/app/services/bd-local.service';
+import { LoginModel } from './models/login.model';
 
 
 
@@ -12,7 +13,9 @@ import { BdLocalService } from 'src/app/services/bd-local.service';
   
 })
 
+
 export class LoginPage implements OnInit {
+  public model:LoginModel = new LoginModel();
 
   RegisterForm: FormGroup;
   usuarioingresado:any;
@@ -23,12 +26,10 @@ export class LoginPage implements OnInit {
   }
 
   ionViewWillEnter(){
-
   }
 
   guardar(){
   }
-
 
 
   //creo función para retrasar ciertas funciones.
@@ -39,6 +40,7 @@ export class LoginPage implements OnInit {
   }
 
   async ingresar(){
+    console.log(this.model);
     //retraso la función 2Seg.
     this.cargando=true;
 
