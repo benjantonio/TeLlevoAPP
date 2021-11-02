@@ -29,7 +29,8 @@
       <ion-item *ngFor="let viaje of viajes">
         <ion-label><p style="font-size: 17px;">{{viaje.titulo}}</p>
           <p style="font-size: 14px;">{{viaje.direccion}}</p>
-          <p style="font-size: 14px;">${{viaje.precio}}</p></ion-label>
+          <p style="font-size: 14px;">${{viaje.precio}}</p>
+          <p style="font-size: 14px;">{{viaje.fecha}}</p></ion-label>
         <ion-button>
           <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
         </ion-button>

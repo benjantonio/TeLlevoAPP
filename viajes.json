@@ -2,7 +2,7 @@
   "viajes": [
     {
       "id": 1,
-      "titulo": "viaje mortal",
+      "titulo": "Viaje a Quilpué",
       "fecha": "20/11/2021",
       "hora": "23:30",
       "direccion": "Calle jamaica #2291",
@@ -11,17 +11,21 @@
     },
     {
       "id": 2,
-      "titulo": "",
-      "fecha": "",
-      "hora": "",
-      "direccion": "",
-      "precio": "",
-      "pasajeros": ""
+      "titulo": "A Valparaíso",
+      "fecha": "03/11/2021",
+      "hora": "23:45",
+      "direccion": "Chacabuco #3029",
+      "precio": 1500,
+      "pasajeros": 2
     },
     {
       "id": 3,
-      "titulo": "",
-      "fecha": ""
+      "titulo": "Peñablanca",
+      "fecha": "04/11/2021",
+      "hora": "22:30",
+      "direccion": "Barros Arana #82",
+      "precio": 2000,
+      "pasajeros": 1
     },
     {
       "id": 4,
@@ -33,7 +37,13 @@
       "pasajeros": ""
     },
     {
-      "id": 5
+      "id": 5,
+      "titulo": "",
+      "fecha": "",
+      "hora": "",
+      "direccion": "",
+      "precio": "",
+      "pasajeros": ""
     },
     {
       "id": 6,
@@ -55,42 +65,6 @@
     },
     {
       "id": 8,
-      "titulo": "",
-      "fecha": "",
-      "hora": "",
-      "direccion": "",
-      "precio": "",
-      "pasajeros": ""
-    },
-    {
-      "id": 9,
-      "titulo": "",
-      "fecha": "",
-      "hora": "",
-      "direccion": "",
-      "precio": "",
-      "pasajeros": ""
-    },
-    {
-      "id": 10,
-      "titulo": "",
-      "fecha": "",
-      "hora": "",
-      "direccion": "",
-      "precio": "",
-      "pasajeros": ""
-    },
-    {
-      "id": 11,
-      "titulo": "",
-      "fecha": "",
-      "hora": "",
-      "direccion": "",
-      "precio": "",
-      "pasajeros": ""
-    },
-    {
-      "id": 12,
       "titulo": "",
       "fecha": "",
       "hora": "",
