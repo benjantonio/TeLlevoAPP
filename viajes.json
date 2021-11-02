@@ -29,48 +29,12 @@
     },
     {
       "id": 4,
-      "titulo": "",
-      "fecha": "",
-      "hora": "",
+      "titulo": "1223",
+      "fecha": "321231",
+      "hora": "123132",
       "direccion": "",
-      "precio": "",
-      "pasajeros": ""
-    },
-    {
-      "id": 5,
-      "titulo": "",
-      "fecha": "",
-      "hora": "",
-      "direccion": "",
-      "precio": "",
-      "pasajeros": ""
-    },
-    {
-      "id": 6,
-      "titulo": "",
-      "fecha": "",
-      "hora": "",
-      "direccion": "",
-      "precio": "",
-      "pasajeros": ""
-    },
-    {
-      "id": 7,
-      "titulo": "",
-      "fecha": "",
-      "hora": "",
-      "direccion": "",
-      "precio": "",
-      "pasajeros": ""
-    },
-    {
-      "id": 8,
-      "titulo": "",
-      "fecha": "",
-      "hora": "",
-      "direccion": "",
-      "precio": "",
-      "pasajeros": ""
+      "precio": 123312,
+      "pasajeros": 123312
     }
   ]
 }
