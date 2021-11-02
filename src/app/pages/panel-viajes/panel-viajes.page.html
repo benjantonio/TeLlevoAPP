@@ -1,22 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-      <ion-title>PanelViajes</ion-title>
-  </ion-toolbar>
-  <ion-toolbar>
-      <!-- Default Segment -->
-      <ion-segment (ionChange)="segmentChanged($event)">
-          <ion-segment-button value="crear">
-              <ion-icon name="add-circle-outline"> </ion-icon>
-              Crear Viaje
-          </ion-segment-button>
-          <ion-segment-button value="misviajes">
-              <ion-icon name="time-outline"></ion-icon>
-              Mis Viajes
-          </ion-segment-button>
-      </ion-segment>
-  </ion-toolbar>
+    <ion-toolbar>
+        <button (click)="retroceder()" style="margin-top: 13px; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0); ">
+        <ion-icon class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin: 0; "></ion-icon>
+      </button>
+        <ion-title>PanelViajes</ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+        <!-- Default Segment -->
+        <ion-segment (ionChange)="segmentChanged($event)">
+            <ion-segment-button value="crear">
+                <ion-icon name="add-circle-outline"> </ion-icon>
+                Crear Viaje
+            </ion-segment-button>
+            <ion-segment-button value="misviajes">
+                <ion-icon name="time-outline"></ion-icon>
+                Mis Viajes
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-router-outlet></ion-router-outlet>
+    <ion-router-outlet></ion-router-outlet>
 </ion-content>

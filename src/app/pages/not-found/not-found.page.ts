@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-not-found',
@@ -6,8 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./not-found.page.scss'],
 })
 export class NotFoundPage implements OnInit {
+  cargando: boolean;
+  RegisterForm: any;
 
-  constructor() { }
+  constructor(private elrouteruwu:Router) { }
+
+  sleep(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  }
+
+  async retroceder(){
+    this.cargando=true;
+    await this.sleep(800);
+    this.elrouteruwu.navigate(['/inicio'])
+    this.cargando=false;
+    this.RegisterForm.reset();
+  }
 
   ngOnInit() {
   }

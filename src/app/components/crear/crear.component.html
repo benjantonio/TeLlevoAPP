@@ -2,70 +2,62 @@
 
 
 
-<form [formGroup]="RegisterForm">
+    <form [formGroup]="RegisterForm">
 
-    <ion-card>
-        <ion-item><ion-input [(ngModel)]="test" type="text" ></ion-input></ion-item>
-        
-        <ion-grid>
-            <ion-button shape="round" expand="block" (click)="guardarViaje()">Guardar</ion-button>
-        </ion-grid>
-        
-    </ion-card>
-    
-      <ion-item>
-          <ion-label position="floating">Título para tu Viaje:</ion-label>
-          <ion-input [(ngModel)]="viaje.titulo" type="text" formControlName="titulo"></ion-input>
-          <div *ngIf=" RegisterForm.get('titulo').hasError('required') && RegisterForm.get('titulo').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
-              Debes ingresar un Título.
-          </div>
-      </ion-item>
 
-      <ion-item>
-          <ion-label position="floating">Fecha Salida:</ion-label>
-          <ion-input [(ngModel)]="viaje.fecha" type="text" formControlName="titulo"></ion-input>
-          <div *ngIf=" RegisterForm.get('fecha').hasError('required') && RegisterForm.get('fecha').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
-              Debes ingresar una Fecha.
-          </div>
+        <ion-item>
+            <ion-label position="floating">Título para tu Viaje:</ion-label>
+            <ion-input [(ngModel)]="viaje.titulo" type="text" formControlName="titulo"></ion-input>
+            <div *ngIf=" RegisterForm.get('titulo').hasError('required') && RegisterForm.get('titulo').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
+                Debes ingresar un Título.
+            </div>
         </ion-item>
 
-      <ion-item>
-          <ion-label position="floating">Hora:</ion-label>
-          <ion-input [(ngModel)]="viaje.hora" type="text" formControlName="hora"></ion-input>
-          <div *ngIf=" RegisterForm.get('hora').hasError('required') && RegisterForm.get('hora').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
-              Debes ingresar una Hora.
-          </div>
-      </ion-item>
+        <ion-item>
+            <ion-label position="floating">Fecha Salida:</ion-label>
+            <ion-input [(ngModel)]="viaje.fecha" type="text" formControlName="titulo"></ion-input>
+            <div *ngIf=" RegisterForm.get('fecha').hasError('required') && RegisterForm.get('fecha').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
+                Debes ingresar una Fecha.
+            </div>
+        </ion-item>
 
-      <ion-item>
-          <ion-label position="floating">Capacidad Pasajeros:</ion-label>
-          <ion-input [(ngModel)]="viaje.pasajeros" type="number" formControlName="capacidad"></ion-input>
-          <div *ngIf=" RegisterForm.get('capacidad').hasError('required') && RegisterForm.get('capacidad').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
-              Debes ingresar Capacidad de Pasajeros.
-          </div>
-      </ion-item>
+        <ion-item>
+            <ion-label position="floating">Hora:</ion-label>
+            <ion-input [(ngModel)]="viaje.hora" type="text" formControlName="hora"></ion-input>
+            <div *ngIf=" RegisterForm.get('hora').hasError('required') && RegisterForm.get('hora').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
+                Debes ingresar una Hora.
+            </div>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Dirección:</ion-label>
-        <ion-input [(ngModel)]="viaje.direccion" type="text" formControlName=""></ion-input>
-        <div *ngIf=" RegisterForm.get('hora').hasError('required') && RegisterForm.get('hora').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
-            Debes ingresar una direccion.
+        <ion-item>
+            <ion-label position="floating">Capacidad Pasajeros:</ion-label>
+            <ion-input [(ngModel)]="viaje.pasajeros" type="number" formControlName="capacidad"></ion-input>
+            <div *ngIf=" RegisterForm.get('capacidad').hasError('required') && RegisterForm.get('capacidad').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
+                Debes ingresar Capacidad de Pasajeros.
+            </div>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Dirección:</ion-label>
+            <ion-input [(ngModel)]="viaje.direccion" type="text" formControlName=""></ion-input>
+            <div *ngIf=" RegisterForm.get('hora').hasError('required') && RegisterForm.get('hora').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
+                Debes ingresar una direccion.
+            </div>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Valor por Persona:</ion-label>
+            <ion-input [(ngModel)]="viaje.precio" type="number" formControlName="capacidad"></ion-input>
+            <div *ngIf=" RegisterForm.get('capacidad').hasError('required') && RegisterForm.get('capacidad').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
+                Debes ingresar Capacidad de Pasajeros.
+            </div>
+        </ion-item>
+
+        <div style="text-align: center;">
+            <ion-button (click)="crearviaje()" [disabled]="true" *ngIf="!apagarboton" color="success" style="margin-bottom: 20px; margin-top:20px;">Crear Viaje</ion-button>
+            <ion-button (click)="crearviaje()" (click)="presentToast()" *ngIf="!RegisterForm.invalid && apagarboton" color="success" style="margin-bottom: 20px; margin-top:20px;">¡Crear Viaje!</ion-button>
         </div>
-    </ion-item>
 
-    <ion-item>
-        <ion-label position="floating">Valor por Persona:</ion-label>
-        <ion-input [(ngModel)]="viaje.precio" type="number" formControlName="capacidad"></ion-input>
-        <div *ngIf=" RegisterForm.get('capacidad').hasError('required') && RegisterForm.get('capacidad').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
-            Debes ingresar Capacidad de Pasajeros.
-        </div>
-    </ion-item>
-
-      <div style="text-align: center;">
-          <ion-button (click)="crearviaje()" [disabled]="true" *ngIf="!apagarboton" color="success" style="margin-bottom: 20px; margin-top:20px;">Crear Viaje</ion-button>
-          <ion-button (click)="crearviaje()" (click)="presentToast()" *ngIf="!RegisterForm.invalid && apagarboton" color="success" style="margin-bottom: 20px; margin-top:20px;">¡Crear Viaje!</ion-button>
-      </div>
- 
-      <ion-button (click)="guardarViaje()"  color="success" style="margin-bottom: 20px; margin-top:20px; margin-left: 14vh;">Crear Viaje</ion-button>
-</form>
+        <ion-button (click)="guardarViaje()" color="success" style="margin-bottom: 20px; margin-top:20px; margin-left: 14vh;">Crear Viaje</ion-button>
+    </form>
 </ion-content>
