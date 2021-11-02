@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-crear-viaje',
@@ -6,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crear-viaje.component.scss'],
 })
 export class CrearViajeComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {}
-
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+  
 }
+  

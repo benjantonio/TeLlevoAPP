@@ -7,5 +7,11 @@ import { Storage } from '@ionic/storage-angular';
 export class BdLocalService {
 
   private _storage: Storage | null = null;
-  constructor(private storage: Storage) { }
+  constructor(private storage: Storage) { 
+    this.init();
+  }
+  async init(){
+    const storage = await this.storage.create();
+    this._storage = storage;
+  }
 }
