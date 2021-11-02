@@ -8,12 +8,14 @@ import { PanelViajesPageRoutingModule } from './panel-viajes-routing.module';
 
 import { PanelViajesPage } from './panel-viajes.page';
 
+import { ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PanelViajesPageRoutingModule
+    PanelViajesPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [PanelViajesPage]
 })

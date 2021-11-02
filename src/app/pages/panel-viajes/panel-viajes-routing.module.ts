@@ -16,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: "misviajes",
-        component: MisViajesComponent
+        loadChildren: () => import('./../not-found/not-found.module').then( m => m.NotFoundPageModule)
       }
     ]
   }
