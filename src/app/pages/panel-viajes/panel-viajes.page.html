@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>PanelViajes</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+      <!-- Default Segment -->
+      <ion-segment (ionChange)="segmentChanged($event)">
+          <ion-segment-button value="crear">
+              <ion-icon name="add-circle-outline"> </ion-icon>
+              Crear Viaje
+          </ion-segment-button>
+          <ion-segment-button value="misviajes">
+              <ion-icon name="time-outline"></ion-icon>
+              Mis Viajes
+          </ion-segment-button>
+      </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
+</ion-content>

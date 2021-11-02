@@ -40,10 +40,17 @@ const routes: Routes = [
     canActivate: [IngresadoGuard]
   },
   {
+    path: 'panel-viajes',
+    loadChildren: () => import('./pages/panel-viajes/panel-viajes.module').then( m => m.PanelViajesPageModule),
+    canActivate: [IngresadoGuard]
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule),
     canActivate: [NoIngresadoGuard]
   },
+  
+
 
 
 
