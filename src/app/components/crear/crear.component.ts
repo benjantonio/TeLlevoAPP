@@ -14,8 +14,6 @@ export class CrearComponent implements OnInit {
   apagarboton:boolean;
   cargando: boolean;
 
-  test:any;
-
   viaje:any={
     id:null,
     titulo:"",
@@ -31,7 +29,7 @@ export class CrearComponent implements OnInit {
 guardarViaje(){
   this.api.createViaje(this.viaje).subscribe(()=>{
     console.log('viaje creado :d')
-    console.log('test: ', this.test)
+    console.log('dire: ',this.viaje.direccion, ' titulo: ',this.viaje.titulo)
   })
 }
 

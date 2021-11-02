@@ -39,7 +39,7 @@
 
         <ion-item>
             <ion-label position="floating">Dirección:</ion-label>
-            <ion-input [(ngModel)]="viaje.direccion" type="text" formControlName=""></ion-input>
+            <ion-input [(ngModel)]="viaje.direccion" type="text" formControlName="titulo"></ion-input>
             <div *ngIf=" RegisterForm.get('hora').hasError('required') && RegisterForm.get('hora').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
                 Debes ingresar una direccion.
             </div>
