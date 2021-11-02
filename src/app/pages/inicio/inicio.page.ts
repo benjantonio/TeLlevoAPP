@@ -45,7 +45,7 @@ cargando: boolean;
     await this.sleep(800);
     this.cargando=false;
     await this.sleep(200);
-    this.elrouteruwu.navigate(['/panel-viajes']);
+    this.elrouteruwu.navigate(['/programar-viaje']);
    }
    
    async buscar() {
