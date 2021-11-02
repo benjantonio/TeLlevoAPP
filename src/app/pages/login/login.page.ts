@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { BdLocalService } from 'src/app/services/bd-local.service';
 import { LoginModel } from './models/login.model';
 
@@ -22,13 +23,20 @@ export class LoginPage implements OnInit {
 
   cargando: boolean;
 
-  constructor(private elrouteruwu:Router, public bdlocalservice: BdLocalService) {
+  constructor(private elrouteruwu:Router, public bdlocalservice: BdLocalService, public navCtrl: NavController) {
   }
 
   ionViewWillEnter(){
+    
   }
 
   guardar(){
+    var usuario = {
+      nombre: 'benja',
+      contra: '123456'
+    }
+
+    localStorage.setItem('usuario', JSON.stringify(usuario));
   }
 
 
@@ -40,18 +48,30 @@ export class LoginPage implements OnInit {
   }
 
   async ingresar(){
-    console.log(this.model);
-    //retraso la función 2Seg.
-    this.cargando=true;
 
+    this.cargando=true;
     await this.sleep(2000);
-   
-    let navigationExtras: NavigationExtras={
-      state:{usuario: this.usuarioingresado}
+    
+    var f = this.RegisterForm.value;
+    var usuario = JSON.parse(localStorage.getItem('usuario'));
+
+    if(usuario.nombre == f.usuario && usuario.contra == f.contrasena){
+      console.log('INGRESADO');
+      localStorage.setItem('ingresado','true');
+      this.navCtrl.navigateRoot('inicio')
+      let navigationExtras: NavigationExtras={
+        state:{usuario: this.usuarioingresado}
+      }
+      this.elrouteruwu.navigate(['/inicio'], navigationExtras)
+      this.RegisterForm.reset();
+    }else{
+      console.log('error');
     }
-    this.elrouteruwu.navigate(['/inicio'], navigationExtras)
+
     this.cargando=false;
-    this.RegisterForm.reset();
+    //retraso la función 2Seg.
+    
+    
   }
 
   async recuperar(){
