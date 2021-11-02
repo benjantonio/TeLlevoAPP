@@ -18,8 +18,10 @@ export class AppComponent {
    }
 
    retroceder(){
+    localStorage.setItem('ingresado', 'false')
     this.router.navigate(['/login']);
     this.menu.close();
+    
   }
 
 

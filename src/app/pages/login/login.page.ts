@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
   }
 
   ionViewWillEnter(){
-    
+    this.guardar()
   }
 
   guardar(){

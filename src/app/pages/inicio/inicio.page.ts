@@ -22,6 +22,8 @@ cargando: boolean;
     this.activeroute.queryParams.subscribe(params=> {
       if(this.elrouteruwu.getCurrentNavigation().extras.state){
         this.usuariorecibido= this.elrouteruwu.getCurrentNavigation().extras.state.usuario;
+      }else{
+        this.usuariorecibido=localStorage.getItem('usuario.nombre');
       }
     })
    }
