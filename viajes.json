@@ -1,0 +1,102 @@
+{
+  "viajes": [
+    {
+      "id": 1,
+      "titulo": "viaje mortal",
+      "fecha": "20/11/2021",
+      "hora": "23:30",
+      "direccion": "Calle jamaica #2291",
+      "precio": 2100,
+      "pasajeros": 4
+    },
+    {
+      "id": 2,
+      "titulo": "",
+      "fecha": "",
+      "hora": "",
+      "direccion": "",
+      "precio": "",
+      "pasajeros": ""
+    },
+    {
+      "id": 3,
+      "titulo": "",
+      "fecha": ""
+    },
+    {
+      "id": 4,
+      "titulo": "",
+      "fecha": "",
+      "hora": "",
+      "direccion": "",
+      "precio": "",
+      "pasajeros": ""
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6,
+      "titulo": "",
+      "fecha": "",
+      "hora": "",
+      "direccion": "",
+      "precio": "",
+      "pasajeros": ""
+    },
+    {
+      "id": 7,
+      "titulo": "",
+      "fecha": "",
+      "hora": "",
+      "direccion": "",
+      "precio": "",
+      "pasajeros": ""
+    },
+    {
+      "id": 8,
+      "titulo": "",
+      "fecha": "",
+      "hora": "",
+      "direccion": "",
+      "precio": "",
+      "pasajeros": ""
+    },
+    {
+      "id": 9,
+      "titulo": "",
+      "fecha": "",
+      "hora": "",
+      "direccion": "",
+      "precio": "",
+      "pasajeros": ""
+    },
+    {
+      "id": 10,
+      "titulo": "",
+      "fecha": "",
+      "hora": "",
+      "direccion": "",
+      "precio": "",
+      "pasajeros": ""
+    },
+    {
+      "id": 11,
+      "titulo": "",
+      "fecha": "",
+      "hora": "",
+      "direccion": "",
+      "precio": "",
+      "pasajeros": ""
+    },
+    {
+      "id": 12,
+      "titulo": "",
+      "fecha": "",
+      "hora": "",
+      "direccion": "",
+      "precio": "",
+      "pasajeros": ""
+    }
+  ]
+}

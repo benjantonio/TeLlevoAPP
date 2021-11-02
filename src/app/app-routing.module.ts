@@ -45,10 +45,17 @@ const routes: Routes = [
     canActivate: [IngresadoGuard]
   },
   {
+    path: 'buscar-viaje',
+    loadChildren: () => import('./pages/buscar-viaje/buscar-viaje.module').then( m => m.BuscarViajePageModule),
+    canActivate: [IngresadoGuard]
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule),
   
   },
+  
+
   
 
 

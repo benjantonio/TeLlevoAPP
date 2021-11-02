@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { APIViajesService } from 'src/app/services/apiviajes.service';
 
 @Component({
   selector: 'app-crear',
@@ -13,7 +14,33 @@ export class CrearComponent implements OnInit {
   apagarboton:boolean;
   cargando: boolean;
 
-  constructor(private elrouteruwu:Router, public toastController: ToastController) { }
+  test:any;
+
+  viaje:any={
+    id:null,
+    titulo:"",
+    fecha:"",
+    hora:"",
+    direccion:"",
+    precio:"",
+    pasajeros:""
+  };
+
+  constructor(private elrouteruwu:Router, public toastController: ToastController, private api:APIViajesService) { }
+
+guardarViaje(){
+  this.api.createViaje(this.viaje).subscribe(()=>{
+    console.log('viaje creado :d')
+    console.log('test: ', this.test)
+  })
+}
+
+
+
+
+
+
+
 
     //creo función para retrasar ciertas funciones.
     sleep(ms) {

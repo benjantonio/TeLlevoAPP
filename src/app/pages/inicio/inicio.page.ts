@@ -49,13 +49,11 @@ cargando: boolean;
    }
    
    async buscar() {
-    const toast = await this.toastController.create({
-      message: '¡Próximamente!',
-      duration: 1500,
-      color: 'secondary',
-      position: 'bottom',
-    });
-    toast.present();
+    this.cargando=true;
+    await this.sleep(800);
+    this.cargando=false;
+    await this.sleep(200);
+    this.elrouteruwu.navigate(['/buscar-viaje']);
   }
 
 
