@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { BdLocalService } from 'src/app/services/bd-local.service';
 import { LoginModel } from './models/login.model';
 
@@ -23,7 +23,9 @@ export class LoginPage implements OnInit {
 
   cargando: boolean;
 
-  constructor(private elrouteruwu:Router, public bdlocalservice: BdLocalService, public navCtrl: NavController) {
+  rescate: any;
+
+  constructor(private elrouteruwu:Router, public bdlocalservice: BdLocalService, public navCtrl: NavController, public alertController: AlertController) {
   }
 
   ionViewWillEnter(){
@@ -32,7 +34,7 @@ export class LoginPage implements OnInit {
 
   guardar(){
     var usuario = {
-      nombre: 'benja',
+      nombre: 'joc.riquelmem',
       contra: '123456'
     }
 
@@ -65,6 +67,13 @@ export class LoginPage implements OnInit {
       this.elrouteruwu.navigate(['/inicio'], navigationExtras)
       this.RegisterForm.reset();
     }else{
+        const alert = await this.alertController.create({ 
+          header: 'Error',
+          message: 'El usuario o la contraseña es incorrecta.',
+          buttons: ['OK']
+        });
+
+        await alert.present();
       console.log('error');
     }
 
