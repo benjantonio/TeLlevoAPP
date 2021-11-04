@@ -17,7 +17,7 @@ export class MapPage implements OnInit {
   constructor(private elrouteruwu:Router, public toastController: ToastController) { }
 
   async regresar(){
-    this.elrouteruwu.navigate(['/programar-viaje']);
+    this.elrouteruwu.navigate(['/panel-viajes']);
 
   }
 
