@@ -36,8 +36,13 @@ cargando: boolean;
     });
   }
 
+  irGeo(){
+    console.log('irGeo activado')
+    this.elrouteruwu.navigate(['/programar-viaje']);
+  }
+
    retroceder(){
-     this.elrouteruwu.navigate(['/login']);
+    this.elrouteruwu.navigate(['/login']);
    }
 
    async programar(){
