@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { APIViajesService } from 'src/app/services/apiviajes.service';
 
@@ -14,6 +14,8 @@ export class CrearComponent implements OnInit {
   apagarboton:boolean;
   cargando: boolean;
 
+  direc:any;
+
   viaje:any={
     id:null,
     titulo:"",
@@ -24,27 +26,31 @@ export class CrearComponent implements OnInit {
     pasajeros:""
   };
 
-  constructor(private elrouteruwu:Router, public toastController: ToastController, private api:APIViajesService) { }
+  constructor(private elrouteruwu:Router, public toastController: ToastController, private api:APIViajesService, private activeroute: ActivatedRoute) { 
+    
+  }
+
 
 guardarViaje(){
-  this.api.createViaje(this.viaje).subscribe(()=>{
+  console.log('direccion de base de datos: ', JSON.parse(localStorage.getItem('direccion')))
+  this.viaje.direccion = JSON.parse(localStorage.getItem('direccion'))
+  this.api.createViaje(this.viaje).subscribe( ()=>{
     console.log('viaje creado :d')
-    console.log('dire: ',this.viaje.direccion, ' titulo: ',this.viaje.titulo)
+    console.log( ' ingresada a api: ',this.viaje.direccion)
+
+    this.elrouteruwu.navigate(['/inicio'])
   })
 }
-
-
-
-
-
-
-
 
     //creo función para retrasar ciertas funciones.
     sleep(ms) {
       return new Promise((resolve) => {
         setTimeout(resolve, ms);
       });
+    }
+
+    probando(){
+      console.log("asasdds PRUEBA PRUEBA")
     }
 
     retroceder(){
@@ -95,6 +101,9 @@ guardarViaje(){
         Validators.required, 
       ]),
       capacidad: new FormControl('',[
+        Validators.required,
+      ]),
+      precio: new FormControl('',[
         Validators.required,
       ]),
     });

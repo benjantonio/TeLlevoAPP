@@ -16,22 +16,19 @@ export class APIViajesService {
   }
 
     // API Falsa
-   apiURL = 'http://192.168.100.24:3000';
+   apiURL = 'http://192.168.239.5:3000';
     // Se establece la base url del API a consumir
      //apiURL = 'https://jsonplaceholder.typicode.com';
 
   constructor(private http:HttpClient) { }
 
   getViajes():Observable<any>{
-    return this.http.get(this.apiURL+'/viajes/').pipe(
-    retry(3)
+    return this.http.get(this.apiURL+'/viajes/').pipe(retry(3)
     );
   }
 
   createViaje(viaje):Observable<any>{
-    return this.http.post(this.apiURL+'/viajes',viaje,this.httpOptions)
-    .pipe(
-    retry(3)
+    return this.http.post(this.apiURL+'/viajes',viaje,this.httpOptions).pipe(retry(3)
     );
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import * as Mapboxgl from 'mapbox-gl';
 import { environment } from 'src/environments/environment';
 import { ToastController } from '@ionic/angular'; //Controlador de Toast
@@ -12,12 +12,15 @@ import { ToastController } from '@ionic/angular'; //Controlador de Toast
 export class MapPage implements OnInit {
   mapa: Mapboxgl.map;
   title = 'mapboxgl';
+  direccion: any;
 
   
   constructor(private elrouteruwu:Router, public toastController: ToastController) { }
 
   async regresar(){
-    this.elrouteruwu.navigate(['/programar-viaje']);
+    localStorage.setItem('direccion', this.direccion);
+    this.elrouteruwu.navigate(['/panel-viajes'])
+  
 
   }
 
@@ -65,8 +68,6 @@ export class MapPage implements OnInit {
     .addTo(this.mapa);
   }
 
-  confirmarmapa(){
-    this.elrouteruwu.navigate(['/programar-viaje']);
-  }
+ 
 
 }
