@@ -14,6 +14,8 @@ export class CrearComponent implements OnInit {
   apagarboton:boolean;
   cargando: boolean;
 
+  direc:any;
+
   viaje:any={
     id:null,
     titulo:"",
@@ -25,18 +27,16 @@ export class CrearComponent implements OnInit {
   };
 
   constructor(private elrouteruwu:Router, public toastController: ToastController, private api:APIViajesService, private activeroute: ActivatedRoute) { 
-    this.activeroute.queryParams.subscribe(params=> {
-      if(this.elrouteruwu.getCurrentNavigation().extras.state){
-        this.viaje.direccion = this.elrouteruwu.getCurrentNavigation().extras.state.dir;
-      }
-    })
+    
   }
 
 
 guardarViaje(){
+  console.log('direccion de base de datos: ', JSON.parse(localStorage.getItem('direccion')))
+  this.viaje.direccion = JSON.parse(localStorage.getItem('direccion'))
   this.api.createViaje(this.viaje).subscribe( ()=>{
     console.log('viaje creado :d')
-    console.log('dire: ',this.viaje.direccion, ' titulo: ',this.viaje.titulo)
+    console.log( ' ingresada a api: ',this.viaje.direccion)
 
     this.elrouteruwu.navigate(['/inicio'])
   })
@@ -47,6 +47,10 @@ guardarViaje(){
       return new Promise((resolve) => {
         setTimeout(resolve, ms);
       });
+    }
+
+    probando(){
+      console.log("asasdds PRUEBA PRUEBA")
     }
 
     retroceder(){

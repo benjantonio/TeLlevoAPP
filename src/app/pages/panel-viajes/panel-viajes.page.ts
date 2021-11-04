@@ -45,6 +45,7 @@ async abrirmapa(){
   this.cargando=false;
 }
 
+
 async crearviaje(){
   this.cargando=true;
   await this.sleep(3000);

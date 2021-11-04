@@ -18,11 +18,8 @@ export class MapPage implements OnInit {
   constructor(private elrouteruwu:Router, public toastController: ToastController) { }
 
   async regresar(){
-    
-    let navigationExtras: NavigationExtras={
-      state:{dir: this.direccion}
-    }
-    this.elrouteruwu.navigate(['/panel-viajes'], navigationExtras)
+    localStorage.setItem('direccion', this.direccion);
+    this.elrouteruwu.navigate(['/panel-viajes'])
   
 
   }
