@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
+import { AlertController, NavController } from '@ionic/angular';
+import { BdLocalService } from 'src/app/services/bd-local.service';
+import { LoginModel } from './models/login.model';
 
 
 
@@ -11,15 +14,33 @@ import { NavigationExtras, Router } from '@angular/router';
   
 })
 
+
 export class LoginPage implements OnInit {
+  public model:LoginModel = new LoginModel();
 
   RegisterForm: FormGroup;
   usuarioingresado:any;
 
   cargando: boolean;
 
-  constructor(private elrouteruwu:Router) {
+  rescate: any;
+
+  constructor(private elrouteruwu:Router, public bdlocalservice: BdLocalService, public navCtrl: NavController, public alertController: AlertController) {
   }
+
+  ionViewWillEnter(){
+    this.guardar()
+  }
+
+  guardar(){
+    var usuario = {
+      nombre: 'joc.riquelmem',
+      contra: '123456'
+    }
+
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+  }
+
 
   //creo función para retrasar ciertas funciones.
   sleep(ms) {
@@ -29,17 +50,37 @@ export class LoginPage implements OnInit {
   }
 
   async ingresar(){
-    //retraso la función 2Seg.
-    this.cargando=true;
 
+    this.cargando=true;
     await this.sleep(2000);
-   
-    let navigationExtras: NavigationExtras={
-      state:{usuario: this.usuarioingresado}
+    
+    var f = this.RegisterForm.value;
+    var usuario = JSON.parse(localStorage.getItem('usuario'));
+
+    if(usuario.nombre == f.usuario && usuario.contra == f.contrasena){
+      console.log('INGRESADO');
+      localStorage.setItem('ingresado','true');
+      this.navCtrl.navigateRoot('inicio')
+      let navigationExtras: NavigationExtras={
+        state:{usuario: this.usuarioingresado}
+      }
+      this.elrouteruwu.navigate(['/inicio'], navigationExtras)
+      this.RegisterForm.reset();
+    }else{
+        const alert = await this.alertController.create({ 
+          header: 'Error',
+          message: 'El usuario o la contraseña es incorrecta.',
+          buttons: ['OK']
+        });
+
+        await alert.present();
+      console.log('error');
     }
-    this.elrouteruwu.navigate(['/inicio'], navigationExtras)
+
     this.cargando=false;
-    this.RegisterForm.reset();
+    //retraso la función 2Seg.
+    
+    
   }
 
   async recuperar(){

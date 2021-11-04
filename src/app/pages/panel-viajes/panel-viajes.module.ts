@@ -8,13 +8,18 @@ import { PanelViajesPageRoutingModule } from './panel-viajes-routing.module';
 
 import { PanelViajesPage } from './panel-viajes.page';
 
+import { ReactiveFormsModule} from '@angular/forms';
+
+import { CrearComponent } from 'src/app/components/crear/crear.component';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PanelViajesPageRoutingModule
+    PanelViajesPageRoutingModule,
+    ReactiveFormsModule,
   ],
-  declarations: [PanelViajesPage]
+  declarations: [PanelViajesPage, CrearComponent], 
 })
 export class PanelViajesPageModule {}

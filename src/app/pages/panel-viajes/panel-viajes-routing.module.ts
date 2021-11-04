@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CrearViajeComponent } from 'src/app/componente/crear-viaje/crear-viaje.component';
-import { MisViajesComponent } from 'src/app/componente/mis-viajes/mis-viajes.component';
+import { CrearComponent } from 'src/app/components/crear/crear.component';
+import { MisViajesComponent } from 'src/app/components/mis-viajes/mis-viajes.component';
 
 import { PanelViajesPage } from './panel-viajes.page';
 
@@ -9,16 +9,15 @@ const routes: Routes = [
   {
     path: '',
     component: PanelViajesPage,
-    children: [
+    children:[
       {
         path: "crear",
-        component: CrearViajeComponent
+        component: CrearComponent 
       },
       {
-        path: "listar",
-        component: MisViajesComponent
+        path: "misviajes",
+        loadChildren: () => import('./../not-found/not-found.module').then( m => m.NotFoundPageModule)
       }
-      
     ]
   }
 ];

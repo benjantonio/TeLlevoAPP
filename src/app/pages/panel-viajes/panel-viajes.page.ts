@@ -10,22 +10,21 @@ import { ToastController } from '@ionic/angular';
 })
 export class PanelViajesPage implements OnInit {
 
+  RegisterForm: FormGroup;
+  apagarboton:boolean;
+  cargando: boolean;
+  
   constructor(private elrouteruwu:Router, public toastController: ToastController) { 
-    this.elrouteruwu.navigate(['home/crear'])
+    this.elrouteruwu.navigate(['panel-viajes/crear'])
   }
 
   segmentChanged(event: any){
     console.log(event);
     let ruta=event.detail.value
-    this.elrouteruwu.navigate(['home/'+ruta])
+    this.elrouteruwu.navigate(['panel-viajes/'+ruta])
   }
 
-  RegisterForm: FormGroup;
-  apagarboton:boolean;
-  cargando: boolean;
-
  
-  //creo función para retrasar ciertas funciones.
   sleep(ms) {
     return new Promise((resolve) => {
       setTimeout(resolve, ms);
@@ -83,8 +82,7 @@ ngOnInit() {
       Validators.required,
     ]),
   });
- }
 }
 
-
-
+  
+}
