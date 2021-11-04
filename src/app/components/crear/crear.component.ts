@@ -27,18 +27,13 @@ export class CrearComponent implements OnInit {
   constructor(private elrouteruwu:Router, public toastController: ToastController, private api:APIViajesService) { }
 
 guardarViaje(){
-  this.api.createViaje(this.viaje).subscribe(()=>{
+  this.api.createViaje(this.viaje).subscribe(async ()=>{
     console.log('viaje creado :d')
     console.log('dire: ',this.viaje.direccion, ' titulo: ',this.viaje.titulo)
+    await this.sleep(2000);
+    this.elrouteruwu.navigate(['/inicio'])
   })
 }
-
-
-
-
-
-
-
 
     //creo función para retrasar ciertas funciones.
     sleep(ms) {
@@ -95,6 +90,9 @@ guardarViaje(){
         Validators.required, 
       ]),
       capacidad: new FormControl('',[
+        Validators.required,
+      ]),
+      precio: new FormControl('',[
         Validators.required,
       ]),
     });
