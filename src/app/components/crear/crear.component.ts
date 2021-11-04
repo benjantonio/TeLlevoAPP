@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { APIViajesService } from 'src/app/services/apiviajes.service';
 
@@ -24,13 +24,20 @@ export class CrearComponent implements OnInit {
     pasajeros:""
   };
 
-  constructor(private elrouteruwu:Router, public toastController: ToastController, private api:APIViajesService) { }
+  constructor(private elrouteruwu:Router, public toastController: ToastController, private api:APIViajesService, private activeroute: ActivatedRoute) { 
+    this.activeroute.queryParams.subscribe(params=> {
+      if(this.elrouteruwu.getCurrentNavigation().extras.state){
+        this.viaje.direccion = this.elrouteruwu.getCurrentNavigation().extras.state.dir;
+      }
+    })
+  }
+
 
 guardarViaje(){
-  this.api.createViaje(this.viaje).subscribe(async ()=>{
+  this.api.createViaje(this.viaje).subscribe( ()=>{
     console.log('viaje creado :d')
     console.log('dire: ',this.viaje.direccion, ' titulo: ',this.viaje.titulo)
-    await this.sleep(2000);
+
     this.elrouteruwu.navigate(['/inicio'])
   })
 }
