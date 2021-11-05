@@ -55,6 +55,10 @@ export class ProgramarViajePage implements OnInit {
     this.elrouteruwu.navigate(['/panel-viajes'])
   }
 
+  async atras(){
+    this.elrouteruwu.navigate(['/panel-viajes'])
+  }
+
   
 
 }

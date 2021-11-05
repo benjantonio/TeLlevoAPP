@@ -1,12 +1,21 @@
 <ion-header>
     <ion-toolbar color="dark">
         
-            <button (click)="retroceder()" style="padding: 0; margin: 0; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0); ">
-            <ion-icon color="light" size="large" class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin: 0; margin-left: 10px; "></ion-icon>
-            </button>
+            <ion-grid>
+                <ion-row>
+                    <ion-col-4 color="light">
+                        <button (click)="retroceder()" style="padding: 0; margin: 0; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0); ">
+                            <ion-icon color="light" size="large" class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin: 0; margin-left: 10px; "></ion-icon>
+                            </button>
+                    </ion-col-4>
     
-            <ion-title style="text-align: center; font-size: 20px;">PanelViajes</ion-title>
-
+                    <ion-col-5 color="light">
+                        <h5 style="margin-top: 10px; margin-bottom: 10px; margin-left: 8px; color:white;">Panel Viajes</h5>
+    
+                    </ion-col-5>
+                </ion-row>
+            </ion-grid>
+            
     </ion-toolbar>
     <ion-toolbar>
         <!-- Default Segment -->
