@@ -1,4 +1,4 @@
-<ion-header>
+<!--<ion-header>
     <ion-toolbar color="dark">
     <ion-grid>
         <ion-row>
@@ -12,5 +12,35 @@
 
 <ion-content>
     <p>hola</p>
-</ion-content>
+</ion-content>-->
 
+
+
+<ion-content class="fondo">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <h3 style="padding-top: 20px; ">¿A dónde vas?:</h3>
+            </a>
+        </div>
+        <div style="padding-left: 5px; padding-right: 5px; color: red;" id="geocoder" #asGeoCoder class="geocoder"></div> 
+    </nav>
+
+
+
+    <div class="container p-3 mapa">
+
+        <ion-content id="map" #asMap class="map-container"></ion-content>
+
+    </div>
+
+    <div style="text-align: center;">
+        <ion-button (click)="regresar()" (click)="presentToast()" color="success">Confirmar</ion-button>
+    </div>
+
+    
+
+</ion-content>>
+
+
+    

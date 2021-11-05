@@ -7,9 +7,9 @@ import { Cuentas } from '../interfaces/cuentas';
   providedIn: 'root'
 })
 export class BdLocalService {
-
-  cuenta: Cuentas[]=[]
 /*
+  cuenta: Cuentas[]=[]
+
   private _storage: Storage | null = null;
   constructor(private storage: Storage, public toastController: ToastController) { 
     this.init();
@@ -49,7 +49,5 @@ export class BdLocalService {
 
     });
     toast.present();
-  }
-
-*/
+  }*/
 }

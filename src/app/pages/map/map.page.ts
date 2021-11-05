@@ -20,8 +20,6 @@ export class MapPage implements OnInit {
   async regresar(){
     localStorage.setItem('direccion', this.direccion);
     this.elrouteruwu.navigate(['/panel-viajes'])
-  
-
   }
 
     //creo función para retrasar ciertas funciones.
