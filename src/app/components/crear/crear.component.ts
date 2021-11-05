@@ -62,7 +62,7 @@ guardarViaje(){
   async abrirmapa(){
     this.cargando=true;
     await this.sleep(1000);
-    this.elrouteruwu.navigate(['/map']);
+    this.elrouteruwu.navigate(['/programar-viaje']);
     this.apagarboton=true;
     this.cargando=false;
   }
