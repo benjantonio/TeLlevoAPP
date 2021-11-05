@@ -18,11 +18,23 @@
 
 <ion-content class="fondo">
     <nav class="navbar navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <h3 style="padding-top: 20px; ">¿A dónde vas?:</h3>
-            </a>
-        </div>
+        
+        <ion-grid style="margin-top:20px;">
+            <ion-row>
+                <ion-col-4 color="light" >
+                    <ion-button color="asd" (click)="atras()" style="padding: 0; margin: 0; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0); ">
+                        <ion-icon color="light" size="medium" class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin: 0; margin-left: 10px; "></ion-icon>
+                        </ion-button>
+                </ion-col-4>
+
+                <ion-col-5 color="light">
+                    <h5 style="margin-top: 10px; margin-bottom: 10px; margin-left: 8px; color:white;">Selecciona tu Destino</h5>
+
+                </ion-col-5>
+            </ion-row>
+        </ion-grid>
+
+
         <div style="padding-left: 5px; padding-right: 5px; color: red;" id="geocoder" #asGeoCoder class="geocoder"></div> 
     </nav>
 
