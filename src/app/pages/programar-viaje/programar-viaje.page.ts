@@ -23,11 +23,7 @@ export class ProgramarViajePage implements OnInit {
       this.render2.appendChild(this.asGeoCoder.nativeElement,geocoder.onAdd(map));
       
       //método para extraer la dirección
-      geocoder.on('result', ($event) => {
-        const {result} = $event;
-        console.log('*********OOOJOOJOJ', result.place_name)
-        this.direcc=result.place_name;
-      })
+      
 
       console.log('**** todo bien ****')
     })
@@ -54,8 +50,8 @@ export class ProgramarViajePage implements OnInit {
     toast.present();
   }
 
+
   async regresar(){
-    localStorage.setItem('direccion', 'asdasd');
     this.elrouteruwu.navigate(['/panel-viajes'])
   }
 

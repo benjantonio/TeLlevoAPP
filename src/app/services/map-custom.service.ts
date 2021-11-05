@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class MapCustomService {
+export class MapCustomService { 
   cbAddress: EventEmitter<any> = new EventEmitter<any>();
 
   mapbox = (mapboxgl as typeof mapboxgl);
@@ -17,6 +17,8 @@ export class MapCustomService {
   lat = 40.416906;
   lng = -3.7056721;
   zoom = 3;
+
+  direcc:any;
 
   constructor() { 
     this.mapbox.accessToken = environment.maptokenkey;
@@ -37,6 +39,12 @@ export class MapCustomService {
           mapboxgl
         })
 
+        geocoder.on('result', ($event) => {
+          const {result} = $event;
+          console.log('*********OOOJOOJOJ', result.place_name)
+          this.direcc=result.place_name;
+        });
+
         resolve({
           map:this.map,
           geocoder
@@ -48,6 +56,10 @@ export class MapCustomService {
 
       
     });
+  }
+
+  devolverDireccion(){
+    return this.direcc;
   }
 
 }

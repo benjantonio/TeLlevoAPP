@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { APIViajesService } from 'src/app/services/apiviajes.service';
+import { MapCustomService } from 'src/app/services/map-custom.service';
 
 @Component({
   selector: 'app-crear',
@@ -26,13 +27,13 @@ export class CrearComponent implements OnInit {
     pasajeros:""
   };
 
-  constructor(private elrouteruwu:Router, public toastController: ToastController, private api:APIViajesService, private activeroute: ActivatedRoute) { 
+  constructor(private elrouteruwu:Router, public toastController: ToastController, private api:APIViajesService, private activeroute: ActivatedRoute, public map:MapCustomService) { 
     
   }
 
 
 guardarViaje(){
-  this.viaje.direccion = JSON.parse(localStorage.getItem('direccion'))
+  this.viaje.direccion=this.map.devolverDireccion()
   this.api.createViaje(this.viaje).subscribe( ()=>{
     console.log('viaje creado :d')
     console.log( ' ingresada a api: ',this.viaje.direccion)
@@ -61,7 +62,7 @@ guardarViaje(){
   async abrirmapa(){
     this.cargando=true;
     await this.sleep(1000);
-    this.elrouteruwu.navigate(['/map']);
+    this.elrouteruwu.navigate(['/programar-viaje']);
     this.apagarboton=true;
     this.cargando=false;
   }
