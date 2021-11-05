@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 //DEBES IMPORTAR LOS ROUTERS DE AQUI ARRIBA//
 import { MenuController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular'; //Controlador de Toast
+import { BdLocalService } from 'src/app/services/bd-local.service';
 
 
 @Component({
@@ -17,11 +18,14 @@ usuariorecibido:any;
 controlmenu:boolean;
 cargando: boolean;
 
+
   //AQUI INGRESAMOS LOS CONSTRUCTORES NECESARIOS PARA PODER LLAMAR A LA VARIABLE DESDE OTRA PAGE//
-  constructor(private activeroute: ActivatedRoute, private elrouteruwu:Router, private menu: MenuController, public toastController: ToastController) {
+  constructor(private activeroute: ActivatedRoute, private elrouteruwu:Router, private menu: MenuController, public toastController: ToastController, public bd: BdLocalService) {
     this.activeroute.queryParams.subscribe(params=> {
       if(this.elrouteruwu.getCurrentNavigation().extras.state){
         this.usuariorecibido= this.elrouteruwu.getCurrentNavigation().extras.state.usuario;
+      }else{
+        this.usuariorecibido= JSON.parse(localStorage.getItem('usuario')).nombre;
       }
     })
    }
@@ -33,8 +37,17 @@ cargando: boolean;
     });
   }
 
+  irMap(){
+    this.elrouteruwu.navigate(['/map']);
+  }
+
+  irGeo(){
+    console.log('irGeo activado')
+    this.elrouteruwu.navigate(['/programar-viaje']);
+  }
+
    retroceder(){
-     this.elrouteruwu.navigate(['/login']);
+    this.elrouteruwu.navigate(['/login']);
    }
 
    async programar(){
@@ -42,17 +55,15 @@ cargando: boolean;
     await this.sleep(800);
     this.cargando=false;
     await this.sleep(200);
-    this.elrouteruwu.navigate(['/programar-viaje']);
+    this.elrouteruwu.navigate(['/panel-viajes']);
    }
    
    async buscar() {
-    const toast = await this.toastController.create({
-      message: '¡Próximamente!',
-      duration: 1500,
-      color: 'secondary',
-      position: 'bottom',
-    });
-    toast.present();
+    this.cargando=true;
+    await this.sleep(800);
+    this.cargando=false;
+    await this.sleep(200);
+    this.elrouteruwu.navigate(['/buscar-viaje']);
   }
 
 

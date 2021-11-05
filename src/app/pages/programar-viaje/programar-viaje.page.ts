@@ -1,15 +1,7 @@
-import { Injectable } from '@angular/core'; // at top
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Validators, FormControl, FormGroup } from '@angular/forms';
-import { ToastController } from '@ionic/angular'; //Controlador de Toast
-import { APIViajeService } from 'src/app/services/viaje.service';
-
-
-@Injectable({
-  providedIn: 'root' // just before your class
-})
-
+import { ToastController } from '@ionic/angular';
+import { MapCustomService } from 'src/app/services/map-custom.service';
 
 @Component({
   selector: 'app-programar-viaje',
@@ -19,83 +11,50 @@ import { APIViajeService } from 'src/app/services/viaje.service';
 
 
 export class ProgramarViajePage implements OnInit {
-  RegisterForm: FormGroup;
-  apagarboton:boolean;
-  cargando: boolean;
-  viaje: any;
+  @ViewChild('asGeoCoder') asGeoCoder:ElementRef;
 
-  ;
-  constructor(private elrouteruwu:Router, public toastController: ToastController,  private apiViaje: APIViajeService) { }
+  direcc:any;
 
-    //creo función para retrasar ciertas funciones.
-    sleep(ms) {
-      return new Promise((resolve) => {
-        setTimeout(resolve, ms);
-      });
-    }
+  constructor(private elrouteruwu:Router, private mapCustomService:MapCustomService, private render2:Renderer2, private toastController:ToastController) { }
 
-    retroceder(){
-      this.elrouteruwu.navigate(['/inicio']);
-      this.apagarboton=false;
-      this.cargando=false;
-    }
+  ngOnInit() : void{
+    this.mapCustomService.buildMap()
+    .then(({geocoder, map}) => {
+      this.render2.appendChild(this.asGeoCoder.nativeElement,geocoder.onAdd(map));
+      
+      //método para extraer la dirección
+      
 
-  async abrirmapa(){
-    this.cargando=true;
-    await this.sleep(1000);
-    this.elrouteruwu.navigate(['/map']);
-    this.apagarboton=true;
-    this.cargando=false;
+      console.log('**** todo bien ****')
+    })
+    .catch((err) => {
+      console.log('**** ERROR ****', err)
+    })
   }
 
-  viajeRecibido(viaje){
-    this.viaje= viaje;
-  }
-
-  async guardarViaje(){
-    await this.apiViaje.setViaje(this.RegisterForm.value).subscribe(this.viajeRecibido);    
-    this.elrouteruwu.navigate(['/inicio']);
-    this.apagarboton=false;
-    this.cargando=false;
-
-  }
-
-  async crearviaje(){
-    this.cargando=true;
-    this.guardarViaje();
-    await this.sleep(3000);
-}
-
-     // TOAST //
-     async presentToast() {
-
-      await this.sleep(3700);
-      const toast = await this.toastController.create({
-        message: '¡Tu viaje ha sido creado con éxito!.',
-        duration: 3500,
-        color: 'success',
-        position: 'bottom',
-      });
-      toast.present();
-    }
-
-
-  // eslint-disable-next-line @angular-eslint/contextual-lifecycle
-  ngOnInit() {
-
-    this.RegisterForm = new FormGroup({
-      titulo: new FormControl('',[
-        Validators.required
-      ]),
-      fecha: new FormControl('',[
-        Validators.required
-      ]),
-      hora: new FormControl('',[
-        Validators.required
-      ]),
-      capacidad: new FormControl('',[
-        Validators.required
-      ]),
+  sleep(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
     });
   }
+
+  async presentToast() {
+    
+    await this.sleep(600);
+    const toast = await this.toastController.create({
+      message: '¡Destino Guardado!',
+      duration: 2300,
+      color: 'secondary',
+      position: 'bottom',
+    });
+    toast.present();
+  }
+
+
+  async regresar(){
+    this.elrouteruwu.navigate(['/panel-viajes'])
+  }
+
+  
+
 }

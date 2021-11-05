@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        
+            <button (click)="retroceder()" style="padding: 0; margin: 0; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0); ">
+            <ion-icon color="light" size="large" class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin: 0; margin-left: 10px; "></ion-icon>
+            </button>
+    
+            <ion-title style="text-align: center; font-size: 20px;">PanelViajes</ion-title>
+
+    </ion-toolbar>
+    <ion-toolbar>
+        <!-- Default Segment -->
+        <ion-segment (ionChange)="segmentChanged($event)">
+            <ion-segment-button value="crear">
+                <ion-icon name="add-circle-outline"> </ion-icon>
+                Crear Viaje
+            </ion-segment-button>
+            <ion-segment-button value="misviajes">
+                <ion-icon name="time-outline"></ion-icon>
+                Mis Viajes
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+    <ion-router-outlet></ion-router-outlet>
+    
+</ion-content>

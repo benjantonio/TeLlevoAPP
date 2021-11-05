@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-grid>
+            <ion-row>
+                <ion-col-4 color="light">
+                    <button (click)="retroceder()" style=" color: white; background-color: rgba(0, 0, 0, 0); ">
+        <ion-icon class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin-top: 5px; "></ion-icon>
+    </button>
+                </ion-col-4>
+
+                <ion-col-5 color="light">
+                    <h5 style="margin-top: 10px; margin-bottom: 10px; margin-left: 8px; color:white;">¿A dónde vas?</h5>
+
+                </ion-col-5>
+            </ion-row>
+        </ion-grid>
+        <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;"></ion-progress-bar>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-list-header>
+            <ion-title>Viajes Activos</ion-title>
+        </ion-list-header>
+        <ion-list>
+            <ion-item *ngFor="let viaje of viajes">
+                <ion-label>
+                    <p style="font-size: 17px; color: black;">{{viaje.titulo}}</p>
+                    <p style="font-size: 14px; color: black; font-weight: lighter">{{viaje.direccion}}</p>
+                    <p style="font-size: 14px; color: black; font-weight: lighter">${{viaje.precio}}</p>
+                    <p style="font-size: 14px; color: black; font-weight: lighter">{{viaje.fecha}}</p>
+                </ion-label>
+                <ion-button>
+                    <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+                </ion-button>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+</ion-content>
