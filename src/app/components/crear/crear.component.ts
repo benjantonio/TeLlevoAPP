@@ -32,7 +32,6 @@ export class CrearComponent implements OnInit {
 
 
 guardarViaje(){
-  console.log('direccion de base de datos: ', JSON.parse(localStorage.getItem('direccion')))
   this.viaje.direccion = JSON.parse(localStorage.getItem('direccion'))
   this.api.createViaje(this.viaje).subscribe( ()=>{
     console.log('viaje creado :d')
@@ -62,7 +61,7 @@ guardarViaje(){
   async abrirmapa(){
     this.cargando=true;
     await this.sleep(1000);
-    this.elrouteruwu.navigate(['/programar-viaje']);
+    this.elrouteruwu.navigate(['/map']);
     this.apagarboton=true;
     this.cargando=false;
   }

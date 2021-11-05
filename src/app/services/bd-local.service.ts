@@ -7,7 +7,7 @@ import { Cuentas } from '../interfaces/cuentas';
   providedIn: 'root'
 })
 export class BdLocalService {
-
+/*
   cuenta: Cuentas[]=[]
 
   private _storage: Storage | null = null;
@@ -49,5 +49,5 @@ export class BdLocalService {
 
     });
     toast.present();
-  }
+  }*/
 }
