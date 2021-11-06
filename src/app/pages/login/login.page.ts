@@ -25,7 +25,12 @@ export class LoginPage implements OnInit {
 
   rescate: any;
 
-  constructor(private elrouteruwu:Router, public bdlocalservice: BdLocalService, public navCtrl: NavController, public alertController: AlertController) {
+  constructor(
+    private elrouteruwu:Router, 
+    public bdlocalservice: BdLocalService, 
+    public navCtrl: NavController, 
+    public alertController: AlertController
+    ) {
   }
 
   ionViewWillEnter(){
