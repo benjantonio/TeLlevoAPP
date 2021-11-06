@@ -15,12 +15,7 @@ export class ProgramarViajePage implements OnInit {
 
   direcc:any;
 
-  constructor(
-    private elrouteruwu:Router, 
-    private mapCustomService:MapCustomService, 
-    private render2:Renderer2, 
-    private toastController:ToastController
-    ) { }
+  constructor(private elrouteruwu:Router, private mapCustomService:MapCustomService, private render2:Renderer2, private toastController:ToastController) { }
 
   ngOnInit() : void{
     this.mapCustomService.buildMap()
@@ -57,12 +52,6 @@ export class ProgramarViajePage implements OnInit {
 
 
   async regresar(){
-    this.mapCustomService.blockMap(true);
-    this.elrouteruwu.navigate(['/panel-viajes'])
-  }
-
-  async atras(){
-    this.mapCustomService.blockMap(false);
     this.elrouteruwu.navigate(['/panel-viajes'])
   }
 

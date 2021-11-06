@@ -20,8 +20,6 @@ export class MapCustomService {
 
   direcc:any;
 
-  bloquear: boolean;
-
   constructor() { 
     this.mapbox.accessToken = environment.maptokenkey;
   }
@@ -62,14 +60,6 @@ export class MapCustomService {
 
   devolverDireccion(){
     return this.direcc;
-  }
-  
-  blockMap(bool: boolean){
-    this.bloquear=bool;
-  }
-
-  extraerBlock(){
-    return this.bloquear;
   }
 
 }
