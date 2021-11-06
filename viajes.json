@@ -35,6 +35,33 @@
       "direccion": "Ecuador 1285, Quilpué, Región de Valparaíso 2430000, Chile",
       "precio": 1300,
       "pasajeros": 2
+    },
+    {
+      "id": 5,
+      "titulo": "Valpo",
+      "fecha": "2021-11-17",
+      "hora": "12:34",
+      "direccion": "Anibal Pinto, Viña del Mar, Región de Valparaíso 2520000, Chile",
+      "precio": 2000,
+      "pasajeros": 1
+    },
+    {
+      "id": 6,
+      "titulo": "Valparaiso",
+      "fecha": "2021-11-17",
+      "hora": "12:34",
+      "direccion": "Anibal Pinto, Viña del Mar, Región de Valparaíso 2520000, Chile",
+      "precio": 2000,
+      "pasajeros": 1
+    },
+    {
+      "id": 7,
+      "titulo": "Villa alemana",
+      "fecha": "2021-11-18",
+      "hora": "12:12",
+      "direccion": "Villa Alemana, Región de Valparaíso, Chile",
+      "precio": 3000,
+      "pasajeros": 1
     }
   ]
 }

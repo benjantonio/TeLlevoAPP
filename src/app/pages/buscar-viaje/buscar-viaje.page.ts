@@ -1,10 +1,9 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
 import { APIViajesService } from 'src/app/services/apiviajes.service';
-
-
+import { ToastController,AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-buscar-viaje',
@@ -13,14 +12,16 @@ import { APIViajesService } from 'src/app/services/apiviajes.service';
 })
 export class BuscarViajePage implements OnInit {
 
-  viajes: any;
+  viajes:any;
+  alertCtrl: any;
+  alertController: any;
   
-
 
   constructor(
     private elrouteruwu:Router, 
-    private api:APIViajesService, 
-    private toastController: ToastController) { }
+    private api:APIViajesService,
+    public Toastcontroler: ToastController,
+    public AlertController: AlertController) { }
   ionViewWillEnter(){
     this.getViajes();
   }
@@ -40,13 +41,19 @@ export class BuscarViajePage implements OnInit {
   ngOnInit() {
   }
 
-  async presentToast(){
-   const toast = await this.toastController.create({
-     message: 'Viaje creado exitosamente',
-     duration: 500,
-     position: 'middle'
-   });
-   toast.present()
+  async presentToast1() {
+    
+    const toast = await this.Toastcontroler.create({
+      message: '¡Viaje confirmado!',
+      duration: 2000,
+      color: 'secondary',
+      position: 'bottom',
+    });
+    toast.present();
+  }
+  sleep(arg0: number) {
+    throw new Error('Method not implemented.');
   }
 
+ 
 }
