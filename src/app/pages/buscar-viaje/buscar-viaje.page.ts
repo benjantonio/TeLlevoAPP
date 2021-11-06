@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { APIViajesService } from 'src/app/services/apiviajes.service';
+
+
 
 @Component({
   selector: 'app-buscar-viaje',
@@ -9,9 +13,14 @@ import { APIViajesService } from 'src/app/services/apiviajes.service';
 })
 export class BuscarViajePage implements OnInit {
 
-  viajes:any;
+  viajes: any;
+  
 
-  constructor(private elrouteruwu:Router, private api:APIViajesService) { }
+
+  constructor(
+    private elrouteruwu:Router, 
+    private api:APIViajesService, 
+    private toastController: ToastController) { }
   ionViewWillEnter(){
     this.getViajes();
   }
@@ -29,6 +38,15 @@ export class BuscarViajePage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  async presentToast(){
+   const toast = await this.toastController.create({
+     message: 'Viaje creado exitosamente',
+     duration: 500,
+     position: 'middle'
+   });
+   toast.present()
   }
 
 }
