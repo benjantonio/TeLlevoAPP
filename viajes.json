@@ -35,6 +35,15 @@
       "direccion": "Ecuador 1285, Quilpué, Región de Valparaíso 2430000, Chile",
       "precio": 1300,
       "pasajeros": 2
+    },
+    {
+      "id": 5,
+      "titulo": "Probando",
+      "fecha": "2021-11-05",
+      "hora": "1313",
+      "direccion": "Ecuador Alto, Viña del Mar, Región de Valparaíso 2520000, Chile",
+      "precio": 1300,
+      "pasajeros": 3
     }
   ]
 }

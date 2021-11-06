@@ -27,7 +27,15 @@ export class CrearComponent implements OnInit {
     pasajeros:""
   };
 
-  constructor(private elrouteruwu:Router, public toastController: ToastController, private api:APIViajesService, private activeroute: ActivatedRoute, public map:MapCustomService) { 
+
+
+  constructor(
+    private elrouteruwu:Router, 
+    public toastController: ToastController, 
+    private api:APIViajesService, 
+    private activeroute: ActivatedRoute, 
+    public map:MapCustomService
+    ) { 
     
   }
 
@@ -63,10 +71,12 @@ guardarViaje(){
     this.cargando=true;
     await this.sleep(1000);
     this.elrouteruwu.navigate(['/programar-viaje']);
-    this.apagarboton=true;
+    /* Revisar apagarboton */
+    this.apagarboton=this.map.extraerBlock();
     this.cargando=false;
   }
 
+ 
   async crearviaje(){
     this.cargando=true;
     await this.sleep(3000);
@@ -87,6 +97,8 @@ guardarViaje(){
       });
       toast.present();
     }
+
+   
 
   ngOnInit() {
 
