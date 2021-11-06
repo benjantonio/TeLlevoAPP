@@ -14,6 +14,7 @@ export class ProgramarViajePage implements OnInit {
   @ViewChild('asGeoCoder') asGeoCoder:ElementRef;
 
   direcc:any;
+  apagarboton:true;
 
   constructor(
     private elrouteruwu:Router, 
@@ -35,6 +36,8 @@ export class ProgramarViajePage implements OnInit {
     .catch((err) => {
       console.log('**** ERROR ****', err)
     })
+
+    
   }
 
   sleep(ms) {
@@ -48,7 +51,7 @@ export class ProgramarViajePage implements OnInit {
     await this.sleep(600);
     const toast = await this.toastController.create({
       message: '¡Destino Guardado!',
-      duration: 2300,
+      duration: 3000,
       color: 'secondary',
       position: 'bottom',
     });
@@ -56,16 +59,40 @@ export class ProgramarViajePage implements OnInit {
   }
 
 
+  prueba(){
+    
+  }
+
   async regresar(){
-    this.mapCustomService.blockMap(true);
-    this.elrouteruwu.navigate(['/panel-viajes'])
+
+    if (!this.mapCustomService.devolverDireccion()) {
+      console.log('es null')
+      this.toast2();
+    } else {
+      console.log('TIENE DATOS')
+      this.elrouteruwu.navigate(['/panel-viajes'])
+      this.presentToast();
+    }
+    //
+    //this.mapCustomService.blockMap(true);
   }
 
   async atras(){
-    this.mapCustomService.blockMap(false);
-    this.elrouteruwu.navigate(['/panel-viajes'])
+    //this.mapCustomService.blockMap(false);
+    //this.elrouteruwu.navigate(['/panel-viajes'])
   }
 
+  async toast2() {
+    const toast2 = await this.toastController.create({
+      message: 'Por favor, ingresa una dirección.',
+      duration: 3500,
+      color: 'danger',
+      position: 'bottom',
+    });
+    toast2.present();
+  }
+  
+  
   
 
 }

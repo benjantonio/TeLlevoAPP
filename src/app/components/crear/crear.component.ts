@@ -36,6 +36,9 @@ export class CrearComponent implements OnInit {
     private activeroute: ActivatedRoute, 
     public map:MapCustomService
     ) { 
+  }
+
+  ionViewWillEnter(){
     
   }
 
@@ -45,8 +48,9 @@ guardarViaje(){
   this.api.createViaje(this.viaje).subscribe( ()=>{
     console.log('viaje creado :d')
     console.log( ' ingresada a api: ',this.viaje.direccion)
-
+    this.RegisterForm.reset();
     this.elrouteruwu.navigate(['/inicio'])
+    this.apagarboton=false;
   })
 }
 
@@ -66,23 +70,25 @@ guardarViaje(){
       this.apagarboton=false;
       this.cargando=false;
     }
-
+    
   async abrirmapa(){
     this.cargando=true;
     await this.sleep(1000);
     this.elrouteruwu.navigate(['/programar-viaje']);
+    this.apagarboton=true;
     /* Revisar apagarboton */
-    this.apagarboton=this.map.extraerBlock();
     this.cargando=false;
   }
 
  
   async crearviaje(){
+
     this.cargando=true;
     await this.sleep(3000);
     this.elrouteruwu.navigate(['/inicio']);
     this.apagarboton=false;
     this.cargando=false;
+    
   }
 
      // TOAST //
@@ -101,6 +107,8 @@ guardarViaje(){
    
 
   ngOnInit() {
+    
+
 
     this.RegisterForm = new FormGroup({
       titulo: new FormControl('',[

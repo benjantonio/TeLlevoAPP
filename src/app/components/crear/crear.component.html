@@ -18,13 +18,15 @@
                 </div>
             </ion-item>
 
+
             <ion-item>
-                <ion-label position="floating">Hora:</ion-label>
-                <ion-input maxlength="5" [(ngModel)]="viaje.hora" type="text" formControlName="hora"></ion-input>
+                <ion-label>Hora Viaje:</ion-label>
+                <ion-datetime [(ngModel)]="viaje.hora"  formControlName="hora" display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T00:00Z"></ion-datetime>
                 <div *ngIf=" RegisterForm.get('hora').hasError('required') && RegisterForm.get('hora').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
                     Debes ingresar una Hora.
                 </div>
             </ion-item>
+
 
             <ion-item>
                 <ion-label position="floating">Capacidad Pasajeros:</ion-label>

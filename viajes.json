@@ -8,6 +8,60 @@
       "direccion": "Calle jamaica #2291",
       "precio": 2100,
       "pasajeros": 4
+    },
+    {
+      "id": 2,
+      "titulo": "TEEESTT",
+      "fecha": "2021-11-13",
+      "hora": "2021-11-05T23:26:45.267-03:00",
+      "direccion": "Ecuador 1285, Quilpué, Región de Valparaíso 2430000, Chile",
+      "precio": 231231,
+      "pasajeros": 2
+    },
+    {
+      "id": 3,
+      "titulo": "Ahora si",
+      "fecha": "2021-11-06",
+      "hora": "2021-11-05T23:30:12.815-03:00",
+      "direccion": "Limache Viejo, Av. República, Limache, Región de Valparaíso 2240000, Chile",
+      "precio": 1232,
+      "pasajeros": 2
+    },
+    {
+      "id": 4,
+      "titulo": "4312",
+      "fecha": "2021-11-12",
+      "hora": "2021-11-05T23:28:29.101-03:00",
+      "direccion": "Qweqwe, Provincia Oriental del Cabo, Sudáfrica",
+      "precio": 123123,
+      "pasajeros": 2213
+    },
+    {
+      "id": 5,
+      "titulo": "qweeqw",
+      "fecha": "123132-03-21",
+      "hora": "2021-11-05T23:29:20.056-03:00",
+      "direccion": "Alcazaba Bar, 4 Norte 131, Viña del Mar, Región de Valparaíso 2520000, Chile",
+      "precio": 1322,
+      "pasajeros": 22
+    },
+    {
+      "id": 6,
+      "titulo": "aaaaa",
+      "fecha": "123321-03-12",
+      "hora": "2021-11-05T23:30:31.036-03:00",
+      "direccion": "EAE Business School, C/ Joaquín Costa, 41, 28002 Madrid, España, Madrid, Madrid 28002, España",
+      "precio": 22,
+      "pasajeros": 22
+    },
+    {
+      "id": 7,
+      "titulo": "PRUEBA",
+      "fecha": "2021-11-21",
+      "hora": "2021-11-05T23:31:42.811-03:00",
+      "direccion": "Pipiolo, 34 Paseo Orrego Luco, Providencia, Región Metropolitana de Santiago 7500000, Chile",
+      "precio": 2500,
+      "pasajeros": 2
     }
   ]
 }

@@ -64,12 +64,12 @@ export class MapCustomService {
     return this.direcc;
   }
   
-  blockMap(bool: boolean){
+  /*blockMap(bool: boolean){
     this.bloquear=bool;
   }
 
   extraerBlock(){
     return this.bloquear;
-  }
+  }*/
 
 }
