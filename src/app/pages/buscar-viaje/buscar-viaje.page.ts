@@ -63,7 +63,7 @@ export class BuscarViajePage implements OnInit {
           }
       },
       {
-        text: "Cancelar ×",
+        text: "Cancelar",
           handler: () =>{
             console.log("Cancelar")
           }
