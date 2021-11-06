@@ -43,7 +43,7 @@ export class BuscarViajePage implements OnInit {
   async aceptarViaje() {
     let alert = await this.alertController.create({
       header: "Tomar Viaje",
-      message: "☺ ¿Quieres tomar este viaje? ☺",
+      message: "¿Quieres tomar este viaje?",
       buttons: [
         {
           text: "Aceptar",
