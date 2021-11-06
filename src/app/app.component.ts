@@ -11,15 +11,21 @@ import { MenuController } from '@ionic/angular';
 
 
 export class AppComponent {
-
+  usuariorecibido:any;
   menuCtrl:any;
 
   constructor(private menu: MenuController, private router: Router) {   
+    
+    this.usuariorecibido= JSON.parse(localStorage.getItem('usuario')).nombre;
+
    }
 
+   
    retroceder(){
+    localStorage.setItem('ingresado', 'false')
     this.router.navigate(['/login']);
     this.menu.close();
+    
   }
 
 

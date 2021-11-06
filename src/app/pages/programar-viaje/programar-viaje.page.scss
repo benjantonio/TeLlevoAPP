@@ -1,12 +1,14 @@
-ion-content.fondo {
-    --background: url("../imagen/fondoblanco2.png") no-repeat center center / cover;
+#map{
+    width: 100%;
+    height: 300px;
+    border-radius: 50px; 
 }
 
-.fondo {
-    background: url("../imagen/fondoblanco2.png") no-repeat center center / cover;
-    ;
+.mapboxgl-popup{
+    max-width: 80px;
 }
 
-.custom-icon {
-    font-size: 25px;
+ion-content.fondo{
+    --background:
+    url("../imagen/fondoblanco2.png") no-repeat center center / cover;
 }

@@ -1,97 +1,59 @@
-<ion-header>
+<!--<ion-header>
     <ion-toolbar color="dark">
     <ion-grid>
         <ion-row>
-            <ion-col-4 color="light">
-                <button (click)="retroceder()" style=" color: white; background-color: rgba(0, 0, 0, 0); ">
-          <ion-icon class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin-top: 5px; "></ion-icon>
-      </button>
-            </ion-col-4>
-
-            <ion-col-5 color="light">
                 <h5 style="margin-top: 10px; margin-bottom: 10px; margin-left: 8px; color:white;">¿A dónde vas?</h5>
-                
-            </ion-col-5>
-            <ion-col-3></ion-col-3>
         </ion-row>
     </ion-grid>
-    <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;"></ion-progress-bar>
 </ion-toolbar>
 
 </ion-header>
 
 
-
-
-
-
-
-
+<ion-content>
+    <p>hola</p>
+</ion-content>-->
 
 
 
 <ion-content class="fondo">
+    <nav class="navbar navbar-dark bg-dark">
+        
+        <ion-grid style="margin-top:20px;">
+            <ion-row>
+                <ion-col-4 color="light" >
+                    <!--<ion-button color="asd" (click)="atras()" style="padding: 0; margin: 0; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0); ">
+                        <ion-icon color="light" size="medium" class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin: 0; margin-left: 10px; "></ion-icon>
+                        </ion-button>-->
+                </ion-col-4>
 
-    <form [formGroup]="RegisterForm">
-        <ion-card>
-            <ion-item>
-                <ion-label position="floating">Título para tu Viaje:</ion-label>
-                <ion-input type="text" formControlName="titulo"></ion-input>
-                <div *ngIf=" RegisterForm.get('titulo').hasError('required') && RegisterForm.get('titulo').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
-                    Debes ingresar un Título.
-                </div>
-            </ion-item>
+                <ion-col-5 color="light">
+                    <h5 style="margin-top: 10px; margin-bottom: 10px; margin-left: 8px; color:white;">Selecciona tu Destino:</h5>
+
+                </ion-col-5>
+            </ion-row>
+        </ion-grid>
+
+
+        <div  style="padding-left: 5px; padding-right: 5px; color: red;" id="geocoder" #asGeoCoder class="geocoder"></div> 
+    </nav>
 
 
 
-            <ion-item>
-                <ion-label position="floating">Fecha Salida:</ion-label>
-                <ion-input type="text" formControlName="fecha"></ion-input>
-                <div *ngIf=" RegisterForm.get('fecha').hasError('required') && RegisterForm.get('fecha').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
-                    Debes ingresar una Fecha.
-                </div>
-            </ion-item>
+    <div class="container p-3 mapa">
 
-            <ion-item>
-                <ion-label position="floating">Hora:</ion-label>
-                <ion-input type="text" formControlName="hora"></ion-input>
-                <div *ngIf=" RegisterForm.get('hora').hasError('required') && RegisterForm.get('hora').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
-                    Debes ingresar una Hora.
-                </div>
-            </ion-item>
+        <ion-content id="map" #asMap class="map-container"></ion-content>
 
-            <ion-item>
-                <ion-label position="floating">Capacidad Pasajeros:</ion-label>
-                <ion-input type="number" formControlName="capacidad"></ion-input>
-                <div *ngIf=" RegisterForm.get('capacidad').hasError('required') && RegisterForm.get('capacidad').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
-                    Debes ingresar Capacidad de Pasajeros.
-                </div>
-            </ion-item>
+    </div>
 
-            <ion-item style="padding-top:12px;">
-                <p style="margin-top: 3px;">Tu destino:</p>
-                <div style="padding-bottom: 12px; padding-left: 5px;">
-                    <ion-chip *ngIf="!apagarboton" [disabled]="RegisterForm.invalid" (click)="abrirmapa()" outline color="primary">
-                        <ion-icon name="pin" color="danger"></ion-icon>
-                        <ion-label>Elige tu Destino:</ion-label>
-                    </ion-chip>
+    <div style="text-align: center;">
+        
+        <ion-button (click)="regresar()" color="success">Confirmar</ion-button>
+    </div>
 
-                    <ion-chip *ngIf="apagarboton" (click)="abrirmapa()" outline color="success">
-                        <ion-icon name="checkmark" color="success"></ion-icon>
-                        <ion-label>Destino Guardado</ion-label>
-                    </ion-chip>
-                </div>
-            </ion-item>
+    
 
-            <ion-item>
-                <ion-label position="floating">Notas adicionales:</ion-label>
-                <ion-input></ion-input>
-            </ion-item>
+</ion-content>>
 
-            <div style="text-align: center;">
-                <ion-button (click)="crearviaje()" [disabled]="true" *ngIf="!apagarboton" color="success" style="margin-bottom: 20px; margin-top:20px;">Crear Viaje</ion-button>
-                <ion-button (click)="crearviaje()" (click)="presentToast()" *ngIf="!RegisterForm.invalid && apagarboton" color="success" style="margin-bottom: 20px; margin-top:20px;">¡Crear Viaje!</ion-button>
-            </div>
-        </ion-card>
-    </form>
-</ion-content>
+
+    

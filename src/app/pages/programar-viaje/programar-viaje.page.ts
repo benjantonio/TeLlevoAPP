@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
-import { AlertController } from '@ionic/angular'; //Controlador de alerta (no se está usando)
-import { ToastController } from '@ionic/angular'; //Controlador de Toast
+import { ToastController } from '@ionic/angular';
+import { MapCustomService } from 'src/app/services/map-custom.service';
 
 @Component({
   selector: 'app-programar-viaje',
@@ -12,69 +11,88 @@ import { ToastController } from '@ionic/angular'; //Controlador de Toast
 
 
 export class ProgramarViajePage implements OnInit {
-  RegisterForm: FormGroup;
-  apagarboton:boolean;
-  cargando: boolean;
+  @ViewChild('asGeoCoder') asGeoCoder:ElementRef;
 
-  constructor(private elrouteruwu:Router, public toastController: ToastController) { }
+  direcc:any;
+  apagarboton:true;
 
-    //creo función para retrasar ciertas funciones.
-    sleep(ms) {
-      return new Promise((resolve) => {
-        setTimeout(resolve, ms);
-      });
-    }
+  constructor(
+    private elrouteruwu:Router, 
+    private mapCustomService:MapCustomService, 
+    private render2:Renderer2, 
+    private toastController:ToastController
+    ) { }
 
-    retroceder(){
-      this.elrouteruwu.navigate(['/inicio']);
-      this.apagarboton=false;
-      this.cargando=false;
-    }
-
-  async abrirmapa(){
-    this.cargando=true;
-    await this.sleep(1000);
-    this.elrouteruwu.navigate(['/map']);
-    this.apagarboton=true;
-    this.cargando=false;
-  }
-
-  async crearviaje(){
-    this.cargando=true;
-    await this.sleep(3000);
-    this.elrouteruwu.navigate(['/inicio']);
-    this.apagarboton=false;
-    this.cargando=false;
-  }
-
-     // TOAST //
-     async presentToast() {
+  ngOnInit() : void{
+    this.mapCustomService.buildMap()
+    .then(({geocoder, map}) => {
+      this.render2.appendChild(this.asGeoCoder.nativeElement,geocoder.onAdd(map));
       
-      await this.sleep(3700);
-      const toast = await this.toastController.create({
-        message: '¡Tu viaje ha sido creado con éxito!.',
-        duration: 3500,
-        color: 'success',
-        position: 'bottom',
-      });
-      toast.present();
-    }
+      //método para extraer la dirección
+      
 
-  ngOnInit() {
+      console.log('**** todo bien ****')
+    })
+    .catch((err) => {
+      console.log('**** ERROR ****', err)
+    })
 
-    this.RegisterForm = new FormGroup({
-      titulo: new FormControl('',[
-        Validators.required, 
-      ]),
-      fecha: new FormControl('',[
-        Validators.required,
-      ]),
-      hora: new FormControl('',[
-        Validators.required, 
-      ]),
-      capacidad: new FormControl('',[
-        Validators.required,
-      ]),
+    
+  }
+
+  sleep(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
     });
   }
+
+  async presentToast() {
+    
+    await this.sleep(600);
+    const toast = await this.toastController.create({
+      message: '¡Destino Guardado!',
+      duration: 3000,
+      color: 'secondary',
+      position: 'bottom',
+    });
+    toast.present();
+  }
+
+
+  prueba(){
+    
+  }
+
+  async regresar(){
+
+    if (!this.mapCustomService.devolverDireccion()) {
+      console.log('es null')
+      this.toast2();
+    } else {
+      console.log('TIENE DATOS')
+      this.elrouteruwu.navigate(['/panel-viajes'])
+      this.presentToast();
+    }
+    //
+    //this.mapCustomService.blockMap(true);
+  }
+
+  async atras(){
+    //this.mapCustomService.blockMap(false);
+    //this.elrouteruwu.navigate(['/panel-viajes'])
+  }
+
+  async toast2() {
+    const toast2 = await this.toastController.create({
+      message: 'Por favor, ingresa una dirección.',
+      duration: 3500,
+      color: 'danger',
+      position: 'bottom',
+    });
+    toast2.present();
+  }
+  
+  
+  
+
 }

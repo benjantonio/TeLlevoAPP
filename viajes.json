@@ -1,0 +1,13 @@
+{
+  "viajes": [
+    {
+      "id": 1,
+      "titulo": "Viaje a Quilpué",
+      "fecha": "20/11/2021",
+      "hora": "23:30",
+      "direccion": "Calle jamaica #2291",
+      "precio": 2100,
+      "pasajeros": 4
+    }
+  ]
+}
