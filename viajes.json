@@ -8,6 +8,42 @@
       "direccion": "Calle jamaica #2291",
       "precio": 2100,
       "pasajeros": 4
+    },
+    {
+      "id": 2,
+      "titulo": "Villa Alemana",
+      "fecha": "2021-11-05",
+      "hora": "19:30",
+      "direccion": "Paradero 10, Av. Valparaíso, Villa Alemana, Región de Valparaíso 6500000, Chile",
+      "precio": 1500,
+      "pasajeros": 3
+    },
+    {
+      "id": 3,
+      "titulo": "Limache",
+      "fecha": "2021-11-08",
+      "hora": "15:30",
+      "direccion": "Limache, Quilpué, Región de Valparaíso 2430000, Chile",
+      "precio": 1500,
+      "pasajeros": 2
+    },
+    {
+      "id": 4,
+      "titulo": "Quilpué",
+      "fecha": "2021-11-05",
+      "hora": "23:30",
+      "direccion": "Ecuador 1285, Quilpué, Región de Valparaíso 2430000, Chile",
+      "precio": 1300,
+      "pasajeros": 2
+    },
+    {
+      "id": 5,
+      "titulo": "Probando",
+      "fecha": "2021-11-05",
+      "hora": "1313",
+      "direccion": "Ecuador Alto, Viña del Mar, Región de Valparaíso 2520000, Chile",
+      "precio": 1300,
+      "pasajeros": 3
     }
   ]
 }

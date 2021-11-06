@@ -20,7 +20,6 @@ export class NotFoundPage implements OnInit {
 
   async retroceder(){
     this.cargando=true;
-    await this.sleep(800);
     this.elrouteruwu.navigate(['/inicio'])
     this.cargando=false;
     this.RegisterForm.reset();
