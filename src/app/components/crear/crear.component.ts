@@ -27,7 +27,18 @@ export class CrearComponent implements OnInit {
     pasajeros:""
   };
 
-  constructor(private elrouteruwu:Router, public toastController: ToastController, private api:APIViajesService, private activeroute: ActivatedRoute, public map:MapCustomService) { 
+
+
+  constructor(
+    private elrouteruwu:Router, 
+    public toastController: ToastController, 
+    private api:APIViajesService, 
+    private activeroute: ActivatedRoute, 
+    public map:MapCustomService
+    ) { 
+  }
+
+  ionViewWillEnter(){
     
   }
 
@@ -37,8 +48,9 @@ guardarViaje(){
   this.api.createViaje(this.viaje).subscribe( ()=>{
     console.log('viaje creado :d')
     console.log( ' ingresada a api: ',this.viaje.direccion)
-
+    this.RegisterForm.reset();
     this.elrouteruwu.navigate(['/inicio'])
+    this.apagarboton=false;
   })
 }
 
@@ -58,21 +70,25 @@ guardarViaje(){
       this.apagarboton=false;
       this.cargando=false;
     }
-
+    
   async abrirmapa(){
     this.cargando=true;
     await this.sleep(1000);
     this.elrouteruwu.navigate(['/programar-viaje']);
     this.apagarboton=true;
+    /* Revisar apagarboton */
     this.cargando=false;
   }
 
+ 
   async crearviaje(){
+
     this.cargando=true;
     await this.sleep(3000);
     this.elrouteruwu.navigate(['/inicio']);
     this.apagarboton=false;
     this.cargando=false;
+    
   }
 
      // TOAST //
@@ -88,7 +104,11 @@ guardarViaje(){
       toast.present();
     }
 
+   
+
   ngOnInit() {
+    
+
 
     this.RegisterForm = new FormGroup({
       titulo: new FormControl('',[

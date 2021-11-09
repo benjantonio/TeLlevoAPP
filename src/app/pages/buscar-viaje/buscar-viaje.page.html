@@ -32,19 +32,10 @@
                     <p style="font-size: 14px; color: black; font-weight: lighter">${{viaje.precio}}</p>
                     <p style="font-size: 14px; color: black; font-weight: lighter">{{viaje.fecha}}</p>
                 </ion-label>
-                <div style="text-align: center;">
-                    <div style="text-align: center;">
-
-                
-                        <ion-button (onclick)="presentToast1()" color="primary">Confirmar viaje</ion-button>
-                    
-                    </div>
-                </div>
+                <ion-button (click)="aceptarViaje()">
+                    <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+                </ion-button>
             </ion-item>
         </ion-list>
     </ion-card>
 </ion-content>
-
-
-
-
