@@ -14,8 +14,8 @@ export class MapCustomService {
   mapbox = (mapboxgl as typeof mapboxgl);
   map: mapboxgl.Map;
   style: 'mapbox://styles/mapbox/streets-v11';
-  lat = 40.416906;
-  lng = -3.7056721;
+  lat = JSON.parse(localStorage.getItem('onlineUser')).lat;
+  lng = JSON.parse(localStorage.getItem('onlineUser')).lng;
   zoom = 3;
 
   direcc:any;
@@ -32,7 +32,7 @@ export class MapCustomService {
       this.map = new this.mapbox.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [-71.5321227, -33.0338412],
+      center: [this.lng, this.lat],
       zoom: 15.5
         });
   

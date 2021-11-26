@@ -15,6 +15,7 @@ export class InicioPage implements OnInit {
 
 //ESTA VARIABLE RECIBE Y GUARDA EL USUARIO INGRESADO//
 usuariorecibido:any;
+
 controlmenu:boolean;
 cargando: boolean;
 
@@ -25,7 +26,7 @@ cargando: boolean;
       if(this.elrouteruwu.getCurrentNavigation().extras.state){
         this.usuariorecibido= this.elrouteruwu.getCurrentNavigation().extras.state.usuario;
       }else{
-        this.usuariorecibido= JSON.parse(localStorage.getItem('usuario')).nombre;
+        this.usuariorecibido= JSON.parse(localStorage.getItem('onlineUser')).user;
       }
     })
    }

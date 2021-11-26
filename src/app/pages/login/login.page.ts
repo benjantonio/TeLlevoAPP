@@ -31,19 +31,7 @@ export class LoginPage implements OnInit {
   }
 
   ionViewWillEnter(){
-    this.guardar()
   }
-
-  guardar(){
-    
-    var usuario = {
-      nombre: 'joc.riquelmem',
-      contra: '123456'
-    }
-
-    localStorage.setItem('usuario', JSON.stringify(usuario));
-  }
-
 
   //creo función para retrasar ciertas funciones.
   sleep(ms) {
@@ -72,6 +60,23 @@ export class LoginPage implements OnInit {
           if(this.contrasenaingresada==this.cuentas[i].pass){
             console.log('Ingreso de sesión con éxito :) - Coincide con:',i)
             localStorage.setItem('ingresado','true');
+
+            var onlineUser = {
+              id: this.cuentas[i].id,
+              user: this.cuentas[i].user,
+              pass: this.cuentas[i].pass,
+              nombre: this.cuentas[i].nombre,
+              img: this.cuentas[i].img,
+              genero: this.cuentas[i].genero,
+              edad: this.cuentas[i].edad,
+              email: this.cuentas[i].email,
+              institucion: this.cuentas[i].institucion,
+              lat: this.cuentas[i].lat,
+              lng: this.cuentas[i].lng
+            }
+        
+            localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
+
             this.navCtrl.navigateRoot('inicio')
             let navigationExtras: NavigationExtras={
             state:{usuario: this.usuarioingresado}

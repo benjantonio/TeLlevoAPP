@@ -19,22 +19,26 @@
       "user": "joc.riquelmem",
       "pass": "123456",
       "nombre": "Jocelyn Riquelme",
+      "img": "https://i.ibb.co/xYFLkXP/ben.png",
       "genero": "Femenino",
+      "edad": "24",
       "email": "joc.riquelmem@duocuc.cl",
-      "institucion": "Viña del Mar",
-      "lat": "0",
-      "lng": "0"
+      "institucion": "SEDE Viña del Mar",
+      "lat": "-33.0338412",
+      "lng": "-71.5321227"
     },
     {
       "id": 2,
       "user": "be.navarroa",
       "pass": "123456",
       "nombre": "Benjamín Navarro",
+      "img": "https://i.ibb.co/1mqZXKJ/joce.png",
       "genero": "Masculino",
+      "edad": "24",
       "email": "be.navarroa@duocuc.cl",
-      "institucion": "Viña del Mar",
-      "lat": "0",
-      "lng": "0"
+      "institucion": "SEDE San Bernardo",
+      "lat": "-33.5987925",
+      "lng": "-70.7045604"
     }
   ]
 }
