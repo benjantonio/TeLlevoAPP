@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { APIViajesService } from 'src/app/services/apiviajes.service';
+import { APIBdService } from 'src/app/services/apibd.service';
 import { MapCustomService } from 'src/app/services/map-custom.service';
 
 @Component({
@@ -32,7 +32,7 @@ export class CrearComponent implements OnInit {
   constructor(
     private elrouteruwu:Router, 
     public toastController: ToastController, 
-    private api:APIViajesService, 
+    private api:APIBdService, 
     private activeroute: ActivatedRoute, 
     public map:MapCustomService
     ) { 

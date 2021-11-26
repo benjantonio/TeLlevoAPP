@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class APIViajesService {
+export class APIBdService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

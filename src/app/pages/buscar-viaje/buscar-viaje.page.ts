@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
-import { APIViajesService } from 'src/app/services/apiviajes.service';
+import { APIBdService } from 'src/app/services/apibd.service';
 
 @Component({
   selector: 'app-buscar-viaje',
@@ -14,7 +14,7 @@ export class BuscarViajePage implements OnInit {
 
   constructor(
     private elrouteruwu:Router, 
-    private api:APIViajesService, 
+    private api:APIBdService, 
     private alertController: AlertController,
     private toastController: ToastController
     ) { }

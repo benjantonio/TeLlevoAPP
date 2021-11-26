@@ -1,0 +1,40 @@
+{
+  "viajes": [
+    {
+      "id": 1,
+      "user": "joc.riquelmem",
+      "conductor": "Viaje a Quilpué",
+      "origen": "Viña del Mar",
+      "titulo": "Viaje a Quilpué",
+      "fecha": "20/11/2021",
+      "hora": "23:30",
+      "direccion": "Calle jamaica #2291",
+      "precio": 1900,
+      "pasajeros": 4
+    }
+  ],
+  "cuentas":[
+    {
+      "id": 1,
+      "user": "joc.riquelmem",
+      "pass": "123456",
+      "nombre": "Jocelyn Riquelme",
+      "genero": "Femenino",
+      "email": "joc.riquelmem@duocuc.cl",
+      "institucion": "Viña del Mar",
+      "lat": "0",
+      "lng": "0"
+    },
+    {
+      "id": 2,
+      "user": "be.navarroa",
+      "pass": "123456",
+      "nombre": "Benjamín Navarro",
+      "genero": "Masculino",
+      "email": "be.navarroa@duocuc.cl",
+      "institucion": "Viña del Mar",
+      "lat": "0",
+      "lng": "0"
+    }
+  ]
+}
