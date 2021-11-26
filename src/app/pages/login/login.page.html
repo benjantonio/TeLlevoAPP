@@ -34,7 +34,7 @@
 
         <!-- CONTRASEÑA -->
         <div style="margin-left: 20px; margin-right: 20px;">
-            <ion-input class="inputcontrasena" type="password" placeholder="Ingresa tu contraseña" color="light" formControlName="contrasena" name="contrasena"></ion-input>
+            <ion-input class="inputcontrasena" type="password" placeholder="Ingresa tu contraseña" color="light" formControlName="contrasena" [(ngModel)]="contrasenaingresada" name="contrasena"></ion-input>
         </div>
 
         <div class="alertaerror" *ngIf=" RegisterForm.get('contrasena').hasError('required') && RegisterForm.get('contrasena').touched">

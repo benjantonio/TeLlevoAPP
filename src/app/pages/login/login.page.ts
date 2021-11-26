@@ -4,6 +4,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { AlertController, NavController } from '@ionic/angular';
 import { BdLocalService } from 'src/app/services/bd-local.service';
 import { LoginModel } from './models/login.model';
+import { APIBdService } from '../../services/apibd.service'
 
 
 
@@ -20,12 +21,13 @@ export class LoginPage implements OnInit {
 
   RegisterForm: FormGroup;
   usuarioingresado:any;
-
+  contrasenaingresada:any;
   cargando: boolean;
 
   rescate: any;
 
-  constructor(private elrouteruwu:Router, public bdlocalservice: BdLocalService, public navCtrl: NavController, public alertController: AlertController) {
+  cuentas:any;
+  constructor( private api:APIBdService ,private elrouteruwu:Router, public bdlocalservice: BdLocalService, public navCtrl: NavController, public alertController: AlertController) {
   }
 
   ionViewWillEnter(){
@@ -33,6 +35,7 @@ export class LoginPage implements OnInit {
   }
 
   guardar(){
+    
     var usuario = {
       nombre: 'joc.riquelmem',
       contra: '123456'
@@ -51,36 +54,52 @@ export class LoginPage implements OnInit {
 
   async ingresar(){
 
+    //Simulo estado Cargando...
     this.cargando=true;
     await this.sleep(2000);
-    
-    var f = this.RegisterForm.value;
-    var usuario = JSON.parse(localStorage.getItem('usuario'));
 
-    if(usuario.nombre == f.usuario && usuario.contra == f.contrasena){
-      console.log('INGRESADO');
-      localStorage.setItem('ingresado','true');
-      this.navCtrl.navigateRoot('inicio')
-      let navigationExtras: NavigationExtras={
-        state:{usuario: this.usuarioingresado}
+    //Obtengo las cuentas de la API
+    this.api.getCuentas().subscribe(async (data)=>{
+      this.cuentas=data;
+
+      //Obtengo el largo de la API cuentas  
+      let largocuentas:any;
+      largocuentas=this.cuentas.length;
+      
+      //Recorro la API
+      for(let i=0; i < largocuentas; i++){
+        if(this.usuarioingresado==this.cuentas[i].user){
+          if(this.contrasenaingresada==this.cuentas[i].pass){
+            console.log('Ingreso de sesión con éxito :) - Coincide con:',i)
+            localStorage.setItem('ingresado','true');
+            this.navCtrl.navigateRoot('inicio')
+            let navigationExtras: NavigationExtras={
+            state:{usuario: this.usuarioingresado}
+            }
+            this.elrouteruwu.navigate(['/inicio'], navigationExtras)
+            this.RegisterForm.reset();
+            return;
+          }else{
+            console.log('Nombre User coincide con:',i)
+          }
+        }else{
+          console.log('No coincide con el:',i)
+        }
       }
-      this.elrouteruwu.navigate(['/inicio'], navigationExtras)
-      this.RegisterForm.reset();
-    }else{
-        const alert = await this.alertController.create({ 
-          header: 'Error',
-          message: 'El usuario o la contraseña es incorrecta.',
-          buttons: ['OK']
-        });
 
-        await alert.present();
+      //Mensaje de error
+      const alert = await this.alertController.create({ 
+        header: 'Error',
+        message: 'El usuario o la contraseña es incorrecta.',
+        buttons: ['OK']
+      });
+      await alert.present();
       console.log('error');
-    }
 
+    });
+
+    //Apago la barra cargando 
     this.cargando=false;
-    //retraso la función 2Seg.
-    
-    
   }
 
   async recuperar(){

@@ -21,16 +21,44 @@ export class APIBdService {
      //apiURL = 'https://jsonplaceholder.typicode.com';
 
   constructor(private http:HttpClient) { }
+  
+  getCuentas():Observable<any>{
+    return this.http.get(this.apiURL+'/cuentas/').pipe(
+      retry(3)
+    );
+  }
+
+
+  getViaje(idViaje):Observable<any>{
+    return this.http.get(this.apiURL+'/viajes/'+idViaje).pipe(
+      retry(3)
+    );
+  }
 
   getViajes():Observable<any>{
-    return this.http.get(this.apiURL+'/viajes/').pipe(retry(3)
+    return this.http.get(this.apiURL+'/viajes/').pipe(
+      retry(3)
     );
   }
 
   createViaje(viaje):Observable<any>{
-    return this.http.post(this.apiURL+'/viajes',viaje,this.httpOptions).pipe(retry(3)
+    return this.http.post(this.apiURL+'/viajes/',viaje,this.httpOptions).pipe(
+      retry(3)
     );
   }
+  
+  updateViaje(idViaje, viaje):Observable<any>{
+    return this.http.put(this.apiURL+'/viajes/'+idViaje,viaje,this.httpOptions).pipe(
+      retry(3)
+    );
+  }
+
+  deleteViaje(idViaje):Observable<any>{
+    return this.http.delete(this.apiURL+'/viajes/'+idViaje,this.httpOptions).pipe(
+      retry(3)
+    );
+  }
+
 }
 
 

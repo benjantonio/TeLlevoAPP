@@ -14,9 +14,9 @@ export class CrearComponent implements OnInit {
   RegisterForm: FormGroup;
   apagarboton:boolean;
   cargando: boolean;
-
   direc:any;
 
+  viajes:any;
   viaje:any={
     id:null,
     titulo:"",
@@ -26,8 +26,6 @@ export class CrearComponent implements OnInit {
     precio:"",
     pasajeros:""
   };
-
-
 
   constructor(
     private elrouteruwu:Router, 
@@ -39,9 +37,16 @@ export class CrearComponent implements OnInit {
   }
 
   ionViewWillEnter(){
-    
+    this.getViajes();
   }
 
+
+getViajes(){
+  this.api.getViajes().subscribe((data)=>{
+    this.viajes=data;
+
+  })
+}
 
 guardarViaje(){
   this.viaje.direccion=this.map.devolverDireccion()

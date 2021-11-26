@@ -11,6 +11,8 @@ import { APIBdService } from 'src/app/services/apibd.service';
 export class BuscarViajePage implements OnInit {
 
   viajes:any;
+  cuentas:any;
+
 
   constructor(
     private elrouteruwu:Router, 
@@ -26,7 +28,8 @@ export class BuscarViajePage implements OnInit {
   getViajes(){
     this.api.getViajes().subscribe((data)=>{
       this.viajes=data;
-    })
+    });
+
   }
 
   retroceder(){
