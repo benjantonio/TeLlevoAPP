@@ -8,6 +8,15 @@
       "direccion": "Calle jamaica #2291",
       "precio": 2100,
       "pasajeros": 4
+    },
+    {
+      "id": 2,
+      "titulo": "Villa Alemana",
+      "fecha": "2021-11-14",
+      "hora": "2021-11-26T12:27:42.129-03:00",
+      "direccion": "Paradero 10, Av. Valparaíso, Villa Alemana, Región de Valparaíso 6500000, Chile",
+      "precio": 1500,
+      "pasajeros": 2
     }
   ]
 }
