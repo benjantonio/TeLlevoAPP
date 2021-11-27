@@ -3,24 +3,24 @@
         
             <ion-grid>
                 <ion-row>
-                    <ion-col-4 color="light">
+                    <div color="light">
                         <button (click)="retroceder()" style="padding: 0; margin: 0; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0); ">
                             <ion-icon color="light" size="large" class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin: 0; margin-left: 10px; "></ion-icon>
                             </button>
-                    </ion-col-4>
+                    </div>
     
-                    <ion-col-5 color="light">
+                    <div color="light">
                         <h5 style="margin-top: 10px; margin-bottom: 10px; margin-left: 8px; color:white;">Panel Viajes</h5>
     
-                    </ion-col-5>
+                    </div>
                 </ion-row>
             </ion-grid>
             
     </ion-toolbar>
     <ion-toolbar>
         <!-- Default Segment -->
-        <ion-segment (ionChange)="segmentChanged($event)">
-            <ion-segment-button value="crear">
+        <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="opcionSegment" color="success">
+            <ion-segment-button mode="true" value="crear">
                 <ion-icon name="add-circle-outline"> </ion-icon>
                 Crear Viaje
             </ion-segment-button>

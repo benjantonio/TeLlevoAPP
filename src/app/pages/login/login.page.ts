@@ -85,10 +85,8 @@ export class LoginPage implements OnInit {
             this.RegisterForm.reset();
             return;
           }else{
-            console.log('Nombre User coincide con:',i)
           }
         }else{
-          console.log('No coincide con el:',i)
         }
       }
 

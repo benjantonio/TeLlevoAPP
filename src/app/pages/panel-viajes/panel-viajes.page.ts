@@ -13,6 +13,7 @@ export class PanelViajesPage implements OnInit {
   RegisterForm: FormGroup;
   apagarboton:boolean;
   cargando: boolean;
+  opcionSegment: string = "crear";
   
   constructor(private elrouteruwu:Router, public toastController: ToastController) { 
     this.elrouteruwu.navigate(['panel-viajes/crear'])

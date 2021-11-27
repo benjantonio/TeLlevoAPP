@@ -12,10 +12,8 @@ export class IngresadoGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if (localStorage.getItem('ingresado')) {
-        console.log('he encontrado un "ingresado"')
         return true;
       } else {
-        console.log('he encontrado un "FALSE" :c')
         return false;
       }
     

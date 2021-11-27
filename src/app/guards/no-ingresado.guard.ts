@@ -13,11 +13,9 @@ export class NoIngresadoGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if (localStorage.getItem('ingresado') == 'true') {
-        console.log('Cuenta iniciada :)')
         this.navCtrl.navigateRoot('inicio');
         return false;
       } else {
-        console.log('Cuenta NO iniciada >:c')
         return true;
       }
     

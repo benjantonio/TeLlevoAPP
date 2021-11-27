@@ -26,7 +26,6 @@ export class CrearComponent implements OnInit {
     imgConductor: JSON.parse(localStorage.getItem('onlineUser')).img,
     emailConductor: JSON.parse(localStorage.getItem('onlineUser')).email,
     generoConductor: JSON.parse(localStorage.getItem('onlineUser')).genero,
-    titulo: "",/**/
     fecha: "",/**/
     hora: "",/**/
     precio: "",/**/
@@ -130,9 +129,6 @@ guardarViaje(){
 
 
     this.RegisterForm = new FormGroup({
-      titulo: new FormControl('',[
-        Validators.required, 
-      ]),
       fecha: new FormControl('',[
         Validators.required,
       ]),
@@ -144,6 +140,7 @@ guardarViaje(){
       ]),
       precio: new FormControl('',[
         Validators.required,
+        Validators.max(2000)
       ]),
     });
   }
