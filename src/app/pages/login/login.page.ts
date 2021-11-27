@@ -5,6 +5,7 @@ import { AlertController, NavController } from '@ionic/angular';
 import { BdLocalService } from 'src/app/services/bd-local.service';
 import { LoginModel } from './models/login.model';
 import { APIBdService } from '../../services/apibd.service'
+import { AppComponent } from '../../app.component';
 
 
 
@@ -27,10 +28,11 @@ export class LoginPage implements OnInit {
   rescate: any;
 
   cuentas:any;
-  constructor( private api:APIBdService ,private elrouteruwu:Router, public bdlocalservice: BdLocalService, public navCtrl: NavController, public alertController: AlertController) {
+  constructor( private api:APIBdService ,private elrouteruwu:Router, public bdlocalservice: BdLocalService, public navCtrl: NavController, public alertController: AlertController, private app:AppComponent) {
   }
 
   ionViewWillEnter(){
+    this.app.ocultarMenu();
   }
 
   //creo función para retrasar ciertas funciones.
@@ -77,11 +79,9 @@ export class LoginPage implements OnInit {
         
             localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
 
-            this.navCtrl.navigateRoot('inicio')
-            let navigationExtras: NavigationExtras={
-            state:{usuario: this.usuarioingresado}
-            }
-            this.elrouteruwu.navigate(['/inicio'], navigationExtras)
+            this.app.mostrarMenu();
+            
+            this.elrouteruwu.navigate(['/inicio'])
             this.RegisterForm.reset();
             return;
           }else{

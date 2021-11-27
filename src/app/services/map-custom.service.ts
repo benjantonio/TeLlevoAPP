@@ -19,6 +19,8 @@ export class MapCustomService {
   zoom = 3;
 
   direcc:any;
+  lngDestino:any;
+  latDestino:any;
 
   bloquear: boolean;
 
@@ -43,8 +45,11 @@ export class MapCustomService {
 
         geocoder.on('result', ($event) => {
           const {result} = $event;
-          console.log('*********OOOJOOJOJ', result.place_name)
+          console.log('*********OOOJOOJOJ', result)
           this.direcc=result.place_name;
+          this.lngDestino=result.center[0];
+          this.latDestino=result.center[1];
+          console.log('coordenadas actualizadas: ',this.lngDestino, this.latDestino)
         });
 
         resolve({
@@ -62,6 +67,14 @@ export class MapCustomService {
 
   devolverDireccion(){
     return this.direcc;
+  }
+
+  devolverLng(){
+    return this.lngDestino;
+  }
+
+  devolverLat(){
+    return this.latDestino;
   }
   
   /*blockMap(bool: boolean){

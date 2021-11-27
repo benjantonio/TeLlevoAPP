@@ -13,19 +13,33 @@ import { MenuController } from '@ionic/angular';
 export class AppComponent {
   usuariorecibido:any;
   menuCtrl:any;
+  menu1:any;
+  avatarOnline:string;
 
   constructor(private menu: MenuController, private router: Router) {   
-    
-    this.usuariorecibido= JSON.parse(localStorage.getItem('usuario')).nombre;
 
    }
 
-   
+   actualizarAvatar(){
+     this.avatarOnline= JSON.parse(localStorage.getItem('onlineUser')).img;
+   }
+
+   ocultarMenu(){
+     this.menu.enable(false);
+   }
+
+   mostrarMenu(){
+    this.menu.enable(true);
+  }
+
+   actualizarNombreMenu(){
+    this.usuariorecibido= JSON.parse(localStorage.getItem('onlineUser')).user;
+   }
+
    retroceder(){
     localStorage.setItem('ingresado', 'false')
     this.router.navigate(['/login']);
     this.menu.close();
-    
   }
 
 

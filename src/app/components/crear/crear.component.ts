@@ -19,12 +19,24 @@ export class CrearComponent implements OnInit {
   viajes:any;
   viaje:any={
     id:null,
-    titulo:"",
-    fecha:"",
-    hora:"",
-    direccion:"",
-    precio:"",
-    pasajeros:""
+    userConductor: JSON.parse(localStorage.getItem('onlineUser')).user,
+    idConductor: JSON.parse(localStorage.getItem('onlineUser')).id,
+    nombreConductor: JSON.parse(localStorage.getItem('onlineUser')).nombre,
+    edadConductor: JSON.parse(localStorage.getItem('onlineUser')).edad,
+    imgConductor: JSON.parse(localStorage.getItem('onlineUser')).img,
+    emailConductor: JSON.parse(localStorage.getItem('onlineUser')).email,
+    generoConductor: JSON.parse(localStorage.getItem('onlineUser')).genero,
+    titulo: "",/**/
+    fecha: "",/**/
+    hora: "",/**/
+    precio: "",/**/
+    pasajeros: "",/**/
+    origen: JSON.parse(localStorage.getItem('onlineUser')).institucion,
+    lngOrigen: JSON.parse(localStorage.getItem('onlineUser')).lng,
+    latOrigen: JSON.parse(localStorage.getItem('onlineUser')).lat,
+    direccionDestino: "",/**/
+    lngDestino: "",/**/
+    latDestino: ""/**/
   };
 
   constructor(
@@ -49,12 +61,14 @@ getViajes(){
 }
 
 guardarViaje(){
-  this.viaje.direccion=this.map.devolverDireccion()
+  this.viaje.direccionDestino=this.map.devolverDireccion();
+  this.viaje.lngDestino=this.map.devolverLng();
+  this.viaje.latDestino=this.map.devolverLat();
   this.api.createViaje(this.viaje).subscribe( ()=>{
-    console.log('viaje creado :d')
-    console.log( ' ingresada a api: ',this.viaje.direccion)
+    console.log('viaje creado :d');
+    console.log( ' ingresada a api: ',this.viaje.direccionDestino);
     this.RegisterForm.reset();
-    this.elrouteruwu.navigate(['/inicio'])
+    this.elrouteruwu.navigate(['/inicio']);
     this.apagarboton=false;
   })
 }

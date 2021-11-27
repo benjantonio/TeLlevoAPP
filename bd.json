@@ -2,24 +2,33 @@
   "viajes": [
     {
       "id": 1,
-      "user": "joc.riquelmem",
-      "conductor": "Viaje a Quilpué",
-      "origen": "Viña del Mar",
-      "titulo": "Viaje a Quilpué",
-      "fecha": "20/11/2021",
-      "hora": "23:30",
-      "direccion": "Calle jamaica #2291",
-      "precio": 1900,
-      "pasajeros": 4
+      "userConductor": "joc.riquelmem",
+      "idConductor": 1,
+      "nombreConductor": "Jocelyn Riquelme",
+      "edadConductor": "24",
+      "imgConductor": "https://i.ibb.co/1mqZXKJ/joce.png",
+      "emailConductor": "joc.riquelmem@duocuc.cl",
+      "generoConductor": "Femenino",
+      "titulo": "Quilpué",
+      "fecha": "2021-11-26",
+      "hora": "2021-11-26T23:45:30.338-03:00",
+      "precio": 2000,
+      "pasajeros": 2,
+      "origen": "SEDE Viña del Mar",
+      "lngOrigen": "-71.5321227",
+      "latOrigen": "-33.0338412",
+      "direccionDestino": "Marga Marga C/ Bs Aires, Quilpué, Región de Valparaíso 2430000, Chile",
+      "lngDestino": -71.428142,
+      "latDestino": -33.052687
     }
   ],
-  "cuentas":[
+  "cuentas": [
     {
       "id": 1,
       "user": "joc.riquelmem",
       "pass": "123456",
       "nombre": "Jocelyn Riquelme",
-      "img": "https://i.ibb.co/xYFLkXP/ben.png",
+      "img": "https://i.ibb.co/1mqZXKJ/joce.png",
       "genero": "Femenino",
       "edad": "24",
       "email": "joc.riquelmem@duocuc.cl",
@@ -32,7 +41,7 @@
       "user": "be.navarroa",
       "pass": "123456",
       "nombre": "Benjamín Navarro",
-      "img": "https://i.ibb.co/1mqZXKJ/joce.png",
+      "img": "https://i.ibb.co/xYFLkXP/ben.png",
       "genero": "Masculino",
       "edad": "24",
       "email": "be.navarroa@duocuc.cl",
