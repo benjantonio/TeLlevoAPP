@@ -14,6 +14,7 @@ export class CrearComponent implements OnInit {
   RegisterForm: FormGroup;
   apagarboton:boolean;
   cargando: boolean;
+  origenViaje= JSON.parse(localStorage.getItem('onlineUser')).institucion;
   direc:any;
 
   viajes:any;

@@ -20,6 +20,26 @@
       "direccionDestino": "Marga Marga C/ Bs Aires, Quilpué, Región de Valparaíso 2430000, Chile",
       "lngDestino": -71.428142,
       "latDestino": -33.052687
+    },
+    {
+      "id": 2,
+      "userConductor": "joc.riquelmem",
+      "idConductor": 1,
+      "nombreConductor": "Jocelyn Riquelme",
+      "edadConductor": "24",
+      "imgConductor": "https://i.ibb.co/1mqZXKJ/joce.png",
+      "emailConductor": "joc.riquelmem@duocuc.cl",
+      "generoConductor": "Femenino",
+      "fecha": "2021-11-27",
+      "hora": "2021-11-27T19:18:39.113-03:00",
+      "precio": 2000,
+      "pasajeros": 2,
+      "origen": "SEDE Viña del Mar",
+      "lngOrigen": "-71.5321227",
+      "latOrigen": "-33.0338412",
+      "direccionDestino": "Ecuador 1285, Quilpué, Región de Valparaíso 2430000, Chile",
+      "lngDestino": -71.414824,
+      "latDestino": -33.044408
     }
   ],
   "cuentas": [
