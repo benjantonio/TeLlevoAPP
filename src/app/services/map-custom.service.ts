@@ -21,6 +21,8 @@ export class MapCustomService {
   direcc:any;
   lngDestino:any;
   latDestino:any;
+  comunaDestino:any;
+  regionDestino:any;
 
   bloquear: boolean;
 
@@ -45,10 +47,13 @@ export class MapCustomService {
 
         geocoder.on('result', ($event) => {
           const {result} = $event;
-          console.log('*********OOOJOOJOJ', result)
+          console.log('RESPUESTA DEL MAPA: ', result)
+
           this.direcc=result.place_name;
           this.lngDestino=result.center[0];
           this.latDestino=result.center[1];
+          this.comunaDestino=result.context[2].text;
+          this.regionDestino=result.context[3].text;
           console.log('coordenadas actualizadas: ',this.lngDestino, this.latDestino)
         });
 
@@ -63,6 +68,14 @@ export class MapCustomService {
 
       
     });
+  }
+
+  devolverRegion(){
+    return this.regionDestino;
+  }
+
+  devolverComuna(){
+    return this.comunaDestino;
   }
 
   devolverDireccion(){

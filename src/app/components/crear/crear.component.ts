@@ -34,6 +34,8 @@ export class CrearComponent implements OnInit {
     origen: JSON.parse(localStorage.getItem('onlineUser')).institucion,
     lngOrigen: JSON.parse(localStorage.getItem('onlineUser')).lng,
     latOrigen: JSON.parse(localStorage.getItem('onlineUser')).lat,
+    regionDestino:"",
+    comunaDestino:"",
     direccionDestino: "",/**/
     lngDestino: "",/**/
     latDestino: ""/**/
@@ -61,6 +63,8 @@ getViajes(){
 }
 
 guardarViaje(){
+  this.viaje.comunaDestino=this.map.devolverComuna();
+  this.viaje.regionDestino=this.map.devolverRegion();
   this.viaje.direccionDestino=this.map.devolverDireccion();
   this.viaje.lngDestino=this.map.devolverLng();
   this.viaje.latDestino=this.map.devolverLat();

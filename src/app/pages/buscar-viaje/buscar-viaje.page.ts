@@ -12,6 +12,7 @@ export class BuscarViajePage implements OnInit {
 
   viajes:any;
   cuentas:any;
+  idViaje:any;
 
 
   constructor(
@@ -41,6 +42,12 @@ export class BuscarViajePage implements OnInit {
     return new Promise((resolve) => {
       setTimeout(resolve, ms);
     });
+  }
+
+  obtenerIdViaje(id){
+    console.log("EL ID ES: ", id)
+    this.idViaje=id;
+    console.log("El ID almacenado es: ",this.idViaje)
   }
 
   async aceptarViaje() {
