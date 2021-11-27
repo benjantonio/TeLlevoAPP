@@ -7,6 +7,7 @@ import { BdLocalService } from 'src/app/services/bd-local.service';
 import { AppComponent } from '../../app.component';
 
 
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',

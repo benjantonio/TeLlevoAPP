@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IngresadoGuard } from './guards/ingresado.guard';
 import { NoIngresadoGuard } from './guards/no-ingresado.guard';
 
+
 const routes: Routes = [
   {
     path: 'home',
@@ -53,7 +54,8 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule),
   
-  },  {
+  },
+  {
     path: 'menu',
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
   },
