@@ -34,7 +34,7 @@ export class APIBdService {
       retry(3)
     );
   }
-
+  
   getViajes():Observable<any>{
     return this.http.get(this.apiURL+'/viajes/').pipe(
       retry(3)
