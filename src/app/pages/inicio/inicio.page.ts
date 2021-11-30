@@ -20,6 +20,7 @@ usuariorecibido:any;
 
 controlmenu:boolean;
 cargando: boolean;
+conduce: boolean;
 
 
   //AQUI INGRESAMOS LOS CONSTRUCTORES NECESARIOS PARA PODER LLAMAR A LA VARIABLE DESDE OTRA PAGE//
@@ -36,6 +37,7 @@ cargando: boolean;
    ionViewWillEnter(){
     this.app.actualizarAvatar();
     this.app.actualizarNombreMenu();
+    this.conduce=JSON.parse(localStorage.getItem('onlineUser')).crearViajes;
   }
 
      //creo función para retrasar ciertas funciones.

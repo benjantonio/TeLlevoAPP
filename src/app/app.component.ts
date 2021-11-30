@@ -24,11 +24,11 @@ export class AppComponent {
      this.avatarOnline= JSON.parse(localStorage.getItem('onlineUser')).img;
    }
 
-   ocultarMenu(){
+   ionViewDidEnter ( ) : void  { 
      this.menu.enable(false);
    }
 
-   mostrarMenu(){
+   ionViewDidLeave ( ) : void  { 
     this.menu.enable(true);
   }
 
@@ -40,6 +40,7 @@ export class AppComponent {
     localStorage.setItem('ingresado', 'false')
     this.router.navigate(['/login']);
     this.menu.close();
+    this.menu.enable(false);
   }
 
 

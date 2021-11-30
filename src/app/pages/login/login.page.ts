@@ -32,7 +32,6 @@ export class LoginPage implements OnInit {
   }
 
   ionViewWillEnter(){
-    this.app.ocultarMenu();
   }
 
   //creo función para retrasar ciertas funciones.
@@ -74,12 +73,13 @@ export class LoginPage implements OnInit {
               email: this.cuentas[i].email,
               institucion: this.cuentas[i].institucion,
               lat: this.cuentas[i].lat,
-              lng: this.cuentas[i].lng
+              lng: this.cuentas[i].lng,
+              crearViajes: this.cuentas[i].crearViajes
             }
         
             localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
 
-            this.app.mostrarMenu();
+            this.app.ionViewDidLeave();
             
             this.elrouteruwu.navigate(['/inicio'])
             this.RegisterForm.reset();

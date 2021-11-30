@@ -73,9 +73,12 @@
         <ion-button color="success" shape="round" expand="block" (click)=buscar()>
             <ion-icon name="car-outline"></ion-icon>
             Buscar Viaje</ion-button>
-        <ion-button color="success" shape="round" expand="block" (click)=programar()>
+        <ion-button *ngIf="conduce" color="success" shape="round" expand="block" (click)=programar()>
             <ion-icon name="time-outline"></ion-icon>
             Programar Viaje</ion-button>
+        <ion-button *ngIf="!conduce" color="danger" shape="round" expand="block" (click)=inscribirse()>
+            <ion-icon name="key-outline"></ion-icon>
+            Inscribirse como Conductor</ion-button>
 
     </div>
 </ion-content>
