@@ -47,13 +47,8 @@ conduce: boolean;
     });
   }
 
-  irMap(){
-    this.elrouteruwu.navigate(['/map']);
-  }
-
-  irGeo(){
-    console.log('irGeo activado')
-    this.elrouteruwu.navigate(['/programar-viaje']);
+  inscribirse(){
+    this.elrouteruwu.navigate(['/inscribirse']);
   }
 
    retroceder(){

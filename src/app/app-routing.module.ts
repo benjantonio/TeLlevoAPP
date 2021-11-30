@@ -51,10 +51,16 @@ const routes: Routes = [
     canActivate: [IngresadoGuard]
   },
   {
+    path: 'inscribirse',
+    loadChildren: () => import('./pages/inscribirse/inscribirse.module').then( m => m.InscribirsePageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule),
   
   },
+
+
  
 
 
