@@ -47,6 +47,9 @@ conduce: boolean;
     });
   }
 
+  probar(){
+  }
+
   inscribirse(){
     this.elrouteruwu.navigate(['/inscribirse']);
   }

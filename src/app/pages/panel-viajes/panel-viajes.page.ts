@@ -38,13 +38,7 @@ export class PanelViajesPage implements OnInit {
     this.cargando=false;
   }
 
-async abrirmapa(){
-  this.cargando=true;
-  await this.sleep(1000);
-  this.elrouteruwu.navigate(['/map']);
-  this.apagarboton=true;
-  this.cargando=false;
-}
+
 
 
 async crearviaje(){

@@ -31,11 +31,6 @@ const routes: Routes = [
     canActivate: [NoIngresadoGuard]
   },
   {
-    path: 'map',
-    loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule),
-    canActivate: [IngresadoGuard]
-  },
-  {
     path: 'programar-viaje',
     loadChildren: () => import('./pages/programar-viaje/programar-viaje.module').then( m => m.ProgramarViajePageModule),
     canActivate: [IngresadoGuard]
