@@ -1,3 +1,7 @@
 ion-icon {
     font-size: 25px;
   }
+
+  ion-content.fondo {
+    --background: url("../imagen/fondoblanco2.png") no-repeat center center / cover;
+}

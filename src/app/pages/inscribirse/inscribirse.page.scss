@@ -1,3 +1,19 @@
 ion-icon {
     font-size: 25px;
   }
+
+  ion-content.fondo {
+    --background: url("../imagen/fondoblanco2.png") no-repeat center center / cover;
+}
+
+.campomensaje {
+  font-size: 13px;
+  margin-top: 10%;
+  background-color: #010d2e17;
+  color: rgb(27, 27, 27);
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  padding: 3px 3px 0px 3px;
+  text-align: center;
+}
