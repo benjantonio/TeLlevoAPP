@@ -63,6 +63,7 @@ getViajes(){
 }
 
 guardarViaje(){
+  console.log("TU COMUNA ES: ",this.viaje.comunaDestino)
   this.viaje.comunaDestino=this.map.devolverComuna();
   this.viaje.regionDestino=this.map.devolverRegion();
   this.viaje.direccionDestino=this.map.devolverDireccion();

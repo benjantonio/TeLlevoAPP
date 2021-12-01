@@ -15,7 +15,7 @@ export class ConfirmarViajePage implements OnInit {
   viaje:any={
     nombreConductor: "",
     edadConductor: "",
-    imgConductor: JSON.parse(localStorage.getItem('viajeActivo')).imgConductor,
+    imgConductor: "",
     emailConductor: "",
     generoConductor: "",
     fecha: "",
@@ -32,7 +32,7 @@ export class ConfirmarViajePage implements OnInit {
     latDestino: 0
   }
 
-  constructor(private elrouteruwu:Router, 
+  constructor(private elrouteruwu:Router,  
     private api:APIBdService, 
     private alertController: AlertController,
     private toastController: ToastController,
@@ -42,12 +42,28 @@ export class ConfirmarViajePage implements OnInit {
      
 
   ionViewWillEnter(){
+    this.almacenarViaje();
   }
 
 
   almacenarViaje(){
-    
-    
+    this.viaje.nombreConductor= JSON.parse(localStorage.getItem('viajeActivo')).nombreConductor,
+    this.viaje.edadConductor= "",
+    this.viaje.imgConductor= JSON.parse(localStorage.getItem('viajeActivo')).imgConductor,
+    this.viaje.emailConductor= "",
+    this.viaje.generoConductor= "",
+    this.viaje.fecha= "",
+    this.viaje.hora= "",
+    this.viaje.precio= 0,
+    this.viaje.pasajeros= 0,
+    this.viaje.origen= JSON.parse(localStorage.getItem('viajeActivo')).origen,
+    this.viaje.lngOrigen= 0,
+    this.viaje.latOrigen= 0,
+    this.viaje.regionDestino= "",
+    this.viaje.comunaDestino= "",
+    this.viaje.direccionDestino= JSON.parse(localStorage.getItem('viajeActivo')).direccionDestino,
+    this.viaje.lngDestino= 0,
+    this.viaje.latDestino= 0
   
   }
 

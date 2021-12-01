@@ -20,6 +20,10 @@ export class AppComponent {
 
    }
 
+  ionViewWillEnter(){
+    this.actualizarAvatar();
+  }
+
    actualizarAvatar(){
      this.avatarOnline= JSON.parse(localStorage.getItem('onlineUser')).img;
    }

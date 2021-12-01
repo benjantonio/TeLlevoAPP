@@ -19,6 +19,7 @@ export class MapCustomService {
   zoom = 3;
 
   direcc:any;
+  numeroDirecc:any;
   lngDestino:any;
   latDestino:any;
   comunaDestino:any;
@@ -49,12 +50,19 @@ export class MapCustomService {
           const {result} = $event;
           console.log('RESPUESTA DEL MAPA: ', result)
 
-          this.direcc=result.place_name;
+          this.direcc="";
+          this.numeroDirecc="";
+          this.lngDestino="";
+          this.latDestino="";
+          this.comunaDestino="";
+          this.regionDestino="";
+
+          this.direcc=result.text;
+          this.numeroDirecc=result.address;
           this.lngDestino=result.center[0];
           this.latDestino=result.center[1];
           this.comunaDestino=result.context[2].text;
-          this.regionDestino=result.context[3].text;
-          console.log('coordenadas actualizadas: ',this.lngDestino, this.latDestino)
+          this.regionDestino=result.context[3].text;    
         });
 
         resolve({
@@ -75,11 +83,24 @@ export class MapCustomService {
   }
 
   devolverComuna(){
-    return this.comunaDestino;
+    
+    if(this.comunaDestino){
+      return this.comunaDestino;
+    }else{
+      return this.direcc;
+    }
+    
   }
 
   devolverDireccion(){
-    return this.direcc;
+
+    let direccion:any;
+    if(this.numeroDirecc){
+      direccion=this.direcc+" "+this.numeroDirecc+", "+ this.comunaDestino
+    }else{
+      direccion=this.direcc+" "+ this.comunaDestino
+    }
+    return direccion;
   }
 
   devolverLng(){
