@@ -21,6 +21,28 @@
       "direccionDestino": "Arlegui 102, Viña del Mar",
       "lngDestino": -71.560852,
       "latDestino": -33.022747
+    },
+    {
+      "id": 2,
+      "userConductor": "be.navarroa",
+      "idConductor": 2,
+      "nombreConductor": "Benjamín Navarro",
+      "edadConductor": "24",
+      "imgConductor": "https://i.ibb.co/xYFLkXP/ben.png",
+      "emailConductor": "be.navarroa@duocuc.cl",
+      "generoConductor": "Masculino",
+      "fecha": "2021-12-11",
+      "hora": "2021-12-01T00:15:38.194-03:00",
+      "precio": 1500,
+      "pasajeros": 2,
+      "origen": "SEDE San Bernardo",
+      "lngOrigen": "-70.7045604",
+      "latOrigen": "-33.5987925",
+      "regionDestino": "Región Metropolitana de Santiago",
+      "comunaDestino": "El Bosque",
+      "direccionDestino": "Nuevo Horizonte 10063, El Bosque",
+      "lngDestino": -70.671638,
+      "latDestino": -33.578594
     }
   ],
   "cuentas": [

@@ -12,7 +12,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-
+import { init } from 'emailjs-com';
+init("user_2dvP8WMfROCaNvPYMdizJ");
+  
 
 
 

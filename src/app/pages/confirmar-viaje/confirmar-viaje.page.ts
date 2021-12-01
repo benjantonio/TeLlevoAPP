@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { APIBdService } from 'src/app/services/apibd.service';
+import { send } from 'emailjs-com'
 
 @Component({
   selector: 'app-confirmar-viaje',
@@ -39,10 +40,34 @@ export class ConfirmarViajePage implements OnInit {
     private activeroute: ActivatedRoute) {
      }
 
-     
-
   ionViewWillEnter(){
     this.almacenarViaje();
+  }
+
+  enviar(){
+    /*conductor*/
+    send("gmail","template_abk8dr7",{
+      comuna: this.viaje.comunaDestino,
+      nombre: this.viaje.nombreConductor,
+      nombrePasajero: JSON.parse(localStorage.getItem('onlineUser')).nombre,
+      destino: this.viaje.direccionDestino+" "+this.viaje.regionDestino,
+      fecha: this.viaje.fecha,
+      lat: this.viaje.latDestino,
+      lng: this.viaje.latDestino,
+      emailDestino: this.viaje.emailConductor,
+      });
+
+    /*pasajero*/
+    send("gmail","template_7clf6up",{
+      comuna: this.viaje.comunaDestino,
+      nombre: JSON.parse(localStorage.getItem('onlineUser')).nombre,
+      nombreConductor: this.viaje.nombreConductor,
+      destino: this.viaje.direccionDestino+", "+this.viaje.regionDestino,
+      fecha: this.viaje.fecha,
+      lat: this.viaje.latDestino,
+      lng: this.viaje.lngDestino,
+      emailDestino: JSON.parse(localStorage.getItem('onlineUser')).email,
+      });
   }
 
 
@@ -54,16 +79,16 @@ export class ConfirmarViajePage implements OnInit {
     this.viaje.generoConductor= "",
     this.viaje.fecha= JSON.parse(localStorage.getItem('viajeActivo')).fecha,
     this.viaje.hora= JSON.parse(localStorage.getItem('viajeActivo')).hora,
-    this.viaje.precio= 0,
+    this.viaje.precio= JSON.parse(localStorage.getItem('viajeActivo')).precio,
     this.viaje.pasajeros= JSON.parse(localStorage.getItem('viajeActivo')).pasajeros,
     this.viaje.origen= JSON.parse(localStorage.getItem('viajeActivo')).origen,
     this.viaje.lngOrigen= 0,
     this.viaje.latOrigen= 0,
     this.viaje.regionDestino= JSON.parse(localStorage.getItem('viajeActivo')).regionDestino,
-    this.viaje.comunaDestino= "",
+    this.viaje.comunaDestino= JSON.parse(localStorage.getItem('viajeActivo')).comunaDestino,
     this.viaje.direccionDestino= JSON.parse(localStorage.getItem('viajeActivo')).direccionDestino,
-    this.viaje.lngDestino= 0,
-    this.viaje.latDestino= 0
+    this.viaje.lngDestino= JSON.parse(localStorage.getItem('viajeActivo')).lngDestino,
+    this.viaje.latDestino= JSON.parse(localStorage.getItem('viajeActivo')).latDestino
   
   }
 
