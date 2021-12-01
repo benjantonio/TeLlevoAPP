@@ -23,13 +23,16 @@
     
     
     
-    <h4 style="text-align: center;">Conductor:</h4>
+    <h4 style="text-align: center;">Chofer:</h4>
     <ion-card color="light" style="margin-top: 40px;">
         <div class="img-wrapper">
           <img [src]="viaje.imgConductor" />
         </div>
         <ion-card-content class="ion-text-center datosConductor">
           <h2>{{viaje.nombreConductor}}</h2>
+          <p>Edad: {{viaje.edadConductor}}</p>
+          <p>Fecha: {{viaje.fecha}}</p>
+          <p>Hora: {{viaje.hora}}</p>
           <ion-text color="medium">
             <div style="display: flex;" class="ion-justify-content-center">
               <ion-icon name="location-outline" color="medium">
@@ -40,11 +43,22 @@
             <div style="display: flex;" class="ion-justify-content-center">
                 <ion-icon name="location-outline" color="medium">
                 </ion-icon>
-                <p>DESTINO: -</p>
-                <p> {{viaje.direccionDestino}}</p>
+                <p>DESTINO: </p>
+                <p> {{viaje.direccionDestino}}, {{viaje.regionDestino}}</p>
               </div>
           </ion-text>
         </ion-card-content>
       </ion-card>
-    
+
+      <ion-card color="tertiary" style="margin: 12px 20px; padding: 10px 0; ">
+      <h5 style="text-align: center; margin: 0; padding: 0; color: rgb(19, 19, 19);">¿Confirmar Viaje?</h5>
+      <div style="text-align: center;">
+        <ion-button color="success" >
+            <ion-icon name="checkmark"></ion-icon>
+            </ion-button>
+        <ion-button  color="danger" >
+            <ion-icon name="close"></ion-icon>
+            </ion-button>
+    </div>
+    </ion-card>
 </ion-content>
