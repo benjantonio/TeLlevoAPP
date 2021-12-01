@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { APIBdService } from 'src/app/services/apibd.service';
 
@@ -30,7 +30,6 @@ export class BuscarViajePage implements OnInit {
     this.api.getViajes().subscribe((data)=>{
       this.viajes=data;
     });
-
   }
 
   retroceder(){
@@ -45,14 +44,17 @@ export class BuscarViajePage implements OnInit {
   }
 
   obtenerIdViaje(id){
-    console.log("EL ID ES: ", id)
     this.idViaje=id;
-    console.log("El ID almacenado es: ",this.idViaje)
-    this.elrouteruwu.navigate(['/confirmar-viaje']);
-  }
+    this.idViaje=this.idViaje-1;
 
-  devolverIdViaje(){
-    return this.idViaje;
+    this.api.getViajes().subscribe((data)=>{
+      this.viajes=data;
+    });
+
+    localStorage.setItem('viajeActivo',JSON.stringify(this.viajes[this.idViaje]));
+
+
+    this.elrouteruwu.navigate(['/confirmar-viaje']);
   }
 
   async aceptarViaje() {

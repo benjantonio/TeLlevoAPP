@@ -11,34 +11,48 @@ import { APIBdService } from 'src/app/services/apibd.service';
 export class ConfirmarViajePage implements OnInit {
 
   viajes:any;
-  idViaje:any;
+
+  viaje:any={
+    nombreConductor: "",
+    edadConductor: "",
+    imgConductor: JSON.parse(localStorage.getItem('viajeActivo')).imgConductor,
+    emailConductor: "",
+    generoConductor: "",
+    fecha: "",
+    hora: "",
+    precio: 0,
+    pasajeros: 0,
+    origen: "",
+    lngOrigen: 0,
+    latOrigen: 0,
+    regionDestino: "",
+    comunaDestino: "",
+    direccionDestino: "",
+    lngDestino: 0,
+    latDestino: 0
+  }
 
   constructor(private elrouteruwu:Router, 
     private api:APIBdService, 
     private alertController: AlertController,
     private toastController: ToastController,
     private activeroute: ActivatedRoute) {
-      this.activeroute.queryParams.subscribe(params=> {
-        if(this.elrouteruwu.getCurrentNavigation().extras.state){
-          this.idViaje= this.elrouteruwu.getCurrentNavigation().extras.state.usuario;
-        }else{
-          this.idViaje= "0 no se pudo rescatar el ID";
-        }
-      })
      }
 
+     
+
   ionViewWillEnter(){
-    /*this.getViajes();*/
   }
-  /*
-  getViajes(){
-    this.api.getViajes().subscribe((data)=>{
-      this.viajes=data;
-    });
-  }*/
+
+
+  almacenarViaje(){
+    
+    
+  
+  }
 
   retroceder(){
-    this.elrouteruwu.navigate(['/inicio']);
+    this.elrouteruwu.navigate(['/buscar-viaje']);
   }
 
   ngOnInit() {
