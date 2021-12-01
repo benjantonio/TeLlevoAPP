@@ -50,10 +50,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/inscribirse/inscribirse.module').then( m => m.InscribirsePageModule)
   },
   {
+    path: 'confirmar-viaje',
+    loadChildren: () => import('./pages/confirmar-viaje/confirmar-viaje.module').then( m => m.ConfirmarViajePageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule),
   
   },
+ 
+
+  
 
 
  

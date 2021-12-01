@@ -48,6 +48,7 @@ conduce: boolean;
   }
 
   probar(){
+    this.elrouteruwu.navigate(['/confirmar-viaje']);
   }
 
   inscribirse(){

@@ -48,6 +48,11 @@ export class BuscarViajePage implements OnInit {
     console.log("EL ID ES: ", id)
     this.idViaje=id;
     console.log("El ID almacenado es: ",this.idViaje)
+    this.elrouteruwu.navigate(['/confirmar-viaje']);
+  }
+
+  devolverIdViaje(){
+    return this.idViaje;
   }
 
   async aceptarViaje() {
