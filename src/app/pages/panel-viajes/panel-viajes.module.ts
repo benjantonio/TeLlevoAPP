@@ -12,8 +12,6 @@ import { ReactiveFormsModule} from '@angular/forms';
 
 import { CrearComponent } from 'src/app/components/crear/crear.component';
 
-
-
 @NgModule({
   imports: [
     CommonModule,

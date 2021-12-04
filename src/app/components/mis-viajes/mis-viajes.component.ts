@@ -3,6 +3,7 @@ import { APIBdService } from 'src/app/services/apibd.service';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-mis-viajes',
   templateUrl: './mis-viajes.component.html',
@@ -10,38 +11,23 @@ import { Router } from '@angular/router';
 })
 export class MisViajesComponent implements OnInit {
 
-  viajes:any;
-  viajesDeCuenta= [];
+  viajesDeCuenta:any;
   idViaje:any;
-  idCuentaActiva=JSON.parse(localStorage.getItem('onlineUser')).id;
+  idCuentaActiva:any;
 
-  constructor(private api:APIBdService, private elrouteruwu:Router) { }
+  constructor( private api:APIBdService, private elrouteruwu:Router) { }
 
   ionViewWillEnter(){
-    this.getViajes();
+    this.obtenerViajesCuenta();
   }
 
-  getViajes(){
-    this.api.getViajes().subscribe((data)=>{
-      console.log("VIAJES NORMALES: ", data)
-      
-      let largoviajes:any;
-      largoviajes=data.length;
+  
+  obtenerViajesCuenta(){
+    this.viajesDeCuenta=this.api.obtenerViajesCuenta;
+    console.log("OJO: ",this.viajesDeCuenta)
+  } 
 
-      console.log("LARGO VIAJES NORMALES: ",largoviajes)
-
-      for(let i=0; i < largoviajes; i++){
-        if(data[i].idConductor == this.idCuentaActiva){
-          this.viajesDeCuenta.push(data[i])
-        }
-      }
-
-      console.log("idCuenta Iniciada: ", this.idCuentaActiva);
-      console.log("VIAJES Cuenta!: ", this.viajesDeCuenta)
-    });
-  }
-
-  obtenerIdViaje(id){
+  obtenerIdViaje(id){ 
     this.idViaje=id;
     this.idViaje=this.idViaje-1;
 

@@ -19,6 +19,7 @@ export class APIBdService {
    apiURL = 'http://192.168.100.24:3000';
     // Se establece la base url del API a consumir
      //apiURL = 'https://jsonplaceholder.typicode.com';
+  viajesCuentaa=[];
 
   constructor(private http:HttpClient) { }
   
@@ -58,6 +59,29 @@ export class APIBdService {
       retry(3)
     );
   }
+
+  obtenerViajesCuenta(){
+    this.viajesCuentaa=[];
+    let idCuentaActiva=JSON.parse(localStorage.getItem('onlineUser')).id;
+
+    this.getViajes().subscribe((data)=>{
+      console.log("VIAJES NORMALES: ", data)
+      
+      let largoviajes:any;
+      largoviajes=data.length;
+      console.log("LARGO VIAJES NORMALES: ",largoviajes)
+
+      for(let i=0; i < largoviajes; i++){
+        if(data[i].idConductor == idCuentaActiva){
+          this.viajesCuentaa.push(data[i])
+        }
+      }
+    });
+    console.log("idCuenta Iniciada: ", idCuentaActiva);
+    console.log("VIAJES Cuenta!: ", this.viajesCuentaa);
+    return this.viajesCuentaa;
+  }
+
 
 }
 
