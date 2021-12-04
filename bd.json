@@ -87,28 +87,6 @@
       "direccionDestino": "Lo Prado 202, Cerro Navia",
       "lngDestino": -70.730881,
       "latDestino": -33.431101
-    },
-    {
-      "id": 5,
-      "userConductor": "be.navarroa",
-      "idConductor": 2,
-      "nombreConductor": "Benjamín Navarro",
-      "edadConductor": "24",
-      "imgConductor": "https://i.ibb.co/xYFLkXP/ben.png",
-      "emailConductor": "be.navarroa@duocuc.cl",
-      "generoConductor": "Masculino",
-      "fecha": "2021-12-16",
-      "hora": "00:15",
-      "precio": 1000,
-      "pasajeros": 3,
-      "origen": "SEDE San Bernardo",
-      "lngOrigen": "-70.7045604",
-      "latOrigen": "-33.5987925",
-      "regionDestino": "Región Metropolitana de Santiago",
-      "comunaDestino": "La Pintana",
-      "direccionDestino": "San Miguel 291, La Pintana",
-      "lngDestino": -70.616474,
-      "latDestino": -33.562748
     }
   ],
   "cuentas": [

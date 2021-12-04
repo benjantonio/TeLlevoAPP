@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { APIBdService } from 'src/app/services/apibd.service';
 
 @Component({
   selector: 'app-panel-viajes',
@@ -16,14 +15,9 @@ export class PanelViajesPage implements OnInit {
   cargando: boolean;
   opcionSegment: string = "crear";
   
-  constructor(private api: APIBdService, private elrouteruwu:Router, public toastController: ToastController) { 
+  constructor(private elrouteruwu:Router, public toastController: ToastController) { 
     this.elrouteruwu.navigate(['panel-viajes/crear'])
   }
-
-  ionViewWillEnter(){
-    
-  }
-  
 
   segmentChanged(event: any){
     console.log(event);
