@@ -1,3 +1,21 @@
-<p>
-  mis-viajes works!
-</p>
+
+<ion-content class="fondo">
+  <ion-card>
+      <ion-list-header>
+          <ion-title>Tus Viajes:</ion-title>
+      </ion-list-header>
+      <ion-list>
+          <ion-item *ngFor="let viaje of viajesDeCuenta">
+              <ion-label>
+                  <p style="font-size: 17px; color: black;">{{viaje.comunaDestino}}</p>
+                  <p style="font-size: 14px; color: black; font-weight: lighter">{{viaje.fecha}}</p>
+                  <p style="font-size: 14px; color: black; font-weight: lighter">${{viaje.precio}}</p>
+                  <p style="font-size: 14px; color: black; font-weight: lighter">{{viaje.direccionDestino}}</p>
+              </ion-label>
+              <ion-button (click)="obtenerIdViaje(viaje.id)">
+                  <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+              </ion-button>
+          </ion-item>
+      </ion-list>
+  </ion-card>
+</ion-content>

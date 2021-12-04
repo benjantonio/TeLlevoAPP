@@ -54,6 +54,9 @@ export class CrearComponent implements OnInit {
     this.getViajes();
   }
 
+probar(){
+  console.log("La hora es: ",this.viaje.hora.substring(11,16))
+}
 
 getViajes(){
   this.api.getViajes().subscribe((data)=>{
@@ -69,6 +72,7 @@ guardarViaje(){
   this.viaje.direccionDestino=this.map.devolverDireccion();
   this.viaje.lngDestino=this.map.devolverLng();
   this.viaje.latDestino=this.map.devolverLat();
+  this.viaje.hora=this.viaje.hora.substring(11,16);
   this.api.createViaje(this.viaje).subscribe( ()=>{
     console.log('viaje creado :d');
     console.log( ' ingresada a api: ',this.viaje.direccionDestino);

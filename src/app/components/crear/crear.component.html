@@ -19,7 +19,7 @@
 
             <ion-item>
                 <ion-label>Hora Viaje:</ion-label>
-                <ion-datetime [(ngModel)]="viaje.hora"  formControlName="hora" display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T00:00Z"></ion-datetime>
+                <ion-datetime (click)="probar()" [(ngModel)]="viaje.hora"  formControlName="hora" display-format="hh:mm A" picker-format="hh:mm A" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" value="1990-02-19T00:00Z"></ion-datetime>
                 <div *ngIf=" RegisterForm.get('hora').hasError('required') && RegisterForm.get('hora').touched" style="color: #ff2020; font-size: 13px; margin-left: 10px; text-align: center;">
                     Debes ingresar una Hora.
                 </div>
