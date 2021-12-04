@@ -16,7 +16,7 @@ export class APIBdService {
   }
 
     // API Falsa
-   apiURL = 'http://192.168.100.24:3000';
+   apiURL = 'http://192.168.100.23:3000';
     // Se establece la base url del API a consumir
      //apiURL = 'https://jsonplaceholder.typicode.com';
 
@@ -28,7 +28,7 @@ export class APIBdService {
     );
   }
 
-
+ 
   getViaje(idViaje):Observable<any>{
     return this.http.get(this.apiURL+'/viajes/'+idViaje).pipe(
       retry(3)

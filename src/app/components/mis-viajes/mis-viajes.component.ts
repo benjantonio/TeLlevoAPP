@@ -13,7 +13,6 @@ export class MisViajesComponent implements OnInit {
   viajes:any;
   viajesDeCuenta= [];
   idViaje:any;
-  idCuentaActiva=JSON.parse(localStorage.getItem('onlineUser')).id;
 
   constructor(private api:APIBdService, private elrouteruwu:Router) { }
 
@@ -22,21 +21,22 @@ export class MisViajesComponent implements OnInit {
   }
 
   getViajes(){
+    this.viajesDeCuenta= [];
     this.api.getViajes().subscribe((data)=>{
       console.log("VIAJES NORMALES: ", data)
       
       let largoviajes:any;
       largoviajes=data.length;
-
+ 
       console.log("LARGO VIAJES NORMALES: ",largoviajes)
 
       for(let i=0; i < largoviajes; i++){
-        if(data[i].idConductor == this.idCuentaActiva){
+        if(data[i].idConductor == JSON.parse(localStorage.getItem('onlineUser')).id){
           this.viajesDeCuenta.push(data[i])
         }
       }
 
-      console.log("idCuenta Iniciada: ", this.idCuentaActiva);
+      console.log("idCuenta Iniciada: ", JSON.parse(localStorage.getItem('onlineUser')).id);
       console.log("VIAJES Cuenta!: ", this.viajesDeCuenta)
     });
   }
