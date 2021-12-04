@@ -44,33 +44,6 @@ export class ConfirmarViajePage implements OnInit {
     this.almacenarViaje();
   }
 
-  enviar(){
-    /*conductor*/
-    send("gmail","template_abk8dr7",{
-      comuna: this.viaje.comunaDestino,
-      nombre: this.viaje.nombreConductor,
-      nombrePasajero: JSON.parse(localStorage.getItem('onlineUser')).nombre,
-      destino: this.viaje.direccionDestino+" "+this.viaje.regionDestino,
-      fecha: this.viaje.fecha,
-      lat: this.viaje.latDestino,
-      lng: this.viaje.latDestino,
-      emailDestino: this.viaje.emailConductor,
-      });
-
-    /*pasajero*/
-    send("gmail","template_7clf6up",{
-      comuna: this.viaje.comunaDestino,
-      nombre: JSON.parse(localStorage.getItem('onlineUser')).nombre,
-      nombreConductor: this.viaje.nombreConductor,
-      destino: this.viaje.direccionDestino+", "+this.viaje.regionDestino,
-      fecha: this.viaje.fecha,
-      lat: this.viaje.latDestino,
-      lng: this.viaje.lngDestino,
-      emailDestino: JSON.parse(localStorage.getItem('onlineUser')).email,
-      });
-  }
-
-
   almacenarViaje(){
     this.viaje.nombreConductor= JSON.parse(localStorage.getItem('viajeActivo')).nombreConductor,
     this.viaje.edadConductor= JSON.parse(localStorage.getItem('viajeActivo')).edadConductor,
@@ -90,6 +63,73 @@ export class ConfirmarViajePage implements OnInit {
     this.viaje.lngDestino= JSON.parse(localStorage.getItem('viajeActivo')).lngDestino,
     this.viaje.latDestino= JSON.parse(localStorage.getItem('viajeActivo')).latDestino
   
+  }
+
+  sleep(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  }
+
+  async enviar() {
+    let alert = await this.alertController.create({
+      header: "Tomar Viaje",
+      message: "¿Quieres tomar este viaje?",
+      buttons: [
+        {
+          text: "Confirmar",
+          handler: async () =>{
+            console.log("Tomar Viaje")
+            await this.sleep(500);
+
+            /*conductor*/
+            send("gmail","template_abk8dr7",{
+              comuna: this.viaje.comunaDestino,
+              nombre: this.viaje.nombreConductor,
+              nombrePasajero: JSON.parse(localStorage.getItem('onlineUser')).nombre,
+              destino: this.viaje.direccionDestino+" "+this.viaje.regionDestino,
+              fecha: this.viaje.fecha,
+              lat: this.viaje.latDestino,
+              lng: this.viaje.latDestino,
+              emailDestino: this.viaje.emailConductor,
+              });
+
+            /*pasajero*/
+            send("gmail","template_7clf6up",{
+              comuna: this.viaje.comunaDestino,
+              nombre: JSON.parse(localStorage.getItem('onlineUser')).nombre,
+              nombreConductor: this.viaje.nombreConductor,
+              destino: this.viaje.direccionDestino+", "+this.viaje.regionDestino,
+              fecha: this.viaje.fecha,
+              lat: this.viaje.latDestino,
+              lng: this.viaje.lngDestino,
+              emailDestino: JSON.parse(localStorage.getItem('onlineUser')).email,
+              });
+
+            this.elrouteruwu.navigate(['/inicio'])
+
+            await this.sleep(800);
+            const toast = await this.toastController.create({
+              message: '                   Viaje Confirmado ✔ :)',
+              duration: 4300,
+              color: 'success',
+              position: 'bottom',
+            });
+            toast.present();
+          }
+      },
+      {
+        text: "Cancelar",
+          handler: () =>{
+            console.log("Cancelar")
+          }
+      }
+    ],
+    });
+
+    await alert.present();
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
   }
 
   retroceder(){

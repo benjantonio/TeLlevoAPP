@@ -41,11 +41,11 @@
               <p> {{viaje.origen}}</p>
             </div>
             <div style="display: flex;" class="ion-justify-content-center">
-                <ion-icon name="location-outline" color="medium">
-                </ion-icon>
-                <p>DESTINO: </p>
-                <p> {{viaje.direccionDestino}}, {{viaje.regionDestino}}</p>
-              </div>
+              <ion-icon name="location-outline" color="medium">
+              </ion-icon>
+              <p>DESTINO: </p>
+              <p> {{viaje.direccionDestino}}, {{viaje.regionDestino}}</p>
+            </div>
           </ion-text>
         </ion-card-content>
       </ion-card>
@@ -56,7 +56,7 @@
         <ion-button (click)="enviar()" color="success" >
             <ion-icon name="checkmark"></ion-icon>
             </ion-button>
-        <ion-button  color="danger" >
+        <ion-button (click)="retroceder()" color="danger" >
             <ion-icon name="close"></ion-icon>
             </ion-button>
     </div>

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 //DEBES IMPORTAR LOS ROUTERS DE AQUI ARRIBA//
 import { MenuController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular'; //Controlador de Toast
+import { APIBdService } from 'src/app/services/apibd.service';
 import { BdLocalService } from 'src/app/services/bd-local.service';
 import { AppComponent } from '../../app.component';
 
@@ -24,7 +25,7 @@ conduce: boolean;
 
 
   //AQUI INGRESAMOS LOS CONSTRUCTORES NECESARIOS PARA PODER LLAMAR A LA VARIABLE DESDE OTRA PAGE//
-  constructor(private activeroute: ActivatedRoute, private elrouteruwu:Router, private menu: MenuController, public toastController: ToastController, public bd: BdLocalService, private app:AppComponent) {
+  constructor(private api: APIBdService, private activeroute: ActivatedRoute, private elrouteruwu:Router, private menu: MenuController, public toastController: ToastController, public bd: BdLocalService, private app:AppComponent) {
     this.activeroute.queryParams.subscribe(params=> {
       if(this.elrouteruwu.getCurrentNavigation().extras.state){
         this.usuariorecibido= this.elrouteruwu.getCurrentNavigation().extras.state.usuario;
@@ -38,6 +39,7 @@ conduce: boolean;
     this.app.actualizarAvatar();
     this.app.actualizarNombreMenu();
     this.conduce=JSON.parse(localStorage.getItem('onlineUser')).crearViajes;
+
   }
 
      //creo función para retrasar ciertas funciones.

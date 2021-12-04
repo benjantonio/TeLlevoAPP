@@ -54,6 +54,7 @@ export class APIBdService {
   }
 
   deleteViaje(idViaje):Observable<any>{
+    console.log("INTENTANDO ELIMINAR.........")
     return this.http.delete(this.apiURL+'/viajes/'+idViaje,this.httpOptions).pipe(
       retry(3)
     );
