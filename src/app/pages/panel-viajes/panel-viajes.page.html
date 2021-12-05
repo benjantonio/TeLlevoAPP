@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        
+            <ion-grid style="background: linear-gradient(to left, rgb(26, 26, 26), rgb(43, 43, 43) 50%, rgb(54, 54, 54) 80%, rgb(61, 61, 61) 100%)">
+                <ion-row>
+                    <div color="light">
+                        <button (click)="retroceder()" style="padding: 0; margin: 0; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0); ">
+                            <ion-icon color="light" size="large" class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin: 0; margin-left: 10px; "></ion-icon>
+                            </button>
+                    </div>
+    
+                    <div color="light">
+                        <h5 style="margin-top: 10px; margin-bottom: 10px; margin-left: 8px; color:white;">Panel Viajes</h5>
+    
+                    </div>
+                </ion-row>
+            </ion-grid>
+            
+    </ion-toolbar>
+    <ion-toolbar>
+        <!-- Default Segment -->
+        <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="opcionSegment" color="success">
+            <ion-segment-button value="crear">
+                <ion-icon name="add-circle-outline"> </ion-icon>
+                Crear Viaje
+            </ion-segment-button>
+            <ion-segment-button value="misviajes">
+                <ion-icon name="time-outline"></ion-icon>
+                Mis Viajes
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+    <ion-router-outlet></ion-router-outlet>
+    
+</ion-content>
