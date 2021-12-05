@@ -28,24 +28,24 @@
         <div class="img-wrapper">
           <img [src]="viaje.imgConductor" />
         </div>
-        <ion-card-content class="ion-text-center datosConductor">
+        <ion-card-content class="ion-text-center datosConductor" >
           <h2>{{viaje.nombreConductor}}</h2>
-          <p>Edad: {{viaje.edadConductor}}</p>
-          <p>Fecha: {{viaje.fecha}}</p>
-          <p>Hora: {{viaje.hora}}</p>
+          <ion-item>Edad: {{viaje.edadConductor}}</ion-item>
+          <ion-item>Fecha: {{viaje.fecha}}</ion-item>
+          <ion-item>Hora: {{viaje.hora}}</ion-item>
+          <ion-item><ion-icon name="cash-outline"></ion-icon>${{viaje.precio}}</ion-item>
+          
           <ion-text color="medium">
             <div style="display: flex;" class="ion-justify-content-center">
               <ion-icon name="location-outline" color="medium">
-              </ion-icon>
-              <p>ORIGEN: -</p>
-              <p> {{viaje.origen}}</p>
-            </div>
+              </ion-icon></div>
+              <p>ORIGEN: {{viaje.origen}}</p>
+            
             <div style="display: flex;" class="ion-justify-content-center">
               <ion-icon name="location-outline" color="medium">
-              </ion-icon>
-              <p>DESTINO: </p>
-              <p> {{viaje.direccionDestino}}, {{viaje.regionDestino}}</p>
-            </div>
+              </ion-icon></div>
+              <p style="font-size: 14px;">DESTINO: {{viaje.direccionDestino}}, {{viaje.regionDestino}}</p>
+  
           </ion-text>
         </ion-card-content>
       </ion-card>
