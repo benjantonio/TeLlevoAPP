@@ -23,6 +23,11 @@ export class ProgramarViajePage implements OnInit {
     private toastController:ToastController
     ) { }
 
+
+  ionViewWillEnter(){
+    this.mapCustomService.reiniciarDireccion();
+  }
+
   ngOnInit() : void{
     this.mapCustomService.buildMap()
     .then(({geocoder, map}) => {
@@ -65,7 +70,7 @@ export class ProgramarViajePage implements OnInit {
 
   async regresar(){
 
-    if (!this.mapCustomService.devolverDireccion()) {
+    if (!this.mapCustomService.tieneDatos()) {
       console.log('es null')
       this.toast2();
     } else {

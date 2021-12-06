@@ -31,6 +31,10 @@ export class MapCustomService {
     this.mapbox.accessToken = environment.maptokenkey;
   }
 
+  reiniciarDireccion(){
+    this.direcc=null;
+  }
+
   buildMap():Promise<any> {
     return new Promise((resolve, reject) => {
       try {
@@ -100,6 +104,11 @@ export class MapCustomService {
     }else{
       direccion=this.direcc+" "+ this.comunaDestino
     }
+    return direccion;
+  }
+
+  tieneDatos(){
+    let direccion = this.direcc;
     return direccion;
   }
 
