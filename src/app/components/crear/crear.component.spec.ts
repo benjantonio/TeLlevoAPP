@@ -1,3 +1,4 @@
+
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
@@ -20,7 +21,11 @@ describe('CrearComponent', () => {
     fixture.detectChanges();
   }));
 
+
+  /*
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  });*/
+
 });
+
