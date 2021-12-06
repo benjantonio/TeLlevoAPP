@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="dark" >
+      <ion-grid>
+          <ion-row>
+              <div color="light">
+                  <button size="large" (click)="retroceder()" style=" color: white; background-color: rgba(0, 0, 0, 0); ">
+      <ion-icon  class="custom-icon" name="arrow-back-outline" style=" padding: 0; margin-top: 5px; "></ion-icon>
+  </button>
+              </div>
+
+              <div color="light">
+                  <h5 style="margin-top: 10px; margin-bottom: 10px; margin-left: 8px; color:white;">¡Inscríbete como Conductor!</h5>
+
+              </div>
+          </ion-row>
+      </ion-grid>
+      <ion-progress-bar color="success" *ngIf="cargando" type="indeterminate" style="margin-top: 25px; position: fixed;"></ion-progress-bar>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="fondo" padding>
+    <div style="text-align: center;">
+        <img style=" padding: 20px 15px 0px 15px; border-radius: 40px; " src="https://i.ibb.co/SK7bqN9/duocSede.png" alt="Tellevoapp">
+    </div>
+
+    <h5 style="text-align: center;  color:rgb(41, 41, 41);">¿Cómo inscribirse?</h5>
+
+    <div class="campomensaje">
+        <p class="mensaje">
+            Para inscribirse debes acercarte a tu Institución academica.
+        </p>
+    </div>
+    <div class="campomensaje2">
+        <p class="mensaje">
+            Es importante que presentes los siguientes documentos para acreditar tu solicitud:
+        </p>
+        <p class="mensaje3">
+            • Carnet de Identidad
+        </p>
+        <p class="mensaje3">
+            • Permiso de Circulación al día
+        </p>
+        <p class="mensaje3">
+            • Pase de Movilidad
+        </p>
+        <p class="mensaje3">
+            • Licencia de Conducir
+        </p>
+        <p class="mensaje3">
+            • Certificado de Antecedentes
+        </p>
+    </div>
+
+    <div class="campomensaje3   ">
+        <p class="mensaje">
+            Además tu vehículo debe cumplir con:
+        </p>
+        <p class="mensaje3">
+            • Menos de 12 años de antigüedad
+        </p>
+        <p class="mensaje3">
+            • 4 Puertas
+        </p>
+        <p class="mensaje3">
+            • Aire acondicionado
+        </p>
+        <p class="mensaje3">
+            • Doble Airbag
+        </p>
+    </div>
+</ion-content>
