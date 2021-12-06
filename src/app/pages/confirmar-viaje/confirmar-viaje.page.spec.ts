@@ -2,15 +2,17 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { ConfirmarViajePage } from './confirmar-viaje.page';
+import { RouterTestingModule } from "@angular/router/testing";
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ConfirmarViajePage', () => {
   let component: ConfirmarViajePage;
   let fixture: ComponentFixture<ConfirmarViajePage>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+    TestBed.configureTestingModule({ 
       declarations: [ ConfirmarViajePage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(),RouterTestingModule,HttpClientTestingModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ConfirmarViajePage);

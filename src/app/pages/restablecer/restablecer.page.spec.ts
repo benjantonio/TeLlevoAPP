@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { RestablecerPage } from './restablecer.page';
+import { RouterTestingModule } from "@angular/router/testing";
 
 describe('RestablecerPage', () => {
   let component: RestablecerPage;
@@ -10,7 +11,7 @@ describe('RestablecerPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ RestablecerPage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(), RouterTestingModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(RestablecerPage);

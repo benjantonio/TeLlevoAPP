@@ -26,20 +26,14 @@ conduce: boolean;
 
   //AQUI INGRESAMOS LOS CONSTRUCTORES NECESARIOS PARA PODER LLAMAR A LA VARIABLE DESDE OTRA PAGE//
   constructor(private api: APIBdService, private activeroute: ActivatedRoute, private elrouteruwu:Router, private menu: MenuController, public toastController: ToastController, public bd: BdLocalService, private app:AppComponent) {
-    this.activeroute.queryParams.subscribe(params=> {
-      if(this.elrouteruwu.getCurrentNavigation().extras.state){
-        this.usuariorecibido= this.elrouteruwu.getCurrentNavigation().extras.state.usuario;
-      }else{
-        this.usuariorecibido= JSON.parse(localStorage.getItem('onlineUser')).user;
-      }
-    })
+    
    }
 
    ionViewWillEnter(){
     this.app.actualizarAvatar();
     this.app.actualizarNombreMenu();
     this.conduce=JSON.parse(localStorage.getItem('onlineUser')).crearViajes;
-
+    this.usuariorecibido= JSON.parse(localStorage.getItem('onlineUser')).user;
   }
 
      //creo función para retrasar ciertas funciones.

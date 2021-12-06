@@ -5,7 +5,9 @@ import { AlertController, NavController } from '@ionic/angular';
 import { BdLocalService } from 'src/app/services/bd-local.service';
 import { LoginModel } from './models/login.model';
 import { APIBdService } from '../../services/apibd.service'
-import { AppComponent } from '../../app.component';
+/*
+import { AppComponent } from '../../app.component'; <- error component*/
+import { MenuController } from '@ionic/angular';
 
 
 
@@ -28,7 +30,9 @@ export class LoginPage implements OnInit {
   rescate: any;
 
   cuentas:any;
-  constructor( private api:APIBdService ,private elrouteruwu:Router, public bdlocalservice: BdLocalService, public navCtrl: NavController, public alertController: AlertController, private app:AppComponent) {
+  constructor( private menu: MenuController, private api:APIBdService ,private elrouteruwu:Router, public bdlocalservice: BdLocalService, public navCtrl: NavController, 
+    public alertController: AlertController,
+    /*, private app:AppComponent <-- error component*/) {
   }
 
   ionViewWillEnter(){
@@ -79,8 +83,12 @@ export class LoginPage implements OnInit {
         
             localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
 
-            this.app.ionViewDidLeave();
-            
+            /*
+            this.app.ionViewDidLeave(); <-- error component
+            */
+            this.menu.enable(true);
+
+
             this.elrouteruwu.navigate(['/inicio'])
             this.RegisterForm.reset();
             return;

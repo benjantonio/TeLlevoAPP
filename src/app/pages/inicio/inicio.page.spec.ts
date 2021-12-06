@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { InicioPage } from './inicio.page';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule, } from "@angular/router/testing";
 
 describe('InicioPage', () => {
   let component: InicioPage;
@@ -10,7 +12,7 @@ describe('InicioPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ InicioPage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(),HttpClientTestingModule,RouterTestingModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(InicioPage);
