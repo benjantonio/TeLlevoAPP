@@ -65,7 +65,7 @@
 
             <div style="text-align: center;">
                 <ion-button (click)="crearviaje()" [disabled]="true" *ngIf="!apagarboton" color="success" style="margin-bottom: 20px; margin-top:20px;">Crear Viaje</ion-button>
-                <ion-button (click)="guardarViaje()" (click)="presentToast()"  color="success" style="margin-bottom: 20px; margin-top:20px;">¡Crear Viaje!</ion-button>
+                <ion-button (click)="guardarViaje()" (click)="presentToast()" *ngIf="!RegisterForm.invalid && apagarboton" color="success" style="margin-bottom: 20px; margin-top:20px;">¡Crear Viaje!</ion-button>
             </div>
         </ion-card>
     </form>
