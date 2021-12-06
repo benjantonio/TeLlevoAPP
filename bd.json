@@ -131,28 +131,6 @@
       "direccionDestino": "Ecuador 1285, Quilpué",
       "lngDestino": -71.414824,
       "latDestino": -33.044408
-    },
-    {
-      "id": 7,
-      "userConductor": "be.navarroa",
-      "idConductor": 2,
-      "nombreConductor": "Benjamín Navarro",
-      "edadConductor": "24",
-      "imgConductor": "https://i.ibb.co/xYFLkXP/ben.png",
-      "emailConductor": "be.navarroa@duocuc.cl",
-      "generoConductor": "Masculino",
-      "fecha": "2021-12-11",
-      "hora": "01:00",
-      "precio": 23,
-      "pasajeros": 23,
-      "origen": "SEDE San Bernardo",
-      "lngOrigen": "-70.7045604",
-      "latOrigen": "-33.5987925",
-      "regionDestino": "Región Metropolitana de Santiago",
-      "comunaDestino": "Maipú",
-      "direccionDestino": "Camino El Bosque 122, Maipú",
-      "lngDestino": -70.789388,
-      "latDestino": -33.548407
     }
   ],
   "cuentas": [
