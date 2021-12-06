@@ -23,4 +23,13 @@ describe('MisViajesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });*/
+
+  it('Verificar que SÍ tiene viajes', () => {
+
+    let viajes = component.viajes;
+
+    viajes = [ 1 , "be.navarroa" , 2 , "benjamin navarro", "be.navarroa@duocuc.cl", "2021-12-11", "00:15", 1000, 3, "SEDE San Bernardo", "Nuevo Horizonte 231, El Bosque"];
+
+    expect(viajes).toBeTruthy();
+  });
 });

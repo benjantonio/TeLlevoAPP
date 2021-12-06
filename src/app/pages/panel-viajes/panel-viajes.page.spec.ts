@@ -24,4 +24,6 @@ describe('PanelViajesPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });*/
+
+  
 });

@@ -22,4 +22,11 @@ describe('RestablecerPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });*/
+  it('Formulario Restablecer Invalido', () => {
+
+    const usuario = component.RegisterForm.controls['usuario'];
+
+    usuario.setValue('');
+    expect(component.RegisterForm.invalid).toBeTruthy();
+  });
 });

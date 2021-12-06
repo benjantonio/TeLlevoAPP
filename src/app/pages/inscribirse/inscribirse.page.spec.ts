@@ -22,4 +22,13 @@ describe('InscribirsePage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });*/
+
+  it('Comprobar que no sea Chofer', () => {
+
+    let esChofer = component.esChofer;
+
+    esChofer = false;
+
+    expect(esChofer).toEqual(false);
+  });
 });

@@ -24,4 +24,14 @@ describe('BuscarViajePage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });*/
+
+  it('Verificar que SÍ existan viajes a buscar', () => {
+
+    let viajes = component.viajes;
+
+    viajes = [ 5 , "franc.ortegac" , 3 , "Francesca Ortegac", "franc.ortegac@duocuc.cl", "2021-12-13", "00:20", 2000, 3, "SEDE Viña del Mar", "Ecuador 1285, Quilpué"];
+
+    expect(viajes).toBeTruthy();
+  });
+  
 });

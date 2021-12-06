@@ -8,7 +8,13 @@ import { Router } from '@angular/router';
 })
 export class InscribirsePage implements OnInit {
 
+  esChofer:any;
+
   constructor(private elrouteruwu:Router) { }
+
+  ionWillViewEnter(){
+    this.esChofer=JSON.parse(localStorage.getItem('onlineUser')).crearViajes; /* puede crear viajes? */
+  }
 
   retroceder(){
     this.elrouteruwu.navigate(['/inicio']);
@@ -17,4 +23,5 @@ export class InscribirsePage implements OnInit {
   ngOnInit() {
   }
 
+  
 }

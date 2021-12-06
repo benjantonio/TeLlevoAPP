@@ -20,13 +20,13 @@ describe('LoginPage', () => {
     fixture.detectChanges();
   }));
 
-  it('Formulario Valido', () => {
+  it('Formulario Login Invalido', () => {
 
     const usuario = component.RegisterForm.controls['usuario'];
     const contrasena = component.RegisterForm.controls['contrasena']
 
     usuario.setValue('benja123');
-    contrasena.setValue('123456');
-    expect(component.RegisterForm.valid).toBeTruthy();
+    contrasena.setValue('');
+    expect(component.RegisterForm.invalid).toBeTruthy();
   });
 });
