@@ -22,6 +22,7 @@ usuariorecibido:any;
 controlmenu:boolean;
 cargando: boolean;
 conduce: boolean;
+teste:any;
 
 
   //AQUI INGRESAMOS LOS CONSTRUCTORES NECESARIOS PARA PODER LLAMAR A LA VARIABLE DESDE OTRA PAGE//
@@ -34,7 +35,9 @@ conduce: boolean;
     this.app.actualizarNombreMenu();
     this.conduce=JSON.parse(localStorage.getItem('onlineUser')).crearViajes;
     this.usuariorecibido= JSON.parse(localStorage.getItem('onlineUser')).user;
+    
   }
+
 
      //creo función para retrasar ciertas funciones.
   sleep(ms) {

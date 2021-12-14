@@ -64,9 +64,7 @@ export class BuscarViajePage implements OnInit {
       }else{
       }
     }
-    
   }
-
 
   ngOnInit() {
   }

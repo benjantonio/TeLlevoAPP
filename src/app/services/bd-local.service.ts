@@ -7,47 +7,45 @@ import { CuentasI } from '../interfaces/cuentas';
   providedIn: 'root'
 })
 export class BdLocalService {
-/*
-  cuenta: Cuentas[]=[]
+
+  cuenta: CuentasI[]=[]
 
   private _storage: Storage | null = null;
   constructor(private storage: Storage, public toastController: ToastController) { 
     this.init();
-    this.cargarCuentas();
-
   }
+  
   async init() {
     const storage = await this.storage.create();
     this._storage = storage;
   }
 
   async cargarCuentas(){
-    const cuentas=await this._storage.get('cuenta');
-    if(cuentas){
-      this.cuenta=cuentas;
+    const misCuentas=await this.storage.get('cuenta');
+    if(misCuentas){
+      this.cuenta=misCuentas;
     }
+    console.log(this.cuenta);
   }
 
-  guardarCuenta(usuario: string, contraseña: string){
-    const existe=this.cuenta.find(usu=>usu.strUsuario===usuario);
+  guardarCuenta(id: number,
+    user: string,
+    pass: string,
+    nombre: string,
+    img: string,
+    genero: string,
+    edad: string,
+    email: string,
+    institucion: string,
+    lat: string,
+    lng: string,
+    crearViajes: boolean){
+    const existe=this.cuenta.find(usu=>usu.id===id);
     if (!existe) {
-      this.cuenta.unshift({strUsuario:usuario, strContraseña:contraseña});
+      this.cuenta.unshift({id:id, user:user,pass:pass,nombre:nombre,img:img,genero:genero,edad:edad,email:email,institucion:institucion,lat:lat,lng:lng,crearViajes:crearViajes});
       this._storage.set('cuenta',this.cuenta);
-      this.presentToast("Cuenta agregaad con éxito")
-    } else {
-      this.presentToast("[ERROR] Contacto ya existe :(")
-    }
+    } 
   }
 
-  async presentToast(mensaje:string) {
-    const toast = await this.toastController.create({
-      message: mensaje,
-      duration: 2000,
-      position: 'top',
-      color: 'medium',
-      translucent:true,
-
-    });
-    toast.present();
-  }*/
+  
 }
