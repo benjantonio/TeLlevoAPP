@@ -46,15 +46,25 @@ export class BuscarViajePage implements OnInit {
   obtenerIdViaje(id){
     this.idViaje=id;
     this.idViaje=this.idViaje-1;
+    console.log("ESTE ID ES: ", id)
 
     this.api.getViajes().subscribe((data)=>{
       this.viajes=data;
     });
 
-    localStorage.setItem('viajeActivo',JSON.stringify(this.viajes[this.idViaje]));
+    
+    let largoviajes:any;
+      largoviajes=this.viajes.length;
 
-
-    this.elrouteruwu.navigate(['/confirmar-viaje']);
+    for(let i=0; i < largoviajes; i++){
+      if(id==this.viajes[i].id){
+        localStorage.setItem('viajeActivo',JSON.stringify(this.viajes[i]));
+          this.elrouteruwu.navigate(['/confirmar-viaje']); 
+          return;
+      }else{
+      }
+    }
+    
   }
 
 
