@@ -77,8 +77,6 @@ export class LoginPage implements OnInit {
     await this.sleep(2000);
 
     //Obtengo las cuentas de la API
-    this.api.getCuentas().subscribe(async (data)=>{
-      this.cuentas=data;
 
       const misCuentas=await this.storage.get('cuenta');
       if(misCuentas){
@@ -87,7 +85,7 @@ export class LoginPage implements OnInit {
 
       //Obtengo el largo de la API cuentas  
       let largocuentas:any;
-      largocuentas=this.cuentas.length;
+      largocuentas=this.cuenta.length;
       
       //Recorro la API
       for(let i=0; i < largocuentas; i++){
@@ -137,7 +135,6 @@ export class LoginPage implements OnInit {
       await alert.present();
       console.log('error');
 
-    });
 
     //Apago la barra cargando 
     this.cargando=false;

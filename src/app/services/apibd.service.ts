@@ -16,7 +16,7 @@ export class APIBdService {
   }
 
     // API Falsa
-   apiURL = 'http://192.168.100.24:3000';
+   apiURL = 'http://192.168.100.22:3000';
     // Se establece la base url del API a consumir
      //apiURL = 'https://jsonplaceholder.typicode.com';
 
