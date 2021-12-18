@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { APIBdService } from 'src/app/services/apibd.service';
 import { MapCustomService } from 'src/app/services/map-custom.service';
+import { BdLocalService } from 'src/app/services/bd-local.service';
 
 @Component({
   selector: 'app-crear',
@@ -46,7 +47,8 @@ export class CrearComponent implements OnInit {
     public toastController: ToastController, 
     private api:APIBdService, 
     private activeroute: ActivatedRoute, 
-    public map:MapCustomService
+    public map:MapCustomService,
+    private bd:BdLocalService
     ) { 
   }
 
@@ -73,13 +75,33 @@ guardarViaje(){
   this.viaje.lngDestino=this.map.devolverLng();
   this.viaje.latDestino=this.map.devolverLat();
   this.viaje.hora=this.viaje.hora.substring(11,16);
-  this.api.createViaje(this.viaje).subscribe( ()=>{
-    console.log('viaje creado :d');
-    console.log( ' ingresada a api: ',this.viaje.direccionDestino);
-    this.RegisterForm.reset();
+
+  this.bd.guardarViaje(
+    2,
+    this.viaje.userConductor,
+    this.viaje.idConductor,
+    this.viaje.nombreConductor,
+    this.viaje.edadConductor,
+    this.viaje.imgConductor,
+    this.viaje.emailConductor,
+    this.viaje.generoConductor,
+    this.viaje.fecha,
+    this.viaje.hora,
+    this.viaje.precio,
+    this.viaje.pasajeros,
+    this.viaje.origen,
+    this.viaje.lngOrigen,
+    this.viaje.latOrigen,
+    this.viaje.regionDestino,
+    this.viaje.comunaDestino,
+    this.viaje.direccionDestino,
+    this.viaje.lngDestino,
+    this.viaje.latDestino
+  );
+  this.RegisterForm.reset();
     this.elrouteruwu.navigate(['/inicio']);
     this.apagarboton=false;
-  })
+  
 }
 
     //creo función para retrasar ciertas funciones.

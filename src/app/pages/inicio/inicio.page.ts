@@ -35,6 +35,8 @@ teste:any;
     this.app.actualizarNombreMenu();
     this.conduce=JSON.parse(localStorage.getItem('onlineUser')).crearViajes;
     this.usuariorecibido= JSON.parse(localStorage.getItem('onlineUser')).user;
+    this.probar();
+
     
   }
 
@@ -46,8 +48,8 @@ teste:any;
     });
   }
 
-  probar(){
-    this.elrouteruwu.navigate(['/confirmar-viaje']);
+  async probar(){
+    this.bd.test();
   }
 
   inscribirse(){
