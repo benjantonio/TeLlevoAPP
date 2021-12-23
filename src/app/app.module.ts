@@ -18,7 +18,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { init } from 'emailjs-com';
 import { MisViajesComponent } from './components/mis-viajes/mis-viajes.component';
-init("user_2dvP8WMfROCaNvPYMdizJ");
+init("user_exJikFSx7MiSzhSPEiax1");
   
 
 

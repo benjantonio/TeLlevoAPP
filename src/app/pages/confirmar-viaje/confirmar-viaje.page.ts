@@ -83,7 +83,7 @@ export class ConfirmarViajePage implements OnInit {
             await this.sleep(500);
 
             /*conductor*/
-            send("gmail","template_abk8dr7",{
+            send("gmail","template_9077kd5",{
               comuna: this.viaje.comunaDestino,
               nombre: this.viaje.nombreConductor,
               nombrePasajero: JSON.parse(localStorage.getItem('onlineUser')).nombre,
@@ -95,7 +95,7 @@ export class ConfirmarViajePage implements OnInit {
               });
 
             /*pasajero*/
-            send("gmail","template_7clf6up",{
+            send("gmail","template_o57ekan",{
               comuna: this.viaje.comunaDestino,
               nombre: JSON.parse(localStorage.getItem('onlineUser')).nombre,
               nombreConductor: this.viaje.nombreConductor,
@@ -105,7 +105,9 @@ export class ConfirmarViajePage implements OnInit {
               lng: this.viaje.lngDestino,
               emailDestino: JSON.parse(localStorage.getItem('onlineUser')).email,
               });
-
+              
+              console.log("EMAILS UTILIZADO: 1) Pasajero: ",JSON.parse(localStorage.getItem('onlineUser')).email)
+              console.log("EMAILS UTILIZADO: 2) Conductor: ",this.viaje.emailConductor)
             this.elrouteruwu.navigate(['/inicio'])
 
             await this.sleep(800);
