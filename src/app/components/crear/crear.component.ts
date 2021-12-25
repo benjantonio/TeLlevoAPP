@@ -5,6 +5,7 @@ import { ToastController } from '@ionic/angular';
 import { APIBdService } from 'src/app/services/apibd.service';
 import { MapCustomService } from 'src/app/services/map-custom.service';
 import { BdLocalService } from 'src/app/services/bd-local.service';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-crear',
@@ -20,7 +21,7 @@ export class CrearComponent implements OnInit {
 
   viajes:any;
   viaje:any={
-    id:null,
+    id:1,
     userConductor: JSON.parse(localStorage.getItem('onlineUser')).user,
     idConductor: JSON.parse(localStorage.getItem('onlineUser')).id,
     nombreConductor: JSON.parse(localStorage.getItem('onlineUser')).nombre,
@@ -48,7 +49,8 @@ export class CrearComponent implements OnInit {
     private api:APIBdService, 
     private activeroute: ActivatedRoute, 
     public map:MapCustomService,
-    private bd:BdLocalService
+    private bd:BdLocalService,
+    private storage: Storage
     ) { 
   }
 
@@ -63,21 +65,37 @@ probar(){
 getViajes(){
   this.api.getViajes().subscribe((data)=>{
     this.viajes=data;
-
   })
+
 }
 
-guardarViaje(){
-  console.log("TU COMUNA ES: ",this.viaje.comunaDestino)
+async guardarViaje(){
+
+  const misViajes=await this.storage.get('viaje');
+  let viajes = misViajes;
+  viajes.reverse();
+  let idTemporal=1;
+  
+  viajes.forEach(setFunction);
+  function setFunction(datoViaje,id, callingSet){
+    if(idTemporal===datoViaje.id ){
+      console.log("El ID ",idTemporal," ya existe.");
+      idTemporal=idTemporal+1;
+    }else{
+      console.log("El ID",idTemporal," no existe. Puede ocuparse. ");
+    }
+  }
+
+  console.log("La ID Temporal quedó en: ",idTemporal)
   this.viaje.comunaDestino=this.map.devolverComuna();
   this.viaje.regionDestino=this.map.devolverRegion();
   this.viaje.direccionDestino=this.map.devolverDireccion();
   this.viaje.lngDestino=this.map.devolverLng();
   this.viaje.latDestino=this.map.devolverLat();
   this.viaje.hora=this.viaje.hora.substring(11,16);
-
+  
   this.bd.guardarViaje(
-    2,
+    idTemporal,
     this.viaje.userConductor,
     this.viaje.idConductor,
     this.viaje.nombreConductor,

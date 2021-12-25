@@ -15,6 +15,8 @@ export class BuscarViajePage implements OnInit {
   viajes:ViajesI[]=[]
   cuentas:any;
   idViaje:any;
+  uwu:any;
+  value: any; key: ""; iterationNumber: 1
 
 
   constructor(
@@ -27,21 +29,54 @@ export class BuscarViajePage implements OnInit {
 
   ionViewWillEnter(){
     this.getViajes();
+    this.test();
   }
-  
-  async getViajes(){
 
+  async test(){
+    const misViajes=await this.storage.get('viaje');
+    console.log(misViajes)
+    let viajes = misViajes;
+    let largoviajes=this.viajes.length;
+    let idTemporal=0;
+    
+    let repetir=true;
+
+    let repeticion=0;
+    
+    for(let i=0; i < largoviajes; i++){
+      let ocupado=false;
+      if(repetir){
+        repeticion = repeticion+1
+        console.log("repeticion: ",repeticion)
+        idTemporal=idTemporal+1;
+        viajes.forEach(setFunction);
+        function setFunction(datoViaje,id, callingSet){
+          console.log("el idTemporal", idTemporal," y el viaje ",datoViaje.id)
+        if(idTemporal===datoViaje.id && ocupado){
+          ocupado=true;
+          
+          }
+        }
+        if(!ocupado){
+          repetir=false;
+          console.log("ya no se repite")
+        }
+      }
+    }
+
+  }
+
+
+  async getViajes(){
     const misViajes=await this.storage.get('viaje');
       if(misViajes){
         this.viajes=misViajes;
       }
-
-      console.log("HESTO HAY:", this.viajes)
+      
   }
 
   retroceder(){
     this.elrouteruwu.navigate(['/inicio']);
-    
   }
 
   sleep(ms) {
@@ -53,11 +88,7 @@ export class BuscarViajePage implements OnInit {
   obtenerIdViaje(id){
     this.idViaje=id;
     this.idViaje=this.idViaje-1;
-    console.log("ESTE ID ES: ", id)
-
-    this.api.getViajes().subscribe((data)=>{
-      this.viajes=data;
-    });
+    console.log("ID VIAJE: ", id)
 
     
     let largoviajes:any;
