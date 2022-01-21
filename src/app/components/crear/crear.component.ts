@@ -65,7 +65,6 @@ probar(){
 
 
 async guardarViaje(){
-
   const misViajes=await this.storage.get('viaje');
   let viajes = misViajes;
   let idTemporal=1;
@@ -75,7 +74,6 @@ async guardarViaje(){
   let salir=false;
   
   console.log("viajes es:",viajes)
-  
   if(viajes){
     viajes.reverse();
 
@@ -112,12 +110,9 @@ async guardarViaje(){
           idTemporal=idTemporal;
           salir=true;
         }
+      }
     }
   }
-
-  }
-
-  
 
   console.log("La ID Final quedó en: ",idTemporal)
   this.viaje.comunaDestino=this.map.devolverComuna();
@@ -152,7 +147,6 @@ async guardarViaje(){
   this.RegisterForm.reset();
     this.elrouteruwu.navigate(['/inicio']);
     this.apagarboton=false;
-  
 }
 
     //creo función para retrasar ciertas funciones.
