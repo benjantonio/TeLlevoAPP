@@ -55,38 +55,71 @@ export class CrearComponent implements OnInit {
   }
 
   ionViewWillEnter(){
-    this.getViajes();
+   
   }
 
 probar(){
   console.log("La hora es: ",this.viaje.hora.substring(11,16))
 }
 
-getViajes(){
-  this.api.getViajes().subscribe((data)=>{
-    this.viajes=data;
-  })
 
-}
 
 async guardarViaje(){
 
   const misViajes=await this.storage.get('viaje');
   let viajes = misViajes;
-  viajes.reverse();
   let idTemporal=1;
+  let idFinal
+  let conteo = 0;
+  let existe;
+  let salir=false;
   
-  viajes.forEach(setFunction);
-  function setFunction(datoViaje,id, callingSet){
-    if(idTemporal===datoViaje.id ){
-      console.log("El ID ",idTemporal," ya existe.");
-      idTemporal=idTemporal+1;
-    }else{
-      console.log("El ID",idTemporal," no existe. Puede ocuparse. ");
+  console.log("viajes es:",viajes)
+  
+  if(viajes){
+    viajes.reverse();
+
+    viajes.forEach(busquedageneral);
+    function busquedageneral(datoViaje,id, callingSet){ 
+      if(viajes.length==1){
+        if (datoViaje.id===1){
+          idTemporal=2;
+        }else{
+          idTemporal=1;
+        }
+      }else{
+        if (salir==false){
+          console.log("----Recorrido ",idTemporal,"-----")
+          existe=false;
+          console.log("EXISTE HA CAMBIADO A: ", existe)
+      
+          viajes.forEach(busquedaunidad);
+          function busquedaunidad(datoViaje,id, callingSet){
+            conteo=conteo+1;
+            console.log(conteo,". ID: ",idTemporal ,"ID Extraido: ",datoViaje.id)
+            if(idTemporal===datoViaje.id ){ 
+              existe=true;
+              }
+            console.log("existe es: ",existe)
+            }
+          }
+    
+        conteo=0;
+        if (existe == true){
+          idTemporal=idTemporal+1;
+        }else{
+          console.log("HE ENTRADO EN EL ELSE FINAL.. <<<<<<<<<<<<<<<----")
+          idTemporal=idTemporal;
+          salir=true;
+        }
     }
   }
 
-  console.log("La ID Temporal quedó en: ",idTemporal)
+  }
+
+  
+
+  console.log("La ID Final quedó en: ",idTemporal)
   this.viaje.comunaDestino=this.map.devolverComuna();
   this.viaje.regionDestino=this.map.devolverRegion();
   this.viaje.direccionDestino=this.map.devolverDireccion();
