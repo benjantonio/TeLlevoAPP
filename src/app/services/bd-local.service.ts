@@ -109,15 +109,10 @@ export class BdLocalService {
   }
 
   async test(){
+   
+ 
     const misViajes=await this.storage.get('viaje');
-    console.log(misViajes)
-    let viajes = misViajes;
-    
-    viajes.forEach(setFunction);
-    function setFunction(datoViaje,id, callingSet){
-      console.log(id, datoViaje);
-      console.log("El ID del Viaje: ", datoViaje.id)
-    }
+
   }
   
   

@@ -33,36 +33,7 @@ export class BuscarViajePage implements OnInit {
   }
 
   async test(){
-    const misViajes=await this.storage.get('viaje');
-    console.log(misViajes)
-    let viajes = misViajes;
-    let largoviajes=this.viajes.length;
-    let idTemporal=0;
     
-    let repetir=true;
-
-    let repeticion=0;
-    
-    for(let i=0; i < largoviajes; i++){
-      let ocupado=false;
-      if(repetir){
-        repeticion = repeticion+1
-        console.log("repeticion: ",repeticion)
-        idTemporal=idTemporal+1;
-        viajes.forEach(setFunction);
-        function setFunction(datoViaje,id, callingSet){
-          console.log("el idTemporal", idTemporal," y el viaje ",datoViaje.id)
-        if(idTemporal===datoViaje.id && ocupado){
-          ocupado=true;
-          
-          }
-        }
-        if(!ocupado){
-          repetir=false;
-          console.log("ya no se repite")
-        }
-      }
-    }
 
   }
 

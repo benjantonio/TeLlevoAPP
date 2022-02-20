@@ -35,7 +35,7 @@ teste:any;
     this.app.actualizarNombreMenu();
     this.conduce=JSON.parse(localStorage.getItem('onlineUser')).crearViajes;
     this.usuariorecibido= JSON.parse(localStorage.getItem('onlineUser')).user;
-    
+    this.bd.test();
 
     
   }
